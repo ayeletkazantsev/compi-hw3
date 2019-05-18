@@ -3,10 +3,7 @@
 #include "source.hpp"
 #include "parser.tab.hpp"
 #include "output.hpp"
-using namespace std;
 using namespace output;
-
-//#define (TOKEN) {yylval=sp(new Node(TOKEN, yytext)); return TOKEN;}
 
 %}
 
@@ -39,9 +36,9 @@ LBRACE (\{)
 RBRACE (\})
 ASSIGN (=)
 RELOP (==|!=|<|>|<=|>=)
-BINOP (+|-|*|/)
+BINOP (\+|\-|\*|\/)
 ID ([a-zA-Z][a-zA-Z0-9]*)
-NUM (0 | [1-9][0-9]*)
+NUM (0|[1-9][0-9]*)
 STRING (\"([^\n\r\"\\]|\\[rnt"\\])+\")
 COMMENT (\/\/[^\r\n]*[\r|\n|\r\n]?)
 WHITESPACE ([\n\t\f\r\v ])
@@ -49,6 +46,35 @@ NO_ELSE (^((?!^else).)*$)
 
 %%
 
+{VOID} {return VOID;}
+{INT} {return INT;}
+{BYTE} {return BYTE;}
+{B} {return B;}
+{BOOL} {return BOOL;}
+{AND} {return AND;}
+{OR} {return OR;}
+{NOT} {return NOT;}
+{TRUE} {return TRUE;}
+{FALSE} {return FALSE;}
+{RETURN} {return RETURN;}
+{IF} {return IF;}
+{ELSE} {return ELSE;}
+{WHILE} {return WHILE;}
+{BREAK} {return BREAK;}
+{CONTINUE} {return CONTINUE;}
+{PRECOND} {return PRECOND;}
+{SC} {return SC;}
+{COMMA} {return COMMA;}
+{LPAREN} {return LPAREN;}
+{RPAREN} {return RPAREN;}
+{LBRACE} {return LBRACE;}
+{RBRACE} {return RBRACE;}
+{ASSIGN} {return ASSIGN;}
+{RELOP} {return RELOP;}
+{BINOP} {yylval = new Node("BINOP",yytext); return BINOP;}
+{ID} {yylval = new Node("ID",yytext); return ID;}
+{NUM} {yylval = new Node("NUM",yytext); return NUM;}
+{STRING} {return STRING;}
 {COMMENT}													{}
 {WHITESPACE}												{}
 . 														{errorLex(yylineno);};
@@ -57,6 +83,3 @@ NO_ELSE (^((?!^else).)*$)
 %%
 
 
-void showToken(char* name) {
-	printf("%d %s %s\n", yylineno, name, yytext);
-}

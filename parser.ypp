@@ -9,6 +9,13 @@ using namespace output;
 int yylex();
 void yyerror(char const * message);
 
+
+
+// Global Variables:
+	
+	stack <SymbolTable*>* tables_stack = new stack <SymbolTable*>();
+	stack <int>* offsets_stack = new stack <int>();
+
 %}
 
 
@@ -27,13 +34,59 @@ void yyerror(char const * message);
 
 %%
 
-Program : Funcs
+Program : M Funcs
+{
+	
+}
+;
+
+M : %empty
+{
+	// global scope
+		SymbolTable* table = new SymbolTable();
+		tables_stack->push(table);
+		offsets_stack->push(0);
+}
+;
+
+LBrace: %empty
+{
+		
+		SymbolTable* table = new SymbolTable();
+		tables_stack->push(table);
+		offsets_stack->push(offsets_stack->top());
+}
+;
+
+RBrace: %empty
+{
+	endScope();
+	
+	SymbolTable* current = tables_stack->top();
+	if (current) cout << "current pointer is not null" <<endl;
+	cout << current->size();
+	/*
+	for (int i=0; i<current.size(); ++i)
+	{
+		SymbolTableEntry* entry = current[i];
+		cout << "test1";
+		if (entry)
+		{
+			cout << "test2";
+			printID(entry->name, entry->offset, entry->type);
+		}
+	} 
+	*/
+
+	offsets_stack->pop();
+	tables_stack->pop();
+}
 ;
 
 Funcs : %empty | FuncDecl Funcs
 ;
 
-FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE Statements RBRACE
+FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE LBrace Statements RBRACE RBrace 
 ;
 
 RetType : Type | VOID
@@ -57,7 +110,7 @@ PreCondition : PRECOND LPAREN Exp RPAREN
 Statements : Statement | Statements Statement
 ;
 
-Statement : LBRACE Statements RBRACE | Type ID SC | Type ID ASSIGN Exp SC | ID ASSIGN Exp SC | Call SC | RETURN SC | RETURN Exp SC  | WHILE LPAREN Exp RPAREN Statement | BREAK SC | CONTINUE SC | SelectionStatement
+Statement : LBRACE LBrace Statements RBRACE RBrace | Type ID SC | Type ID ASSIGN Exp SC | ID ASSIGN Exp SC | Call SC | RETURN SC | RETURN Exp SC  | WHILE LPAREN Exp RPAREN Statement | BREAK SC | CONTINUE SC | SelectionStatement
 ;
 
 SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE | IF LPAREN Exp RPAREN Statement ELSE Statement

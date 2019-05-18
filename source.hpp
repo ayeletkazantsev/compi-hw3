@@ -9,20 +9,36 @@
 
 using namespace std;
 
+//struct Node {
+//    Node();
+//    virtual ~Node();
+//};
+
 struct Node {
-    Node();
-    virtual ~Node();
-};
-
-struct TypeNode : public Node {
     string type;
+    string name;
 
-    TypeNode(string type) : type(type) {}
+    Node(string type, string name) : type(type), name(name) {}
 };
 
-struct ValueNode : public Node {
+//struct IdentifierNode : public Node {
+//    string type;
+//    string name;
+//
+//    IdentifierNode(string type, string name) : type(type), name(name) {}
+//};
+
+
+
+struct SymbolTableEntry {
+    string name;
     string type;
-    string value;
+    int offset;
 
-    ValueNode(string type, string value) : type(type), value(value) {}
+    SymbolTableEntry(string name, string type, int offset) : name(name), type(type), offset(offset) {}
+
+    ~SymbolTableEntry();
 };
+
+
+typedef vector<SymbolTableEntry*> SymbolTable;
