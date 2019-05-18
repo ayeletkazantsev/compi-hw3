@@ -1,0 +1,89 @@
+%{
+
+#include <iostream>
+#include "output.hpp"
+
+using namespace std;
+using namespace output;
+
+#define YYSTYPE Node*;
+
+int yylex();
+void yyerror(char const * message);
+
+%}
+
+%token VOID INT BYTE B BOOL AND OR TRUE FALSE RETURN IF WHILE BREAK CONTINUE PRECOND SC COMMA LPAREN RPAREN LBRACE RBRACE RELOP BINOP ID NUM STRING ASSIGN
+
+/* Solving conflicts */
+// Exp rules related conflicts
+%left  OR
+%left AND
+%nonassoc RELOP
+%nonassoc BINOP
+%right NOT
+// Dangling if else conflict
+%nonassoc NO_ELSE
+%nonassoc ELSE
+
+%%
+
+Program : Funcs
+;
+
+Funcs : %empty | FuncDecl Funcs
+;
+
+FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE Statements RBRACE
+;
+
+RetType : Type | VOID
+;
+
+Formals : %empty | FormalsList
+;
+
+FormalsList : FormalDecl | FormalDecl COMMA FormalsList
+;
+
+FormalDecl : Type ID
+;
+
+PreConditions : %empty | PreConditions PreCondition
+;
+
+PreCondition : PRECOND LPAREN Exp RPAREN
+;
+
+Statements : Statement | Statements Statement
+;
+
+Statement : LBRACE Statements RBRACE | Type ID SC | Type ID ASSIGN Exp SC | ID ASSIGN Exp SC | Call SC | RETURN SC | RETURN Exp SC  | WHILE LPAREN Exp RPAREN Statement | BREAK SC | CONTINUE SC | SelectionStatement
+;
+
+SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE | IF LPAREN Exp RPAREN Statement ELSE Statement
+
+;
+
+Call : ID LPAREN ExpList RPAREN | ID LPAREN RPAREN
+;
+
+ExpList : Exp | Exp COMMA ExpList
+
+Type : INT | BYTE | BOOL
+;
+
+Exp : LPAREN Exp RPAREN | Exp BINOP Exp | ID | Call | NUM | NUM B | STRING | TRUE | FALSE | NOT Exp | Exp AND Exp | Exp OR Exp | Exp RELOP Exp
+;
+
+%%
+
+void yyerror(const char * message)
+{
+	throw errorSyn(1); //TODO: put real error number
+}
+
+
+int main() {
+	return yyparse();
+}
