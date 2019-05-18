@@ -1,8 +1,10 @@
 %{
-//#include "source.hpp"
-//#include "parser.tab.hpp"
-//#include "errors.h"
-//using namespace std;
+
+#include "source.hpp"
+#include "parser.tab.hpp"
+#include "output.hpp"
+using namespace std;
+using namespace output;
 
 //#define (TOKEN) {yylval=sp(new Node(TOKEN, yytext)); return TOKEN;}
 
@@ -49,7 +51,7 @@ NO_ELSE (^((?!^else).)*$)
 
 {COMMENT}													{}
 {WHITESPACE}												{}
-. 														{throw errorLex();};
+. 														{errorLex(yylineno);};
 
 
 %%

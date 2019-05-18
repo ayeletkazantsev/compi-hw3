@@ -1,24 +1,23 @@
 %{
 
-#include <iostream>
+
 #include "output.hpp"
+#include "source.hpp"
 
-using namespace std;
 using namespace output;
-
-#define YYSTYPE Node*;
 
 int yylex();
 void yyerror(char const * message);
 
 %}
 
+
 %token VOID INT BYTE B BOOL AND OR TRUE FALSE RETURN IF WHILE BREAK CONTINUE PRECOND SC COMMA LPAREN RPAREN LBRACE RBRACE RELOP BINOP ID NUM STRING ASSIGN
 
 /* Solving conflicts */
 // Exp rules related conflicts
-%left  OR
-%left AND
+%left  OR //check if needs to be rigt assoc
+%left AND //check if needs to be rigt assoc
 %nonassoc RELOP
 %nonassoc BINOP
 %right NOT
@@ -80,7 +79,7 @@ Exp : LPAREN Exp RPAREN | Exp BINOP Exp | ID | Call | NUM | NUM B | STRING | TRU
 
 void yyerror(const char * message)
 {
-	throw errorSyn(1); //TODO: put real error number
+	errorSyn(1); //TODO: put real error number
 }
 
 
