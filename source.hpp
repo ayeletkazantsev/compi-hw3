@@ -15,8 +15,8 @@ using namespace std;
 //};
 
 struct Node {
-    string type;
-    string name;
+    string type; //name of token
+    string name; //value of token
 
     Node(string type, string name) : type(type), name(name) {}
 };
@@ -31,11 +31,11 @@ struct Node {
 
 
 struct SymbolTableEntry {
-    string name;
     string type;
+    string name;
     int offset;
 
-    SymbolTableEntry(string name, string type, int offset) : name(name), type(type), offset(offset) {}
+    SymbolTableEntry(string type, string name, int offset) : type(type), name(name), offset(offset) {}
 
     ~SymbolTableEntry();
 };

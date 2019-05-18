@@ -1,20 +1,17 @@
 %{
 
+#include <iostream>
 
 #include "output.hpp"
-#include "source.hpp"
+#include "parser.hpp"
 
+using namespace std;
+using namespace Parser;
 using namespace output;
 
 int yylex();
 void yyerror(char const * message);
 
-
-
-// Global Variables:
-	
-	stack <SymbolTable*>* tables_stack = new stack <SymbolTable*>();
-	stack <int>* offsets_stack = new stack <int>();
 
 %}
 
@@ -42,44 +39,20 @@ Program : M Funcs
 
 M : %empty
 {
-	// global scope
-		SymbolTable* table = new SymbolTable();
-		tables_stack->push(table);
-		offsets_stack->push(0);
+	openGlobalScope();
 }
 ;
 
 LBrace: %empty
 {
 		
-		SymbolTable* table = new SymbolTable();
-		tables_stack->push(table);
-		offsets_stack->push(offsets_stack->top());
+	openScope();
 }
 ;
 
 RBrace: %empty
 {
-	endScope();
-	
-	SymbolTable* current = tables_stack->top();
-	if (current) cout << "current pointer is not null" <<endl;
-	cout << current->size();
-	/*
-	for (int i=0; i<current.size(); ++i)
-	{
-		SymbolTableEntry* entry = current[i];
-		cout << "test1";
-		if (entry)
-		{
-			cout << "test2";
-			printID(entry->name, entry->offset, entry->type);
-		}
-	} 
-	*/
-
-	offsets_stack->pop();
-	tables_stack->pop();
+	closeScope();
 }
 ;
 
@@ -99,6 +72,11 @@ FormalsList : FormalDecl | FormalDecl COMMA FormalsList
 ;
 
 FormalDecl : Type ID
+{
+	cout << $2->name << endl;
+	cout << $1->name << endl;
+	//declareIdentifier($2->type,$2->name);
+}
 ;
 
 PreConditions : %empty | PreConditions PreCondition
@@ -122,7 +100,7 @@ Call : ID LPAREN ExpList RPAREN | ID LPAREN RPAREN
 
 ExpList : Exp | Exp COMMA ExpList
 
-Type : INT | BYTE | BOOL
+Type : INT {$$ = new Node("Type","INT");} | BYTE {$$ = new Node("Type","BYTE");} | BOOL {$$ = new Node("Type","BOOL");}
 ;
 
 Exp : LPAREN Exp RPAREN | Exp BINOP Exp | ID | Call | NUM | NUM B | STRING | TRUE | FALSE | NOT Exp | Exp AND Exp | Exp OR Exp | Exp RELOP Exp

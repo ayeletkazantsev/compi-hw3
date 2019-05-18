@@ -5,6 +5,10 @@
 #include "output.hpp"
 using namespace output;
 
+
+#include <iostream>
+using namespace std;
+
 %}
 
 %option yylineno
@@ -72,7 +76,7 @@ NO_ELSE (^((?!^else).)*$)
 {ASSIGN} {return ASSIGN;}
 {RELOP} {return RELOP;}
 {BINOP} {yylval = new Node("BINOP",yytext); return BINOP;}
-{ID} {yylval = new Node("ID",yytext); return ID;}
+{ID} {yylval = new Node("ID",yytext); cout << yytext << endl; return ID;}
 {NUM} {yylval = new Node("NUM",yytext); return NUM;}
 {STRING} {return STRING;}
 {COMMENT}													{}
