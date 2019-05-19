@@ -59,9 +59,11 @@ struct SymbolTableEntry {
 
     SymbolTableEntry(string type, string name, int offset) : type(type), name(name), offset(offset), args() {}
 
+    /*
     SymbolTableEntry(string retType, string name, int offset, vector<pair<string, string> > args) : type(retType), name(name), offset(offset), args(args) {} //for function implementation
+    */
 
-    SymbolTableEntry(string retType, string name, vector<pair<string, string> > args) : type(retType), name(name), offset(UNDEFINED), args(args) {} //for func delareton only
+    SymbolTableEntry(string retType, string name, vector<pair<string, string> > args) : type(retType), name(name), offset(UNDEFINED), args(args) {} //for function declaration only
 
     ~SymbolTableEntry();
 };

@@ -37,11 +37,22 @@ void Parser::closeScope() {
     // print content of scope
     for (int i = 0; i < current.size(); ++i) {
         SymbolTableEntry *entry = current[i];
-        if (entry->offset!=UNDEFINED) { //identifier entry
-            printID(entry->name, entry->offset, entry->type);
-        } else { //function entry
-            vector<pair<string, string> > args = entry->args;
-            
+        if (entry) {
+            if (entry->offset != UNDEFINED) { //identifier entry
+                cout << "identifier" << endl;
+                printID(entry->name, entry->offset, entry->type);
+            } else { //function entry
+                cout << "function" << endl;
+                vector<pair<string, string> > args = entry->args;
+                // make vector of arg types only
+                vector<string> types;
+                for (int i = 0; i < args.size(); ++i) {
+                    types.push_back(args[i].first);
+                }
+
+                //print
+                printID(entry->name, entry->offset, makeFunctionType(entry->type, types));
+            }
         }
     }
 
@@ -85,5 +96,7 @@ void Parser::pushFunctionDeclarationToStack(string retType, string name, vector<
         argsSymTable->push_back(e);
         offset--;
     }
+    
+
 }
 

@@ -74,6 +74,8 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE LBrace Statemen
 	string name = id->name;
 	$$ = new FuncInfo(name,retType,args);
 	
+	//cout << args << endl;
+	cout << "came here" << endl;
 	pushFunctionDeclarationToStack(retType, name, args);	
 } 
 ;
