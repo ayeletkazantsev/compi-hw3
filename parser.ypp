@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <utility>
+#include <stdlib.h>
 #include "source.hpp"
 #include "output.hpp"
 #include "parser.hpp"
@@ -61,7 +62,7 @@ RBrace: %empty
 Funcs : %empty | FuncDecl Funcs
 ;
 
-FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE LBrace Statements RBRACE RBrace
+FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE LBrace 
 {
 	//TODO: check if id free
 	
@@ -74,10 +75,8 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE LBrace Statemen
 	string name = id->name;
 	$$ = new FuncInfo(name,retType,args);
 	
-	//cout << args << endl;
-	cout << "came here" << endl;
 	pushFunctionDeclarationToStack(retType, name, args);	
-} 
+} Statements RBRACE RBrace 
 ;
 
 RetType : Type {$$ = $1;} | VOID {$$ = new Type("VOID");}
@@ -162,7 +161,63 @@ ExpList : Exp | Exp COMMA ExpList
 Type : INT {$$ = new Type("INT");} | BYTE {$$ = new Type("BYTE");} | BOOL {$$ = new Type("BOOL");}
 ;
 
-Exp : LPAREN Exp RPAREN | Exp BINOP Exp | ID | Call | NUM | NUM B | STRING | TRUE | FALSE | NOT Exp | Exp AND Exp | Exp OR Exp | Exp RELOP Exp
+Exp : LPAREN Exp RPAREN | Exp BINOP Exp | ID 
+{
+	$$ = $1;
+}
+| Call 
+{
+	$$ = $1;
+}
+| NUM 
+{
+	$$ = $1;
+}
+| NUM B 
+{
+	int num = atoi($1->type.c_str());
+	if (num > 255)
+	{
+		errorByteTooLarge(lineno,$1->name);
+	}
+	$$ = new NameTypeInfo("BYTE", $1->name);
+}
+| STRING 
+{
+	$$ = new Type("STRING");
+}
+| TRUE 
+{
+	$$ = new Type("BOOL");
+}
+| FALSE 
+{
+	$$ = new Type("BOOL");
+}
+| NOT Exp 
+{
+	checkExpressionType($2->type,"BOOL",yylineno);
+	$$ = new Type("BOOL");
+}
+| Exp AND Exp 
+{
+	checkExpressionType($1->type,"BOOL",yylineno);
+	checkExpressionType($3->type,"BOOL",yylineno);
+	$$ = new Type("BOOL");
+}
+| Exp OR Exp 
+{
+	checkExpressionType($1->type,"BOOL",yylineno);
+	checkExpressionType($3->type,"BOOL",yylineno);
+	$$ = new Type("BOOL");
+}
+| Exp RELOP Exp
+{
+	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	if ($3->type!="INT" && $3->type!="BYTE") errorMismatch(yylineno);
+	
+	$$ = new Type("BOOL");
+}
 ;
 
 %%

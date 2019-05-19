@@ -38,20 +38,8 @@ void Parser::closeScope() {
     for (int i = 0; i < current.size(); ++i) {
         SymbolTableEntry *entry = current[i];
         if (entry) {
-            if (entry->offset != UNDEFINED) { //identifier entry
-                cout << "identifier" << endl;
+            if (!entry->isFunc) { //identifier entry
                 printID(entry->name, entry->offset, entry->type);
-            } else { //function entry
-                cout << "function" << endl;
-                vector<pair<string, string> > args = entry->args;
-                // make vector of arg types only
-                vector<string> types;
-                for (int i = 0; i < args.size(); ++i) {
-                    types.push_back(args[i].first);
-                }
-
-                //print
-                printID(entry->name, entry->offset, makeFunctionType(entry->type, types));
             }
         }
     }
@@ -87,6 +75,7 @@ void Parser::pushFunctionDeclarationToStack(string retType, string name, vector<
     // make new symbol table for function arguments
     int offset = -1;
     SymbolTable *argsSymTable = new SymbolTable();
+    tables_stack->push(argsSymTable);
 
     // push each argument to symbol table
     for (int i = 0; i < args.size(); ++i) {
@@ -96,7 +85,11 @@ void Parser::pushFunctionDeclarationToStack(string retType, string name, vector<
         argsSymTable->push_back(e);
         offset--;
     }
-    
+}
 
+void Parser::checkExpressionType(string exp, string type, int line) {
+    if (exp == type) return;
+    errorMismatch(line);
+    exit(0);
 }
 
