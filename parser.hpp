@@ -7,6 +7,6 @@ namespace Parser {
     void openScope();
 
     void closeScope();
-    void declareIdentifier(string type, string name);
+    void pushIdentifierToStack(string type, string name);
 
 }

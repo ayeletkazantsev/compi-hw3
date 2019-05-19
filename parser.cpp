@@ -4,7 +4,7 @@
 #include "source.hpp"
 #include "output.hpp"
 
-
+static int i=0;
 
 using namespace output;
 
@@ -28,7 +28,6 @@ void Parser::openScope() {
 
 void Parser::closeScope() {
     endScope();
-
     SymbolTable current = (SymbolTable)* tables_stack->top();
 
     for (int i=0; i<current.size(); ++i)
@@ -39,13 +38,12 @@ void Parser::closeScope() {
             printID(entry->name, entry->offset, entry->type);
         }
     }
-
-
     offsets_stack->pop();
     tables_stack->pop();
 }
 
-void Parser::declareIdentifier(string type, string name) {
+void Parser::pushIdentifierToStack(string type, string name) {
+    //TODO: check if identifier is free
     SymbolTable *current = tables_stack->top();
     int offset = offsets_stack->top();
     offsets_stack->pop();

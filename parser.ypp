@@ -1,7 +1,9 @@
 %{
 
 #include <iostream>
-
+#include <vector>
+#include <utility>
+#include "source.hpp"
 #include "output.hpp"
 #include "parser.hpp"
 
@@ -59,23 +61,80 @@ RBrace: %empty
 Funcs : %empty | FuncDecl Funcs
 ;
 
-FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE LBrace Statements RBRACE RBrace 
+FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE LBrace Statements RBRACE RBrace
+{
+	//TODO: check if id free
+	
+	string retType = $1->type;
+	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($4);
+
+	vector<pair<string, string> > v = formals->types_names;
+
+	//NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	//string name = id->name;
+	//$$ = new FuncInfo(name,retType,v);
+	/*
+	//TODO: outsource to parser.cpp later
+	//SymbolTable* table = tables_stack->top();
+	//tables_stack->push(table);
+
+	int offset = -1;
+	
+	string arguments;
+	for (int i=0; i<v.size(); ++i)
+	{
+		if (i<v.size()-1) 
+			arguments += (v[i].first + ", ");
+		else
+			arguments += (v[i].first + " ");
+	}
+	arguments += ("->" + retType);
+	cout << arguments << endl;
+	SymbolTableEntry *e = new SymbolTableEntry(name,arguments,offset);
+	*/
+} 
 ;
 
-RetType : Type | VOID
+RetType : Type {$$ = $1;} | VOID {$$ = new Type("VOID");}
 ;
 
 Formals : %empty | FormalsList
+{
+	//$$ = $1;
+
+	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($1);
+
+	vector<pair<string, string> > v = formals->types_names;
+	for (int i=0; i<v.size(); ++i)
+	{
+		cout << v[i].first << " " <<v[i].second << endl;
+	}
+
+	$$ = formals;
+}
 ;
 
-FormalsList : FormalDecl | FormalDecl COMMA FormalsList
+FormalsList : FormalDecl 
+{
+	NameTypeInfo* formalDec = dynamic_cast<NameTypeInfo*>($1);
+	vector<pair<string,string> > v;
+	v.push_back(pair<string,string>(formalDec->type, formalDec->name));
+	$$ = new MultiNameMultiTypeInfo(v);
+}
+| FormalDecl COMMA FormalsList
+{
+	MultiNameMultiTypeInfo* formalList = dynamic_cast<MultiNameMultiTypeInfo*>($3);
+	NameTypeInfo* formalDec = dynamic_cast<NameTypeInfo*>($1);
+	vector<pair<string,string> > v(formalList->types_names);
+	v.push_back(pair<string,string>(formalDec->type,formalDec->name));
+	$$ = new MultiNameMultiTypeInfo(v);
+}
 ;
 
 FormalDecl : Type ID
 {
-	cout << $2->name << endl;
-	cout << $1->name << endl;
-	//declareIdentifier($2->type,$2->name);
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	$$ = new NameTypeInfo($1->type, id->name);
 }
 ;
 
@@ -88,7 +147,18 @@ PreCondition : PRECOND LPAREN Exp RPAREN
 Statements : Statement | Statements Statement
 ;
 
-Statement : LBRACE LBrace Statements RBRACE RBrace | Type ID SC | Type ID ASSIGN Exp SC | ID ASSIGN Exp SC | Call SC | RETURN SC | RETURN Exp SC  | WHILE LPAREN Exp RPAREN Statement | BREAK SC | CONTINUE SC | SelectionStatement
+Statement : LBRACE LBrace Statements RBRACE RBrace 
+| Type ID SC
+{
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	pushIdentifierToStack($1->type,id->name);
+} 
+| Type ID ASSIGN Exp SC 
+{
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	pushIdentifierToStack($1->type,id->name);
+}
+| ID ASSIGN Exp SC | Call SC | RETURN SC | RETURN Exp SC  | WHILE LPAREN Exp RPAREN Statement | BREAK SC | CONTINUE SC | SelectionStatement
 ;
 
 SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE | IF LPAREN Exp RPAREN Statement ELSE Statement
@@ -100,7 +170,7 @@ Call : ID LPAREN ExpList RPAREN | ID LPAREN RPAREN
 
 ExpList : Exp | Exp COMMA ExpList
 
-Type : INT {$$ = new Node("Type","INT");} | BYTE {$$ = new Node("Type","BYTE");} | BOOL {$$ = new Node("Type","BOOL");}
+Type : INT {$$ = new Type("INT");} | BYTE {$$ = new Type("BYTE");} | BOOL {$$ = new Type("BOOL");}
 ;
 
 Exp : LPAREN Exp RPAREN | Exp BINOP Exp | ID | Call | NUM | NUM B | STRING | TRUE | FALSE | NOT Exp | Exp AND Exp | Exp OR Exp | Exp RELOP Exp

@@ -5,30 +5,47 @@
 #include <stdlib.h>
 #include <map>
 #include <stack>
-#define YYSTYPE Node*
+#include <utility>
+#define YYSTYPE Type*
 
 using namespace std;
 
-//struct Node {
-//    Node();
-//    virtual ~Node();
-//};
 
-struct Node {
-    string type; //name of token
-    string name; //value of token
+struct Type { // INT, VOID, DOUBLE etc.
+    string type;
 
-    Node(string type, string name) : type(type), name(name) {}
+    Type() {}
+    Type(string type) : type(type) {}
+    virtual ~Type() {}
 };
 
-//struct IdentifierNode : public Node {
-//    string type;
-//    string name;
-//
-//    IdentifierNode(string type, string name) : type(type), name(name) {}
-//};
+struct NameTypeInfo : public Type{ // ID, "X"
+    string type;
+    string name;
 
+    NameTypeInfo(string type, string name) : type(type), name(name) {}
+};
 
+struct MultiNameTypeInfo : public Type { // list of token names
+    string type;
+    vector<string> names;
+
+    MultiNameTypeInfo(string type, vector<string> names) : type(type), names(names) {}
+};
+
+struct MultiNameMultiTypeInfo : public Type{ //list of token types and names
+    vector<pair<string, string> > types_names;
+
+    MultiNameMultiTypeInfo(vector<pair<string, string> > types_names) : types_names(types_names) {}
+};
+
+struct FuncInfo : public Type {
+    string name;
+    string retType;
+    vector<pair<string, string> > types_names;
+
+    FuncInfo(string name, string retType,vector<pair<string, string> > types_names) : name(name), retType(retType), types_names(types_names) {}
+};
 
 struct SymbolTableEntry {
     string type;

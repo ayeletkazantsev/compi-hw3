@@ -75,9 +75,9 @@ NO_ELSE (^((?!^else).)*$)
 {RBRACE} {return RBRACE;}
 {ASSIGN} {return ASSIGN;}
 {RELOP} {return RELOP;}
-{BINOP} {yylval = new Node("BINOP",yytext); return BINOP;}
-{ID} {yylval = new Node("ID",yytext); cout << yytext << endl; return ID;}
-{NUM} {yylval = new Node("NUM",yytext); return NUM;}
+{BINOP} {yylval = new NameTypeInfo("BINOP",yytext); return BINOP;}
+{ID} {yylval = new NameTypeInfo("ID",yytext); return ID;}
+{NUM} {yylval = new NameTypeInfo("NUM",yytext); return NUM;}
 {STRING} {return STRING;}
 {COMMENT}													{}
 {WHITESPACE}												{}
