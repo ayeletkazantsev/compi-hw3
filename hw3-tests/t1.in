@@ -1,5 +1,5 @@
 //test
-void printOk(bool isOk, int whatever, int kaki) {
+void printOk(bool isOk) {
     if (isOk) print("ok");
 }
 

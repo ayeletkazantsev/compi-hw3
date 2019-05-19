@@ -22,6 +22,7 @@ struct Type { // INT, VOID, DOUBLE etc.
     virtual ~Type() {}
 };
 
+
 struct NameTypeInfo : public Type{ // ID, "X"
     string type;
     string name;

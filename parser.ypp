@@ -12,9 +12,11 @@ using namespace std;
 using namespace Parser;
 using namespace output;
 
+extern int yylineno;
 int yylex();
 void yyerror(char const * message);
 
+int precondCnt = 0;
 
 %}
 
@@ -42,6 +44,7 @@ Program : M Funcs
 
 M : %empty
 {
+	endScope();
 	openGlobalScope();
 }
 ;
@@ -126,10 +129,21 @@ FormalDecl : Type ID
 }
 ;
 
-PreConditions : %empty | PreConditions PreCondition
+PreConditions : %empty
+{
+	precondCnt = 0;
+} 
+| PreConditions PreCondition
+{
+	precondCnt++;
+}
 ;
 
 PreCondition : PRECOND LPAREN Exp RPAREN
+{
+	if ($3->type!="BOOL") {errorMismatch(yylineno); exit(0);}
+	precondCnt++;
+}
 ;
 
 Statements : Statement | Statements Statement
@@ -138,25 +152,41 @@ Statements : Statement | Statements Statement
 Statement : LBRACE LBrace Statements RBRACE RBrace 
 | Type ID SC
 {
+	//check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	//checkExpressionType($1->type,$2->type,yylineno);
 	pushIdentifierToStack($1->type,id->name);
 } 
 | Type ID ASSIGN Exp SC 
 {
+	//check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	//checkExpressionType($1->type,$2->type,yylineno);
+	//checkExpressionType($1->type,$4->type,yylineno);
 	pushIdentifierToStack($1->type,id->name);
 }
-| ID ASSIGN Exp SC | Call SC | RETURN SC | RETURN Exp SC  | WHILE LPAREN Exp RPAREN Statement | BREAK SC | CONTINUE SC | SelectionStatement
+| ID ASSIGN Exp SC 
+{
+	//check if id is free
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
+	//checkExpressionType($1->type,$3->type,yylineno);
+	pushIdentifierToStack($1->type,id->name);
+}
+| Call SC | RETURN SC | RETURN Exp SC  | WHILE LPAREN Exp RPAREN Statement | BREAK SC | CONTINUE SC | SelectionStatement
 ;
 
 SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE | IF LPAREN Exp RPAREN Statement ELSE Statement
 
 ;
 
-Call : ID LPAREN ExpList RPAREN 
+Call : ID LPAREN ExpList RPAREN
+{
+	//check if id is undefined
+
+} 
 | ID LPAREN RPAREN
 {
-	
+	//check if id is undefined
 }
 ;
 
@@ -183,8 +213,8 @@ Exp : LPAREN Exp RPAREN
 } 
 | Exp BINOP Exp 
 {
-	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	//if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
 	if ($1->type == "INT") $$ = new Type("INT");
 	else $$ = new Type("BYTE");
 }
@@ -192,6 +222,8 @@ Exp : LPAREN Exp RPAREN
 {
 	//check if identifier was not defined before - need to look in symbol tables
 	//else, everything is okay and move to next line of code
+	//NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
+	//cout << "id " << id->name << " type " << id->type << endl;
 	$$ = $1;
 }
 | Call 
@@ -200,16 +232,19 @@ Exp : LPAREN Exp RPAREN
 }
 | NUM 
 {
+		//NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
+		//cout <<"num type"<< id->type << " name "<<id->name<<endl;
 	$$ = $1;
 }
 | NUM B 
 {
-	int num = atoi($1->type.c_str());
+	NameTypeInfo* numId = dynamic_cast<NameTypeInfo*>($1);
+	int num = atoi(numId->name.c_str());
 	if (num > 255)
 	{
-		errorByteTooLarge(lineno,$1->name);
+		errorByteTooLarge(yylineno,numId->name); 
 	}
-	$$ = new NameTypeInfo("BYTE", $1->name);
+	$$ = new NameTypeInfo("BYTE", numId->name);
 }
 | STRING 
 {
@@ -242,8 +277,8 @@ Exp : LPAREN Exp RPAREN
 }
 | Exp RELOP Exp
 {
-	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+ 	//if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
 	$$ = new Type("BOOL");
 }
 ;
