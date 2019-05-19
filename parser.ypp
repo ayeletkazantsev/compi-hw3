@@ -153,16 +153,45 @@ SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE | IF LPAREN Exp
 
 ;
 
-Call : ID LPAREN ExpList RPAREN | ID LPAREN RPAREN
+Call : ID LPAREN ExpList RPAREN 
+| ID LPAREN RPAREN
+{
+	
+}
 ;
 
-ExpList : Exp | Exp COMMA ExpList
+ExpList : Exp 
+{
+	$$ = new NameMultiTypeInfo($1->type);
+}
+| Exp COMMA ExpList
+{
+	NameMultiTypeInfo* expList = dynamic_cast<NameMultiTypeInfo*>($3);
+	string type = $1->type;
+	vector<string> types = expList->types;
+	types.push_back(type);
+	$$ = new NameMultiTypeInfo(types);
+}
+;
 
 Type : INT {$$ = new Type("INT");} | BYTE {$$ = new Type("BYTE");} | BOOL {$$ = new Type("BOOL");}
 ;
 
-Exp : LPAREN Exp RPAREN | Exp BINOP Exp | ID 
+Exp : LPAREN Exp RPAREN
 {
+	$$ = $2;
+} 
+| Exp BINOP Exp 
+{
+	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	if ($1->type == "INT") $$ = new Type("INT");
+	else $$ = new Type("BYTE");
+}
+| ID 
+{
+	//check if identifier was not defined before - need to look in symbol tables
+	//else, everything is okay and move to next line of code
 	$$ = $1;
 }
 | Call 
@@ -214,8 +243,7 @@ Exp : LPAREN Exp RPAREN | Exp BINOP Exp | ID
 | Exp RELOP Exp
 {
 	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	if ($3->type!="INT" && $3->type!="BYTE") errorMismatch(yylineno);
-	
+	if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
 	$$ = new Type("BOOL");
 }
 ;

@@ -36,6 +36,13 @@ struct MultiNameTypeInfo : public Type { // list of token names
     MultiNameTypeInfo(string type, vector<string> names) : type(type), names(names) {}
 };
 
+struct NameMultiTypeInfo : public Type {
+    vector<string> types;
+
+    NameMultiTypeInfo(string type) {types.push_back(type);}
+    NameMultiTypeInfo(vector<string> types) : types(types) {}
+};
+
 struct MultiNameMultiTypeInfo : public Type{ //list of token types and names
     vector<pair<string, string> > types_names;
 
