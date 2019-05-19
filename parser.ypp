@@ -67,50 +67,37 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE LBrace Statemen
 	
 	string retType = $1->type;
 	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($4);
+	if (!formals) cout << "formals is null" << endl;
+	vector<pair<string, string> > args = formals->types_names;
 
-	vector<pair<string, string> > v = formals->types_names;
-
-	//NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
-	//string name = id->name;
-	//$$ = new FuncInfo(name,retType,v);
-	/*
-	//TODO: outsource to parser.cpp later
-	//SymbolTable* table = tables_stack->top();
-	//tables_stack->push(table);
-
-	int offset = -1;
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	string name = id->name;
+	$$ = new FuncInfo(name,retType,args);
 	
-	string arguments;
-	for (int i=0; i<v.size(); ++i)
-	{
-		if (i<v.size()-1) 
-			arguments += (v[i].first + ", ");
-		else
-			arguments += (v[i].first + " ");
-	}
-	arguments += ("->" + retType);
-	cout << arguments << endl;
-	SymbolTableEntry *e = new SymbolTableEntry(name,arguments,offset);
-	*/
+	pushFunctionDeclarationToStack(retType, name, args);	
 } 
 ;
 
 RetType : Type {$$ = $1;} | VOID {$$ = new Type("VOID");}
 ;
 
-Formals : %empty | FormalsList
+Formals : %empty 
 {
-	//$$ = $1;
+	$$ = new MultiNameMultiTypeInfo();
+}
+| FormalsList
+{
+	$$ = $1;
 
 	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($1);
 
+	/* for debugging
 	vector<pair<string, string> > v = formals->types_names;
 	for (int i=0; i<v.size(); ++i)
 	{
 		cout << v[i].first << " " <<v[i].second << endl;
 	}
-
-	$$ = formals;
+	*/
 }
 ;
 

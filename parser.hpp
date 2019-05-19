@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+#include <utility>
 
 namespace Parser {
     using namespace std;
@@ -8,5 +10,5 @@ namespace Parser {
 
     void closeScope();
     void pushIdentifierToStack(string type, string name);
-
+    void pushFunctionDeclarationToStack(string retType, string name, vector<pair<string, string> > args);
 }
