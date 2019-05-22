@@ -84,16 +84,16 @@ void Parser::pushIdentifierToStack(string type, string name) {
 void Parser::pushFunctionDeclarationWithoutOpenScope(string retType, string name)
 {
     SymbolTable *current = tables_stack->top();
-    SymbolTableEntry *e = new SymbolTableEntry(retType, name,0, vector<pair<string, string> >());
+    SymbolTableEntry *e = new SymbolTableEntry(retType, name, vector<pair<string, string> >());
     current->push_back(e);
 }
 
-void Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args, int preconditions) {
+void Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args) {
     //TODO: check if identifier is free
 
     // push function declaration entry to global scope
     SymbolTable *current = tables_stack->top();
-    SymbolTableEntry *e = new SymbolTableEntry(retType, name,preconditions, args);
+    SymbolTableEntry *e = new SymbolTableEntry(retType, name,args);
     current->push_back(e);
 
     // make new symbol table (scope) for function arguments

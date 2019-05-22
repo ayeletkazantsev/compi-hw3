@@ -41,7 +41,7 @@ string returnType;
 
 Program : M Funcs
 {
-    //check that main is okay
+    //todo: check that main is legal
     closeScope(); 
 }
 ;
@@ -79,19 +79,22 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE
 {
 	//TODO: check if id free
 
+	// get parameters from input
 	string retType = $1->type;
 	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($4);
-	//if (!formals) cout << "formals is null" << endl;
 	vector<pair<string, string> > args = formals->types_names;
 
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
 	$$ = new FuncInfo(name,retType,args);
-	pushFunctionDeclarationToStackAndOpenScope(retType, name, args, precondCnt);
+
+	// push function to global scope symbol table and open new scope for arguments
+	pushFunctionDeclarationToStackAndOpenScope(retType, name, args);
 
 } Statements RBRACE {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
+
 	closeScope(true,name,precondCnt);
 }
 ;
@@ -106,17 +109,6 @@ Formals : %empty
 | FormalsList
 {
 	$$ = $1;
-
-	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($1);
-
-	/*for debugging
-	vector<pair<string, string> > v = formals->types_names;
-	for (int i=0; i<v.size(); ++i)
-	{
-		cout << v[i].first << " " <<v[i].second << endl;
-	}
-	*/
-	
 }
 ;
 
@@ -125,6 +117,7 @@ FormalsList : FormalDecl
 	NameTypeInfo* formalDec = dynamic_cast<NameTypeInfo*>($1);
 	vector<pair<string,string> > v;
 	v.push_back(pair<string,string>(formalDec->type, formalDec->name));
+
 	$$ = new MultiNameMultiTypeInfo(v);
 }
 | FormalDecl COMMA FormalsList
@@ -133,6 +126,7 @@ FormalsList : FormalDecl
 	NameTypeInfo* formalDec = dynamic_cast<NameTypeInfo*>($1);
 	vector<pair<string,string> > v(formalList->types_names);
 	v.push_back(pair<string,string>(formalDec->type,formalDec->name));
+
 	$$ = new MultiNameMultiTypeInfo(v);
 }
 ;
@@ -140,6 +134,7 @@ FormalsList : FormalDecl
 FormalDecl : Type ID
 {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+
 	$$ = new NameTypeInfo($1->type, id->name);
 }
 ;
@@ -169,21 +164,21 @@ Statements : Statement | Statements Statement //DONE! no need to change
 Statement : LBRACE LBrace Statements RBRACE RBrace
 | Type ID SC
 {
-	//check if id is free
+	//todo: check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	pushIdentifierToStack($1->type,id->name);
 }
 | Type ID ASSIGN Exp SC
 {
-	//check if id is free
+	//todo: check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
-	//checkExpressionType($1->type,$4->type,yylineno);
+	//todo: checkExpressionType($1->type,$4->type,yylineno);
 	pushIdentifierToStack($1->type,id->name);
 }
 | ID ASSIGN Exp SC
 {
-	//check if id is free
-	//check for semantic errors, no need to push to stack
+	//todo: check if id is free
+	//todo: check for semantic errors, no need to push to stack
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
 	//checkExpressionType($1->type,$3->type,yylineno);
 	
@@ -245,12 +240,12 @@ SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE
 
 Call : ID LPAREN ExpList RPAREN
 {
-	//check if id is undefined
+	//todo: check if id is undefined
 
 }
 | ID LPAREN RPAREN
 {
-	//check if id is undefined
+	//todo: check if id is undefined
 }
 ;
 
@@ -264,6 +259,7 @@ ExpList : Exp
 	string type = $1->type;
 	vector<string> types = expList->types;
 	types.push_back(type);
+
 	$$ = new NameMultiTypeInfo(types);
 }
 ;
@@ -281,6 +277,7 @@ Exp : LPAREN Exp RPAREN
 	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string binOp = id->name;
+
 	if (binOp == ">" || binOp == "<" || binOp == "==" || binOp == "!=")
 	{
 		$$ = new Type("BOOL");
@@ -292,7 +289,7 @@ Exp : LPAREN Exp RPAREN
 }
 | ID
 {
-	//check if identifier was not defined before - need to look in symbol tables
+	//todo: check if identifier was not defined before - need to look in symbol tables
 	$$ = $1;
 }
 | Call
@@ -307,10 +304,12 @@ Exp : LPAREN Exp RPAREN
 {
 	NameTypeInfo* numId = dynamic_cast<NameTypeInfo*>($1);
 	int num = atoi(numId->name.c_str());
+
 	if (num > 255)
 	{
 		errorByteTooLarge(yylineno,numId->name);
 	}
+
 	$$ = new Type("BYTE");
 }
 | STRING

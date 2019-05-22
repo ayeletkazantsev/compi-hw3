@@ -412,7 +412,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  3
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   189
+#define YYLAST   186
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  33
@@ -421,7 +421,7 @@ union yyalloc
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  55
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  102
+#define YYNSTATES  101
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
@@ -471,11 +471,11 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint16 yyrline[] =
 {
        0,    42,    42,    49,    62,    69,    75,    75,    79,    78,
-      95,    95,    98,   102,   119,   126,   136,   143,   147,   153,
-     162,   162,   165,   166,   172,   179,   187,   188,   196,   204,
-     204,   213,   221,   229,   232,   236,   242,   247,   253,   257,
-     267,   267,   267,   270,   274,   289,   294,   298,   302,   312,
-     316,   320,   324,   329,   335,   341
+      99,    99,   102,   106,   123,   130,   140,   147,   151,   157,
+     166,   166,   169,   170,   176,   183,   191,   192,   200,   208,
+     208,   217,   225,   233,   236,   240,   246,   251,   257,   261,
+     271,   271,   271,   274,   278,   293,   298,   302,   306,   316,
+     320,   324,   328,   333,   339,   345
 };
 #endif
 
@@ -507,10 +507,10 @@ static const yytype_uint16 yytoknum[] =
 };
 # endif
 
-#define YYPACT_NINF -44
+#define YYPACT_NINF -38
 
 #define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-44)))
+  (!!((Yystate) == (-38)))
 
 #define YYTABLE_NINF -1
 
@@ -521,17 +521,17 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-     -44,     6,    74,   -44,   -44,   -44,   -44,   -44,   -44,    74,
-     -18,   -44,   -44,   -10,    84,    -5,   -44,     5,   -12,   -44,
-      84,   -44,    27,   -44,    10,   -44,   -44,   119,   100,   -44,
-     -44,   119,    32,    37,   -44,   119,   -44,    17,    -7,    39,
-     -44,    44,    45,   -44,    16,    60,   -44,   -44,    48,    43,
-     132,   107,   -44,   -44,   119,   119,   -44,   119,   119,   -44,
-     134,   119,    50,   -44,   -44,   100,   119,   -44,   -44,   -44,
-     -11,   -44,   -44,    59,   142,    23,    26,    33,    65,   -44,
-     154,   119,    80,   146,   -44,   -44,   119,   -44,   119,   100,
-     160,   -44,   -44,   164,   -44,    66,   100,   -44,   -44,   100,
-     -44,   -44
+     -38,     2,    73,   -38,   -38,   -38,   -38,   -38,   -38,    73,
+     -16,   -38,   -38,    -6,    83,    -5,   -38,     5,    15,   -38,
+      83,   -38,     8,   -38,    29,   -38,   -38,    16,    99,   -38,
+     -38,    16,    32,    47,   -38,    16,   -38,   114,    -7,    36,
+     -38,    51,    61,   -38,   -14,    59,   -38,   -38,    71,    39,
+     120,   106,   -38,   -38,    16,    16,   -38,    16,    16,   -38,
+     122,    16,    76,   -38,   -38,    99,    16,   -38,   -38,   -38,
+     -11,   -38,   -38,    77,   134,     9,    14,    23,    72,   -38,
+     140,    16,    79,   142,   -38,    16,   -38,    16,    99,   147,
+     -38,   -38,   161,   -38,    67,    99,   -38,   -38,    99,   -38,
+     -38
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -545,25 +545,25 @@ static const yytype_uint8 yydefact[] =
       51,     0,    45,    47,    49,     0,    46,     0,     0,     0,
       29,     0,     0,     4,     0,     0,    20,    33,     0,     0,
        0,     0,    48,    52,     0,     0,    19,     0,     0,    27,
-       0,     0,     0,    31,    32,     0,     0,     5,    21,    26,
+       0,     0,     0,    31,    32,     0,     0,     9,    21,    26,
        0,    43,    37,     0,    38,    53,    54,    55,    44,    28,
-       0,     0,     0,     0,     9,    23,     0,    36,     0,     0,
-       0,     5,    25,     0,    39,    34,     0,    22,    24,     0,
-      30,    35
+       0,     0,     0,     0,    23,     0,    36,     0,     0,     0,
+       5,    25,     0,    39,    34,     0,    22,    24,     0,    30,
+      35
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -44,   -44,   -44,   -44,     8,    88,   -44,   -44,   -44,   -44,
-      81,   -44,   -44,   -44,    35,   -43,   -44,   -44,   -28,    20,
-      13,   -26
+     -38,   -38,   -38,   -38,   -38,    91,   -38,   -38,   -38,   -38,
+      87,   -38,   -38,   -38,    43,   -37,   -38,   -38,   -28,    22,
+      48,   -26
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     1,     2,    65,    84,     8,     9,    28,    10,    15,
+      -1,     1,     2,    65,    96,     8,     9,    28,    10,    15,
       16,    17,    22,    26,    45,    46,    62,    47,    36,    73,
       49,    74
 };
@@ -573,48 +573,48 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      48,    37,    68,    29,    30,    50,     3,    85,    13,    53,
-      14,    59,    60,    31,    21,    11,    19,    48,    86,    32,
-      33,    34,    11,    35,    20,    54,    55,    18,    75,    76,
-      27,    77,    78,    18,    54,    80,    51,    48,    56,    68,
-      83,    57,    58,    52,    24,    66,    95,    57,    58,    25,
-      57,    58,    51,   100,    48,    90,   101,    -1,    58,    61,
-      93,    48,    63,    64,     5,     6,    69,     7,    48,    70,
-      81,    48,    38,    39,    40,    41,    42,     4,     5,     6,
-      87,     7,    43,    67,     5,     6,    44,     7,     5,     6,
-      -1,     7,    38,    39,    40,    41,    42,    12,    99,    97,
-      82,    23,    43,    91,     5,     6,    44,     7,    94,     0,
-       0,     0,    38,    39,    40,    41,    42,    29,    30,     0,
-       0,     0,    43,     0,     0,     0,    44,    31,    72,    29,
-      30,     0,     0,    32,    33,    34,     0,    35,     0,    31,
-      54,    55,    54,    55,     0,    32,    33,    34,     0,    35,
-      54,    55,    79,    71,    54,    55,    57,    58,    57,    58,
-       0,    88,    54,    55,    92,     0,    57,    58,    54,    55,
-      57,    58,    54,    55,     0,    89,     0,     0,    57,    58,
-       0,    96,    98,     0,    57,    58,     0,     0,    57,    58
+      48,    37,     3,    29,    30,    50,    51,    84,    68,    53,
+      13,    59,    60,    31,    14,    66,    19,    48,    85,    32,
+      33,    34,    54,    35,    20,    24,    29,    30,    75,    76,
+      25,    77,    78,    57,    58,    80,    31,    48,    57,    58,
+      83,    21,    32,    33,    34,    68,    35,    -1,    58,    27,
+      11,    94,    51,    52,    48,    89,    61,    11,    99,    92,
+      48,   100,    18,     5,     6,    70,     7,    48,    18,    63,
+      48,    38,    39,    40,    41,    42,     4,     5,     6,    64,
+       7,    43,    67,     5,     6,    44,     7,     5,     6,    69,
+       7,    38,    39,    40,    41,    42,    81,    -1,    86,    98,
+      12,    43,    90,     5,     6,    44,     7,    23,    82,    93,
+       0,    38,    39,    40,    41,    42,    29,    30,     0,     0,
+       0,    43,    54,    55,     0,    44,    31,    72,    54,    55,
+      54,    55,    32,    33,    34,    56,    35,     0,    57,    58,
+      79,    71,    54,    55,    57,    58,    57,    58,    54,    55,
+      54,    55,     0,    87,     0,    54,    55,     0,    57,    58,
+      91,    88,     0,     0,    57,    58,    57,    58,    95,    54,
+      55,    57,    58,     0,     0,     0,     0,     0,     0,    97,
+       0,     0,     0,     0,     0,    57,    58
 };
 
 static const yytype_int8 yycheck[] =
 {
-      28,    27,    45,    10,    11,    31,     0,    18,    26,    35,
-      20,    18,    38,    20,    26,     2,    21,    45,    29,    26,
-      27,    28,     9,    30,    19,     8,     9,    14,    54,    55,
-      20,    57,    58,    20,     8,    61,    20,    65,    21,    82,
-      66,    24,    25,     6,    17,    29,    89,    24,    25,    22,
-      24,    25,    20,    96,    82,    81,    99,    24,    25,    20,
-      86,    89,    18,    18,     4,     5,    18,     7,    96,    26,
-      20,    99,    12,    13,    14,    15,    16,     3,     4,     5,
-      21,     7,    22,    23,     4,     5,    26,     7,     4,     5,
-      25,     7,    12,    13,    14,    15,    16,     9,    32,    91,
-      65,    20,    22,    23,     4,     5,    26,     7,    88,    -1,
-      -1,    -1,    12,    13,    14,    15,    16,    10,    11,    -1,
-      -1,    -1,    22,    -1,    -1,    -1,    26,    20,    21,    10,
-      11,    -1,    -1,    26,    27,    28,    -1,    30,    -1,    20,
-       8,     9,     8,     9,    -1,    26,    27,    28,    -1,    30,
-       8,     9,    18,    21,     8,     9,    24,    25,    24,    25,
-      -1,    19,     8,     9,    18,    -1,    24,    25,     8,     9,
-      24,    25,     8,     9,    -1,    21,    -1,    -1,    24,    25,
-      -1,    21,    18,    -1,    24,    25,    -1,    -1,    24,    25
+      28,    27,     0,    10,    11,    31,    20,    18,    45,    35,
+      26,    18,    38,    20,    20,    29,    21,    45,    29,    26,
+      27,    28,     8,    30,    19,    17,    10,    11,    54,    55,
+      22,    57,    58,    24,    25,    61,    20,    65,    24,    25,
+      66,    26,    26,    27,    28,    82,    30,    24,    25,    20,
+       2,    88,    20,     6,    82,    81,    20,     9,    95,    85,
+      88,    98,    14,     4,     5,    26,     7,    95,    20,    18,
+      98,    12,    13,    14,    15,    16,     3,     4,     5,    18,
+       7,    22,    23,     4,     5,    26,     7,     4,     5,    18,
+       7,    12,    13,    14,    15,    16,    20,    25,    21,    32,
+       9,    22,    23,     4,     5,    26,     7,    20,    65,    87,
+      -1,    12,    13,    14,    15,    16,    10,    11,    -1,    -1,
+      -1,    22,     8,     9,    -1,    26,    20,    21,     8,     9,
+       8,     9,    26,    27,    28,    21,    30,    -1,    24,    25,
+      18,    21,     8,     9,    24,    25,    24,    25,     8,     9,
+       8,     9,    -1,    19,    -1,     8,     9,    -1,    24,    25,
+      18,    21,    -1,    -1,    24,    25,    24,    25,    21,     8,
+       9,    24,    25,    -1,    -1,    -1,    -1,    -1,    -1,    18,
+      -1,    -1,    -1,    -1,    -1,    24,    25
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -629,9 +629,9 @@ static const yytype_uint8 yystos[] =
       54,    20,     6,    54,     8,     9,    21,    24,    25,    18,
       54,    20,    49,    18,    18,    36,    29,    23,    48,    18,
       26,    21,    21,    52,    54,    54,    54,    54,    54,    18,
-      54,    20,    47,    54,    37,    18,    29,    21,    19,    21,
-      54,    23,    18,    54,    52,    48,    21,    37,    18,    32,
-      48,    48
+      54,    20,    47,    54,    18,    29,    21,    19,    21,    54,
+      23,    18,    54,    52,    48,    21,    37,    18,    32,    48,
+      48
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
@@ -648,7 +648,7 @@ static const yytype_uint8 yyr1[] =
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     2,     0,     0,     0,     0,     2,     0,    11,
+       0,     2,     2,     0,     0,     0,     0,     2,     0,    10,
        1,     1,     0,     1,     1,     3,     2,     0,     2,     4,
        1,     2,     5,     3,     5,     4,     2,     2,     3,     0,
        6,     2,     2,     1,     5,     7,     4,     3,     1,     3,
@@ -1383,34 +1383,44 @@ yyreduce:
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-5]));
 	string name = id->name;
 	(yyval) = new FuncInfo(name,retType,args);
-	pushFunctionDeclarationToStackAndOpenScope(retType, name, args, precondCnt);
+	pushFunctionDeclarationToStackAndOpenScope(retType, name, args);
 
 }
 #line 1390 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
+  case 9:
+#line 92 "parser.ypp" /* yacc.c:1646  */
+    {
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-8]));
+	string name = id->name;
+	closeScope(true,name,precondCnt);
+}
+#line 1400 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+    break;
+
   case 10:
-#line 95 "parser.ypp" /* yacc.c:1646  */
+#line 99 "parser.ypp" /* yacc.c:1646  */
     {(yyval) = (yyvsp[0]); returnType = (yyvsp[0])->type;}
-#line 1396 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1406 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 95 "parser.ypp" /* yacc.c:1646  */
+#line 99 "parser.ypp" /* yacc.c:1646  */
     {(yyval) = new Type("VOID"); returnType = "VOID";}
-#line 1402 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1412 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 99 "parser.ypp" /* yacc.c:1646  */
+#line 103 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new MultiNameMultiTypeInfo();
 }
-#line 1410 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1420 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 103 "parser.ypp" /* yacc.c:1646  */
+#line 107 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = (yyvsp[0]);
 
@@ -1425,22 +1435,22 @@ yyreduce:
 	*/
 	
 }
-#line 1429 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1439 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 120 "parser.ypp" /* yacc.c:1646  */
+#line 124 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* formalDec = dynamic_cast<NameTypeInfo*>((yyvsp[0]));
 	vector<pair<string,string> > v;
 	v.push_back(pair<string,string>(formalDec->type, formalDec->name));
 	(yyval) = new MultiNameMultiTypeInfo(v);
 }
-#line 1440 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1450 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 127 "parser.ypp" /* yacc.c:1646  */
+#line 131 "parser.ypp" /* yacc.c:1646  */
     {
 	MultiNameMultiTypeInfo* formalList = dynamic_cast<MultiNameMultiTypeInfo*>((yyvsp[0]));
 	NameTypeInfo* formalDec = dynamic_cast<NameTypeInfo*>((yyvsp[-2]));
@@ -1448,68 +1458,68 @@ yyreduce:
 	v.push_back(pair<string,string>(formalDec->type,formalDec->name));
 	(yyval) = new MultiNameMultiTypeInfo(v);
 }
-#line 1452 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1462 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 137 "parser.ypp" /* yacc.c:1646  */
+#line 141 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[0]));
 	(yyval) = new NameTypeInfo((yyvsp[-1])->type, id->name);
 }
-#line 1461 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1471 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 144 "parser.ypp" /* yacc.c:1646  */
+#line 148 "parser.ypp" /* yacc.c:1646  */
     {
 	precondCnt = 0;
 }
-#line 1469 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1479 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 148 "parser.ypp" /* yacc.c:1646  */
+#line 152 "parser.ypp" /* yacc.c:1646  */
     {
 	precondCnt++;
 }
-#line 1477 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1487 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 154 "parser.ypp" /* yacc.c:1646  */
+#line 158 "parser.ypp" /* yacc.c:1646  */
     {
 	if ((yyvsp[-1])->type!="BOOL") { // todo add function call
 	    //errorMismatch(yylineno); exit(0);
 	}
 	(yyval) = (yyvsp[-1]);
 }
-#line 1488 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1498 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 167 "parser.ypp" /* yacc.c:1646  */
+#line 171 "parser.ypp" /* yacc.c:1646  */
     {
 	//check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-1]));
 	pushIdentifierToStack((yyvsp[-2])->type,id->name);
 }
-#line 1498 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1508 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 173 "parser.ypp" /* yacc.c:1646  */
+#line 177 "parser.ypp" /* yacc.c:1646  */
     {
 	//check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-3]));
 	//checkExpressionType($1->type,$4->type,yylineno);
 	pushIdentifierToStack((yyvsp[-4])->type,id->name);
 }
-#line 1509 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1519 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 180 "parser.ypp" /* yacc.c:1646  */
+#line 184 "parser.ypp" /* yacc.c:1646  */
     {
 	//check if id is free
 	//check for semantic errors, no need to push to stack
@@ -1517,11 +1527,11 @@ yyreduce:
 	//checkExpressionType($1->type,$3->type,yylineno);
 	
 }
-#line 1521 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1531 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 189 "parser.ypp" /* yacc.c:1646  */
+#line 193 "parser.ypp" /* yacc.c:1646  */
     {
 	if (returnType!="VOID") 
 	{
@@ -1529,11 +1539,11 @@ yyreduce:
 		exit(0);
 	}
 }
-#line 1533 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1543 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 197 "parser.ypp" /* yacc.c:1646  */
+#line 201 "parser.ypp" /* yacc.c:1646  */
     {
 	if (returnType!="INT" || (yyvsp[-1])->type != "BYTE" || returnType!=(yyvsp[-1])->type)
 	{
@@ -1541,17 +1551,17 @@ yyreduce:
 		exit(0);		
 	}
 }
-#line 1545 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1555 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 204 "parser.ypp" /* yacc.c:1646  */
+#line 208 "parser.ypp" /* yacc.c:1646  */
     {whileLoopCnt++;}
-#line 1551 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1561 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 205 "parser.ypp" /* yacc.c:1646  */
+#line 209 "parser.ypp" /* yacc.c:1646  */
     {
 	whileLoopCnt--;
 	if ((yyvsp[-3])->type!="BOOL")
@@ -1560,11 +1570,11 @@ yyreduce:
 		exit(0);		
 	}
 }
-#line 1564 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1574 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 214 "parser.ypp" /* yacc.c:1646  */
+#line 218 "parser.ypp" /* yacc.c:1646  */
     {
 	if (whileLoopCnt == 0)
 	{
@@ -1572,11 +1582,11 @@ yyreduce:
 		exit(0);
 	}
 }
-#line 1576 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1586 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 222 "parser.ypp" /* yacc.c:1646  */
+#line 226 "parser.ypp" /* yacc.c:1646  */
     {
 	if (whileLoopCnt == 0)
 	{
@@ -1584,52 +1594,52 @@ yyreduce:
 		exit(0);
 	}
 }
-#line 1588 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1598 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 233 "parser.ypp" /* yacc.c:1646  */
+#line 237 "parser.ypp" /* yacc.c:1646  */
     {
 	
 }
-#line 1596 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1606 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 237 "parser.ypp" /* yacc.c:1646  */
+#line 241 "parser.ypp" /* yacc.c:1646  */
     {
 	//checkExpressionType($3->type,"BOOL",yylineno);	
 }
-#line 1604 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1614 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 243 "parser.ypp" /* yacc.c:1646  */
+#line 247 "parser.ypp" /* yacc.c:1646  */
     {
 	//check if id is undefined
 
 }
-#line 1613 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1623 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 248 "parser.ypp" /* yacc.c:1646  */
+#line 252 "parser.ypp" /* yacc.c:1646  */
     {
 	//check if id is undefined
 }
-#line 1621 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1631 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 254 "parser.ypp" /* yacc.c:1646  */
+#line 258 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new NameMultiTypeInfo((yyvsp[0])->type);
 }
-#line 1629 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1639 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 258 "parser.ypp" /* yacc.c:1646  */
+#line 262 "parser.ypp" /* yacc.c:1646  */
     {
 	NameMultiTypeInfo* expList = dynamic_cast<NameMultiTypeInfo*>((yyvsp[0]));
 	string type = (yyvsp[-2])->type;
@@ -1637,37 +1647,37 @@ yyreduce:
 	types.push_back(type);
 	(yyval) = new NameMultiTypeInfo(types);
 }
-#line 1641 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1651 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 267 "parser.ypp" /* yacc.c:1646  */
+#line 271 "parser.ypp" /* yacc.c:1646  */
     {(yyval) = new Type("INT");}
-#line 1647 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1657 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 267 "parser.ypp" /* yacc.c:1646  */
+#line 271 "parser.ypp" /* yacc.c:1646  */
     {(yyval) = new Type("BYTE");}
-#line 1653 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1663 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 267 "parser.ypp" /* yacc.c:1646  */
+#line 271 "parser.ypp" /* yacc.c:1646  */
     {(yyval) = new Type("BOOL");}
-#line 1659 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1669 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 271 "parser.ypp" /* yacc.c:1646  */
+#line 275 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = (yyvsp[-1]);
 }
-#line 1667 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1677 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 275 "parser.ypp" /* yacc.c:1646  */
+#line 279 "parser.ypp" /* yacc.c:1646  */
     {
 	//if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
 	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
@@ -1682,36 +1692,36 @@ yyreduce:
 		else (yyval) = new Type("BYTE");
 	}
 }
-#line 1686 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1696 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 290 "parser.ypp" /* yacc.c:1646  */
+#line 294 "parser.ypp" /* yacc.c:1646  */
     {
 	//check if identifier was not defined before - need to look in symbol tables
 	(yyval) = (yyvsp[0]);
 }
-#line 1695 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1705 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 295 "parser.ypp" /* yacc.c:1646  */
-    {
-	(yyval) = (yyvsp[0]);
-}
-#line 1703 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
-    break;
-
-  case 47:
 #line 299 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = (yyvsp[0]);
 }
-#line 1711 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1713 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+    break;
+
+  case 47:
+#line 303 "parser.ypp" /* yacc.c:1646  */
+    {
+	(yyval) = (yyvsp[0]);
+}
+#line 1721 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 303 "parser.ypp" /* yacc.c:1646  */
+#line 307 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* numId = dynamic_cast<NameTypeInfo*>((yyvsp[-1]));
 	int num = atoi(numId->name.c_str());
@@ -1721,54 +1731,44 @@ yyreduce:
 	}
 	(yyval) = new Type("BYTE");
 }
-#line 1725 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1735 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 313 "parser.ypp" /* yacc.c:1646  */
+#line 317 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new Type("STRING");
 }
-#line 1733 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1743 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 317 "parser.ypp" /* yacc.c:1646  */
-    {
-	(yyval) = new Type("BOOL");
-}
-#line 1741 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
-    break;
-
-  case 51:
 #line 321 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new Type("BOOL");
 }
-#line 1749 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1751 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+    break;
+
+  case 51:
+#line 325 "parser.ypp" /* yacc.c:1646  */
+    {
+	(yyval) = new Type("BOOL");
+}
+#line 1759 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 325 "parser.ypp" /* yacc.c:1646  */
+#line 329 "parser.ypp" /* yacc.c:1646  */
     {
 	//checkExpressionType($2->type,"BOOL",yylineno);
-	(yyval) = new Type("BOOL");
-}
-#line 1758 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
-    break;
-
-  case 53:
-#line 330 "parser.ypp" /* yacc.c:1646  */
-    {
-	//checkExpressionType($1->type,"BOOL",yylineno);
-	//checkExpressionType($3->type,"BOOL",yylineno);
 	(yyval) = new Type("BOOL");
 }
 #line 1768 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
-  case 54:
-#line 336 "parser.ypp" /* yacc.c:1646  */
+  case 53:
+#line 334 "parser.ypp" /* yacc.c:1646  */
     {
 	//checkExpressionType($1->type,"BOOL",yylineno);
 	//checkExpressionType($3->type,"BOOL",yylineno);
@@ -1777,18 +1777,28 @@ yyreduce:
 #line 1778 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
-  case 55:
-#line 342 "parser.ypp" /* yacc.c:1646  */
+  case 54:
+#line 340 "parser.ypp" /* yacc.c:1646  */
     {
- 	//if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	//checkExpressionType($1->type,"BOOL",yylineno);
+	//checkExpressionType($3->type,"BOOL",yylineno);
 	(yyval) = new Type("BOOL");
 }
 #line 1788 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
+  case 55:
+#line 346 "parser.ypp" /* yacc.c:1646  */
+    {
+ 	//if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	(yyval) = new Type("BOOL");
+}
+#line 1798 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+    break;
 
-#line 1792 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+
+#line 1802 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2016,7 +2026,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 349 "parser.ypp" /* yacc.c:1906  */
+#line 353 "parser.ypp" /* yacc.c:1906  */
 
 
 void yyerror(const char * message)
