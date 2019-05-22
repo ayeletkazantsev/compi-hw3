@@ -63,7 +63,7 @@ struct FuncInfo : public Type {
 struct SymbolTableEntry {
     string type; //for id - type; for function - return type
     string name;
-    int offset;
+    int offset; //for id - offset; for function - precondition
     vector<pair<string, string> > args; //only for functions
     bool isFunc;
 
@@ -73,7 +73,7 @@ struct SymbolTableEntry {
     SymbolTableEntry(string retType, string name, int offset, vector<pair<string, string> > args) : type(retType), name(name), offset(offset), args(args) {} //for function implementation
     */
 
-    SymbolTableEntry(string retType, string name, vector<pair<string, string> > args) : type(retType), name(name), offset(UNDEFINED), args(args), isFunc(true) {} //for function declaration only
+    SymbolTableEntry(string retType, string name,int preconditions, vector<pair<string, string> > args) : type(retType), name(name), offset(preconditions), args(args), isFunc(true) {} //for function declaration only
 
     ~SymbolTableEntry();
 };

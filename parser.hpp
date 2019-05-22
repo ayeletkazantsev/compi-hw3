@@ -9,13 +9,13 @@ namespace Parser {
 
     void openScope();
 
-    void closeScope();
+    void closeScope(bool printPrecond = false, string nameFunc = "", int precondCnt = 0);
 
     void pushIdentifierToStack(string type, string name);
 
     void pushFunctionDeclarationWithoutOpenScope(string retType, string name);
 
-    void pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args);
+    void pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args, int preconditions);
 
     void checkExpressionType(string exp, string type, int line);
 

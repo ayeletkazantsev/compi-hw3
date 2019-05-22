@@ -41,7 +41,6 @@ string returnType;
 
 Program : M Funcs
 {
-    //cout << "close global scope" << endl;
     //check that main is okay
     closeScope(); 
 }
@@ -88,10 +87,13 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
 	$$ = new FuncInfo(name,retType,args);
-	printPreconditions(name, precondCnt);
-	pushFunctionDeclarationToStackAndOpenScope(retType, name, args);
+	pushFunctionDeclarationToStackAndOpenScope(retType, name, args, precondCnt);
 
-} Statements RBRACE RBrace
+} Statements RBRACE {
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	string name = id->name;
+	closeScope(true,name,precondCnt);
+}
 ;
 
 RetType : Type {$$ = $1; returnType = $1->type;} | VOID {$$ = new Type("VOID"); returnType = "VOID";}

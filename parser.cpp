@@ -29,7 +29,16 @@ void Parser::openScope() {
     offsets_stack->push(offsets_stack->top());
 }
 
-void Parser::closeScope() {
+void Parser::closeScope(bool printPrecond, string nameFunc, int precondCnt) {
+    // print ---end scope---
+    endScope();
+
+    // print num of precondition if necessary
+    if (printPrecond)
+    {
+        printPreconditions(nameFunc,precondCnt);
+    }
+
     // get symbol table of current scope
     SymbolTable* current = tables_stack->top();
     vector<SymbolTableEntry*> entries = *current;
@@ -56,9 +65,6 @@ void Parser::closeScope() {
     // clear symbol table from closed scope
     offsets_stack->pop();
     tables_stack->pop();
-
-    //print ---end scope---
-    endScope();
 }
 
 void Parser::pushIdentifierToStack(string type, string name) {
@@ -78,16 +84,16 @@ void Parser::pushIdentifierToStack(string type, string name) {
 void Parser::pushFunctionDeclarationWithoutOpenScope(string retType, string name)
 {
     SymbolTable *current = tables_stack->top();
-    SymbolTableEntry *e = new SymbolTableEntry(retType, name, vector<pair<string, string> >());
+    SymbolTableEntry *e = new SymbolTableEntry(retType, name,0, vector<pair<string, string> >());
     current->push_back(e);
 }
 
-void Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args) {
+void Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args, int preconditions) {
     //TODO: check if identifier is free
 
     // push function declaration entry to global scope
     SymbolTable *current = tables_stack->top();
-    SymbolTableEntry *e = new SymbolTableEntry(retType, name, args);
+    SymbolTableEntry *e = new SymbolTableEntry(retType, name,preconditions, args);
     current->push_back(e);
 
     // make new symbol table (scope) for function arguments
