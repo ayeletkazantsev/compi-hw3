@@ -17,6 +17,8 @@ int yylex();
 void yyerror(char const * message);
 
 int precondCnt = 0;
+int whileLoopCnt = 0;
+string returnType;
 
 %}
 
@@ -25,6 +27,7 @@ int precondCnt = 0;
 
 /* Solving conflicts */
 // Exp rules related conflicts
+%right ASSIGN
 %left  OR //check if needs to be rigt assoc
 %left AND //check if needs to be rigt assoc
 %nonassoc RELOP
@@ -38,8 +41,9 @@ int precondCnt = 0;
 
 Program : M Funcs
 {
-    cout << "close global scope" << endl;
-    closeScope(); //closes global scope
+    //cout << "close global scope" << endl;
+    //check that main is okay
+    closeScope(); 
 }
 ;
 
@@ -47,53 +51,53 @@ M : %empty
 {
 	endScope();
 	openGlobalScope();
+
+	// push print to global scope stack
+	pushFunctionDeclarationWithoutOpenScope("VOID", "print");
+
+	// push printi to global scope stack
+	pushFunctionDeclarationWithoutOpenScope("VOID", "printi");
 }
 ;
 
 LBrace: %empty
 {
-		
+
 	openScope();
 }
 ;
 
 RBrace: %empty
 {
-	cout << "closes local scope" << endl;
 	closeScope();
 }
 ;
 
-Funcs : %empty | FuncDecl Funcs
+Funcs : %empty | FuncDecl Funcs //DONE! no need to change
 ;
 
-FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions
-{
-	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
-	string name = id->name;
-    printPreconditions(name, precondCnt);
-} LBRACE
+FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE
 {
 	//TODO: check if id free
-	
+
 	string retType = $1->type;
 	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($4);
-	if (!formals) cout << "formals is null" << endl;
+	//if (!formals) cout << "formals is null" << endl;
 	vector<pair<string, string> > args = formals->types_names;
 
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
 	$$ = new FuncInfo(name,retType,args);
-	
-	pushFunctionDeclarationToStack(retType, name, args);
-	//closeScope();
-} RBRACE RBrace // todo add statements
+	printPreconditions(name, precondCnt);
+	pushFunctionDeclarationToStackAndOpenScope(retType, name, args);
+
+} Statements RBRACE RBrace
 ;
 
-RetType : Type {$$ = $1;} | VOID {$$ = new Type("VOID");}
+RetType : Type {$$ = $1; returnType = $1->type;} | VOID {$$ = new Type("VOID"); returnType = "VOID";}
 ;
 
-Formals : %empty 
+Formals : %empty
 {
 	$$ = new MultiNameMultiTypeInfo();
 }
@@ -103,17 +107,18 @@ Formals : %empty
 
 	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($1);
 
-	/* for debugging
+	/*for debugging
 	vector<pair<string, string> > v = formals->types_names;
 	for (int i=0; i<v.size(); ++i)
 	{
 		cout << v[i].first << " " <<v[i].second << endl;
 	}
 	*/
+	
 }
 ;
 
-FormalsList : FormalDecl 
+FormalsList : FormalDecl
 {
 	NameTypeInfo* formalDec = dynamic_cast<NameTypeInfo*>($1);
 	vector<pair<string,string> > v;
@@ -140,7 +145,7 @@ FormalDecl : Type ID
 PreConditions : %empty
 {
 	precondCnt = 0;
-} 
+}
 | PreConditions PreCondition
 {
 	precondCnt++;
@@ -152,55 +157,102 @@ PreCondition : PRECOND LPAREN Exp RPAREN
 	if ($3->type!="BOOL") { // todo add function call
 	    //errorMismatch(yylineno); exit(0);
 	}
+	$$ = $3;
 }
 ;
 
-Statements : Statement | Statements Statement
+Statements : Statement | Statements Statement //DONE! no need to change
 ;
 
-Statement : LBRACE LBrace Statements RBRACE RBrace 
+Statement : LBRACE LBrace Statements RBRACE RBrace
 | Type ID SC
 {
 	//check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
-	//checkExpressionType($1->type,$2->type,yylineno);
 	pushIdentifierToStack($1->type,id->name);
-} 
-| Type ID ASSIGN Exp SC 
+}
+| Type ID ASSIGN Exp SC
 {
 	//check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
-	//checkExpressionType($1->type,$2->type,yylineno);
 	//checkExpressionType($1->type,$4->type,yylineno);
 	pushIdentifierToStack($1->type,id->name);
 }
-| ID ASSIGN Exp SC 
+| ID ASSIGN Exp SC
 {
 	//check if id is free
+	//check for semantic errors, no need to push to stack
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
 	//checkExpressionType($1->type,$3->type,yylineno);
-	pushIdentifierToStack($1->type,id->name);
+	
 }
-| Call SC | RETURN SC | RETURN Exp SC  | WHILE LPAREN Exp RPAREN Statement | BREAK SC | CONTINUE SC | SelectionStatement
+| Call SC 
+| RETURN SC 
+{
+	if (returnType!="VOID") 
+	{
+		errorMismatch(yylineno);
+		exit(0);
+	}
+}
+| RETURN Exp SC 
+{
+	if (returnType!="INT" || $2->type != "BYTE" || returnType!=$2->type)
+	{
+		errorMismatch(yylineno);
+		exit(0);		
+	}
+}
+| WHILE {whileLoopCnt++;} LPAREN Exp RPAREN Statement 
+{
+	whileLoopCnt--;
+	if ($3->type!="BOOL")
+	{
+		errorMismatch(yylineno);
+		exit(0);		
+	}
+}
+| BREAK SC 
+{
+	if (whileLoopCnt == 0)
+	{
+		errorUnexpectedContinue(yylineno);
+		exit(0);
+	}
+}
+| CONTINUE SC 
+{
+	if (whileLoopCnt == 0)
+	{
+		errorUnexpectedContinue(yylineno);
+		exit(0);
+	}
+}
+| SelectionStatement
 ;
 
-SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE | IF LPAREN Exp RPAREN Statement ELSE Statement
-
+SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE 
+{
+	
+}
+| IF LPAREN Exp RPAREN Statement ELSE Statement
+{
+	//checkExpressionType($3->type,"BOOL",yylineno);	
+}
 ;
 
 Call : ID LPAREN ExpList RPAREN
 {
 	//check if id is undefined
-	$$ = $1;
 
-} 
+}
 | ID LPAREN RPAREN
 {
 	//check if id is undefined
 }
 ;
 
-ExpList : Exp 
+ExpList : Exp
 {
 	$$ = new NameMultiTypeInfo($1->type);
 }
@@ -220,69 +272,72 @@ Type : INT {$$ = new Type("INT");} | BYTE {$$ = new Type("BYTE");} | BOOL {$$ = 
 Exp : LPAREN Exp RPAREN
 {
 	$$ = $2;
-} 
-| Exp BINOP Exp 
+}
+| Exp BINOP Exp
 {
 	//if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
 	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	if ($1->type == "INT") $$ = new Type("INT");
-	else $$ = new Type("BYTE");
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	string binOp = id->name;
+	if (binOp == ">" || binOp == "<" || binOp == "==" || binOp == "!=")
+	{
+		$$ = new Type("BOOL");
+	}
+	else {
+		if ($1->type == "INT") $$ = new Type("INT");
+		else $$ = new Type("BYTE");
+	}
 }
-| ID 
+| ID
 {
 	//check if identifier was not defined before - need to look in symbol tables
-	//else, everything is okay and move to next line of code
-	//NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
-	//cout << "id " << id->name << " type " << id->type << endl;
 	$$ = $1;
 }
-| Call 
+| Call
 {
 	$$ = $1;
 }
-| NUM 
+| NUM
 {
-		//NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
-		//cout <<"num type"<< id->type << " name "<<id->name<<endl;
 	$$ = $1;
 }
-| NUM B 
+| NUM B
 {
 	NameTypeInfo* numId = dynamic_cast<NameTypeInfo*>($1);
 	int num = atoi(numId->name.c_str());
 	if (num > 255)
 	{
-		errorByteTooLarge(yylineno,numId->name); 
+		errorByteTooLarge(yylineno,numId->name);
 	}
-	$$ = new NameTypeInfo("BYTE", numId->name);
+	$$ = new Type("BYTE");
 }
-| STRING 
+| STRING
 {
 	$$ = new Type("STRING");
 }
-| TRUE 
+| TRUE
 {
 	$$ = new Type("BOOL");
 }
-| FALSE 
+| FALSE
 {
 	$$ = new Type("BOOL");
 }
-| NOT Exp 
+| NOT Exp
 {
-	checkExpressionType($2->type,"BOOL",yylineno);
+	//checkExpressionType($2->type,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
-| Exp AND Exp 
+| Exp AND Exp
 {
-	checkExpressionType($1->type,"BOOL",yylineno);
-	checkExpressionType($3->type,"BOOL",yylineno);
+	//checkExpressionType($1->type,"BOOL",yylineno);
+	//checkExpressionType($3->type,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
-| Exp OR Exp 
+| Exp OR Exp
 {
-	checkExpressionType($1->type,"BOOL",yylineno);
-	checkExpressionType($3->type,"BOOL",yylineno);
+	//checkExpressionType($1->type,"BOOL",yylineno);
+	//checkExpressionType($3->type,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
 | Exp RELOP Exp
@@ -297,10 +352,10 @@ Exp : LPAREN Exp RPAREN
 
 void yyerror(const char * message)
 {
-	errorSyn(1); //TODO: put real error number
+	errorSyn(yylineno); 
 }
 
 
 int main() {
-	return yyparse();
+	yyparse();
 }

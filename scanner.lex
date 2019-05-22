@@ -75,13 +75,13 @@ NO_ELSE (^((?!^else).)*$)
 {RBRACE} {return RBRACE;}
 {ASSIGN} {return ASSIGN;}
 {RELOP} {return RELOP;}
-{BINOP} {return BINOP;}
+{BINOP} {yylval = new NameTypeInfo("BINOP",yytext); return BINOP;}
 {ID} {yylval = new NameTypeInfo("ID",yytext); return ID;}
 {NUM} {yylval = new NameTypeInfo("INT",yytext); return NUM;}
 {STRING} {return STRING;}
-{COMMENT}													{}
-{WHITESPACE}												{}
-. 														{errorLex(yylineno);};
+{COMMENT} {}
+{WHITESPACE} {}
+. {errorLex(yylineno);};
 
 
 %%

@@ -39,7 +39,7 @@
 			</Target>
 			<Target title="yahani">
 				<Option output="/cygdrive/c/compi-hw3/cmake-build-debug/yahani.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir=""/>
+				<Option working_dir="/cygdrive/c/compi-hw3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -62,7 +62,7 @@
 			</Target>
 			<Target title="yahani/fast">
 				<Option output="/cygdrive/c/compi-hw3/cmake-build-debug/yahani.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir=""/>
+				<Option working_dir="/cygdrive/c/compi-hw3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -109,9 +109,6 @@
 			<Option target="yahani"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/compi-hw3/parser.hpp">
-			<Option target="yahani"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/compi-hw3/parser.ypp">
 			<Option target="yahani"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/compi-hw3/source.hpp">

@@ -1,0 +1,1 @@
+/usr/bin/c++.exe  -O0 -g  -Wl,--enable-auto-import CMakeFiles/yahani.dir/parser.tab.cpp.o CMakeFiles/yahani.dir/lexer.cpp.o CMakeFiles/yahani.dir/parser.cpp.o CMakeFiles/yahani.dir/output.cpp.o  -o yahani.exe -Wl,--out-implib,libyahani.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -4,9 +4,10 @@
 #include "source.hpp"
 #include "output.hpp"
 
-static int i = 0;
 
 using namespace output;
+
+const string not_found = "NOT FOUND";
 
 // Global Variables:
 stack<SymbolTable *> *tables_stack = new stack<SymbolTable *>();
@@ -15,7 +16,6 @@ stack<int> *offsets_stack = new stack<int>();
 
 void Parser::openGlobalScope() {
     // create symbol table for global scope
-    cout << "global scope opended" << endl;
     SymbolTable *table = new SymbolTable();
     tables_stack->push(table);
     offsets_stack->push(0);
@@ -24,7 +24,6 @@ void Parser::openGlobalScope() {
 
 void Parser::openScope() {
     // create symbol table for new scope
-
     SymbolTable *table = new SymbolTable();
     tables_stack->push(table);
     offsets_stack->push(offsets_stack->top());
@@ -32,17 +31,17 @@ void Parser::openScope() {
 
 void Parser::closeScope() {
     // get symbol table of current scope
-//    SymbolTable* current = tables_stack->top();
     SymbolTable* current = tables_stack->top();
     vector<SymbolTableEntry*> entries = *current;
+
     // print content of scope
     for (int i = 0; i < entries.size(); ++i) {
         SymbolTableEntry *entry = entries[i];
         if (entry) {
-            if (!entry->isFunc) { //identifier entry
+            if (!entry->isFunc) { // identifier entry
                 printID(entry->name, entry->offset, entry->type);
             }
-            else { // function
+            else { // function entry
                 vector<string> types;
                 vector<pair<string, string> > args = entry->args;
                 for (int i=0; i<args.size(); ++i)
@@ -58,7 +57,8 @@ void Parser::closeScope() {
     offsets_stack->pop();
     tables_stack->pop();
 
-    endScope(); //print ---end scope---
+    //print ---end scope---
+    endScope();
 }
 
 void Parser::pushIdentifierToStack(string type, string name) {
@@ -73,24 +73,29 @@ void Parser::pushIdentifierToStack(string type, string name) {
     //update offset
     offsets_stack->pop();
     offsets_stack->push(offset + 1);
-
 }
 
-void Parser::pushFunctionDeclarationToStack(string retType, string name, vector<pair<string, string> > args) {
+void Parser::pushFunctionDeclarationWithoutOpenScope(string retType, string name)
+{
+    SymbolTable *current = tables_stack->top();
+    SymbolTableEntry *e = new SymbolTableEntry(retType, name, vector<pair<string, string> >());
+    current->push_back(e);
+}
+
+void Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args) {
     //TODO: check if identifier is free
 
     // push function declaration entry to global scope
     SymbolTable *current = tables_stack->top();
     SymbolTableEntry *e = new SymbolTableEntry(retType, name, args);
-
     current->push_back(e);
 
-    // make new symbol table for function arguments
-    // todo check case of num of arg. == 0
-    int offset = -1;
-    cout << "local function scope opened" << endl;
+    // make new symbol table (scope) for function arguments
     SymbolTable *argsSymTable = new SymbolTable();
     tables_stack->push(argsSymTable);
+    offsets_stack->push(0);
+
+    int offset = -1;
 
     // push each argument to symbol table
     for (int i = 0; i < args.size(); ++i) {
@@ -108,3 +113,21 @@ void Parser::checkExpressionType(string exp, string type, int line) {
     exit(0);
 }
 
+string Parser::getIdType(string id)
+{
+    // get symbol table of current scope
+    SymbolTable* current = tables_stack->top();
+    vector<SymbolTableEntry*> entries = *current;
+
+    //find id in current scope
+    for (int i=0; i<entries.size(); ++i)
+    {
+        SymbolTableEntry *entry = entries[i];
+        if (entry)
+        {
+            if (entry->name == id)
+                return entry->type;
+        }
+    }
+    return not_found;
+}
