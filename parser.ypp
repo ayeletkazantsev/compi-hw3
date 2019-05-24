@@ -197,7 +197,7 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
         exit(0);
     }
 
-	checkExpressionType($1->type,$4->type,yylineno);
+	checkExpressionType($1,getExpType($4),yylineno);
 
 	pushIdentifierToStack($1->type,id->name);
 }
@@ -214,7 +214,7 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
         exit(0);
     }
 
-	checkExpressionType($1->type,$3->type,yylineno);
+	checkExpressionType($1,getExpType($3),yylineno);
 	
 }
 | Call SC 
@@ -265,14 +265,11 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 
 SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE 
 {
-
-	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($3);
-
-	//checkExpressionType($3->type,"BOOL",yylineno);
+	//checkExpressionType($3,"BOOL",yylineno);
 }
 | IF LPAREN Exp RPAREN Statement ELSE Statement
 {
-	checkExpressionType($3->type,"BOOL",yylineno);
+	checkExpressionType($3,"BOOL",yylineno);
 }
 ;
 
@@ -351,12 +348,11 @@ Exp : LPAREN Exp RPAREN
 	    errorUndef(yylineno,name);
 	    exit(0);
 	}
-	string type = getIdType(name);
-	$$ = new Type(type);
+	$$ = $1;
 }
 | Call
 {
-	$$ = $1;
+	$$ = new Type(getExpType($1));
 }
 | NUM
 {
@@ -388,25 +384,27 @@ Exp : LPAREN Exp RPAREN
 }
 | NOT Exp
 {
-	checkExpressionType($2->type,"BOOL",yylineno);
+	checkExpressionType($2,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
 | Exp AND Exp
 {
-	checkExpressionType($1->type,"BOOL",yylineno);
-	checkExpressionType($3->type,"BOOL",yylineno);
+	checkExpressionType($1,"BOOL",yylineno);
+	checkExpressionType($3,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
 | Exp OR Exp
 {
-	checkExpressionType($1->type,"BOOL",yylineno);
-	checkExpressionType($3->type,"BOOL",yylineno);
+	checkExpressionType($1,"BOOL",yylineno);
+	checkExpressionType($3,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
 | Exp RELOP Exp
 {
- 	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+    string type_right_exp = getExpType($3);
+    string type_left_exp = getExpType($1);
+ 	if (type_right_exp!="INT" && type_right_exp!="BYTE") {errorMismatch(yylineno); exit(0);}
+	//if (type_left_exp!="INT" && type_left_exp!="BYTE") {errorMismatch(yylineno); exit(0);}
 	$$ = new Type("BOOL");
 }
 ;

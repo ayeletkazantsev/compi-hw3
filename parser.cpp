@@ -108,16 +108,16 @@ Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, 
     }
 }
 
-void Parser::checkExpressionType(string exp, string type, int line) {
-    if (exp == type) return;
+void Parser::checkExpressionType(YYSTYPE exp, string type, int line) {
+    if (getExpType(exp) == type) return;
     errorMismatch(line);
     exit(0);
 }
 
 string Parser::getIdType(string id) {
     SymbolTableEntry *e = getIdEntry(id);
-    if (e == NULL) return e->type; // id was not defined before, id is free
-    return not_found; // id was found in symbol table, id is not free
+    if (e != NULL) return e->type; // return id type from symbol table
+    return not_found; // id was not found
 }
 
 bool Parser::checkIdFree(string id) {
@@ -164,4 +164,15 @@ bool Parser::checkMainFuncLegal()
     if (e == NULL || e->type!="VOID" ||e->args.size()!=0)
         return false;
     return true;
+}
+
+string Parser::getExpType(YYSTYPE exp)
+{
+    NameTypeInfo* e = dynamic_cast<NameTypeInfo*>(exp);
+    if (e)
+    {
+        if (e->type == "ID") return getIdType(e->name);
+        return e->type;
+    }
+    return exp->type;
 }

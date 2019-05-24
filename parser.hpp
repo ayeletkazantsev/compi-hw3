@@ -20,7 +20,7 @@ namespace Parser {
 
     void pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args);
 
-    void checkExpressionType(string exp, string type, int line);
+    void checkExpressionType(YYSTYPE exp, string type, int line);
 
     int getIdIndex(vector<SymbolTableEntry *> entries, string id);
 
@@ -31,6 +31,8 @@ namespace Parser {
     SymbolTableEntry* getIdEntry(string id);
 
     bool checkMainFuncLegal();
+
+    string getExpType(YYSTYPE exp);
 }
 
 #endif
