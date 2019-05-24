@@ -25,4 +25,6 @@ namespace Parser {
     bool checkIdFree(string id);
 
     string getIdType(string id);
+
+    SymbolTableEntry* getIdEntry(string id)
 }

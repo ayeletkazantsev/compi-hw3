@@ -121,42 +121,16 @@ void Parser::checkExpressionType(string exp, string type, int line) {
 
 string Parser::getIdType(string id)
 {
-    stack<SymbolTable*> tmp_tables_stack(*tables_stack);
-
-    // go through all symbol tables in tmp stack
-    while (!tmp_tables_stack.empty()) {
-
-        // get symbol table of top scope
-        SymbolTable *symTable = tmp_tables_stack.top();
-        vector<SymbolTableEntry *> entries = *symTable;
-        int idx = getIdIndex(entries,id);
-        if (idx!=-1)
-        {
-            return entries[idx]->type;
-        }
-        tmp_tables_stack.pop();
-    }
-    return not_found;
+    SymbolTableEntry* e= getIdEntry(id);
+    if (e == NULL) return e->type; // id was not defined before, id is free
+    return not_found; // id was found in symbol table, id is not free
 }
 
 bool Parser::checkIdFree(string id)
 {
-    stack<SymbolTable*> tmp_tables_stack(*tables_stack);
-
-    // go through all symbol tables in tmp stack
-    while (!tmp_tables_stack.empty()) {
-
-        // get symbol table of top scope
-        SymbolTable *symTable = tmp_tables_stack.top();
-        vector<SymbolTableEntry *> entries = *symTable;
-        int idx = getIdIndex(entries,id);
-        if (idx!=-1)
-        {
-            return false; // found in symbol table, id was defined before - not free
-        }
-        tmp_tables_stack.pop();
-    }
-    return true; // id was not defined before, id is free
+    SymbolTableEntry* e= getIdEntry(id);
+    if (e == NULL) return true; // id was not defined before, id is free
+    return false; // id was found in symbol table, id is not free
 }
 
 int Parser::getIdIndex(vector<SymbolTableEntry *> entries, string id)
@@ -170,4 +144,25 @@ int Parser::getIdIndex(vector<SymbolTableEntry *> entries, string id)
         }
     }
     return -1;
+}
+
+
+SymbolTableEntry* Parser::getIdEntry(string id)
+{
+    stack<SymbolTable*> tmp_tables_stack(*tables_stack);
+
+    // go through all symbol tables in tmp stack
+    while (!tmp_tables_stack.empty()) {
+
+        // get symbol table of top scope
+        SymbolTable *symTable = tmp_tables_stack.top();
+        vector<SymbolTableEntry *> entries = *symTable;
+        int idx = getIdIndex(entries,id);
+        if (idx!=-1)
+        {
+            return entries[idx]; // found in symbol table
+        }
+        tmp_tables_stack.pop();
+    }
+    return NULL; // id was not defined before
 }
