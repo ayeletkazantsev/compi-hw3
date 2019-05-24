@@ -18,7 +18,7 @@ void yyerror(char const * message);
 
 int precondCnt = 0;
 int whileLoopCnt = 0;
-string returnType;
+string currentReturnType;
 
 %}
 
@@ -41,7 +41,11 @@ string returnType;
 
 Program : M Funcs
 {
-    //todo: check that main is legal
+    if (!checkMainFuncLegal())
+    {
+        errorMainMissing();
+        exit(0);
+    }
     closeScope(); 
 }
 ;
@@ -77,15 +81,20 @@ Funcs : %empty | FuncDecl Funcs //DONE! no need to change
 
 FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE
 {
-	//TODO: check if id free
+	// check if id is free
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+    string name = id->name;
+	if (!checkIdFree(name))
+	{
+	    errorDef(yylineno,name);
+	    exit(0);
+	}
 
 	// get parameters from input
 	string retType = $1->type;
 	MultiNameMultiTypeInfo* formals = dynamic_cast<MultiNameMultiTypeInfo*>($4);
 	vector<pair<string, string> > args = formals->types_names;
 
-	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
-	string name = id->name;
 	$$ = new FuncInfo(name,retType,args);
 
 	// push function to global scope symbol table and open new scope for arguments
@@ -99,7 +108,7 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE
 }
 ;
 
-RetType : Type {$$ = $1; returnType = $1->type;} | VOID {$$ = new Type("VOID"); returnType = "VOID";}
+RetType : Type {$$ = $1; currentReturnType = $1->type;} | VOID {$$ = new Type("VOID"); currentReturnType = "VOID";}
 ;
 
 Formals : %empty
@@ -134,7 +143,6 @@ FormalsList : FormalDecl
 FormalDecl : Type ID
 {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
-
 	$$ = new NameTypeInfo($1->type, id->name);
 }
 ;
@@ -164,29 +172,43 @@ Statements : Statement | Statements Statement //DONE! no need to change
 Statement : LBRACE LBrace Statements RBRACE RBrace
 | Type ID SC
 {
-	//todo: check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+
+
+
 	pushIdentifierToStack($1->type,id->name);
 }
 | Type ID ASSIGN Exp SC
 {
-	//todo: check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+    // check id is free
+    if (!checkIdFree(name))
+    {
+        errorDef(yylineno,name);
+        exit(0);
+    }
 	//todo: checkExpressionType($1->type,$4->type,yylineno);
 	pushIdentifierToStack($1->type,id->name);
 }
 | ID ASSIGN Exp SC
 {
-	//todo: check if id is free
 	//todo: check for semantic errors, no need to push to stack
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
+
+    // check id is free
+    if (!checkIdFree(name))
+    {
+        errorDef(yylineno,name);
+        exit(0);
+    }
+
 	//checkExpressionType($1->type,$3->type,yylineno);
 	
 }
 | Call SC 
 | RETURN SC 
 {
-	if (returnType!="VOID") 
+	if (currentReturnType!="VOID")
 	{
 		errorMismatch(yylineno);
 		exit(0);
@@ -194,7 +216,7 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 }
 | RETURN Exp SC 
 {
-	if (returnType!="INT" || $2->type != "BYTE" || returnType!=$2->type)
+	if (currentReturnType!="INT" || currentReturnType != "BYTE" || currentReturnType!=$2->type)
 	{
 		errorMismatch(yylineno);
 		exit(0);		
@@ -213,7 +235,7 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 {
 	if (whileLoopCnt == 0)
 	{
-		errorUnexpectedContinue(yylineno);
+		errorUnexpectedBreak(yylineno);
 		exit(0);
 	}
 }
@@ -230,23 +252,33 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 
 SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE 
 {
-	//todo
+	//checkExpressionType($3->type,"BOOL",yylineno);
 }
 | IF LPAREN Exp RPAREN Statement ELSE Statement
 {
 	//checkExpressionType($3->type,"BOOL",yylineno);
-	//todo
 }
 ;
 
 Call : ID LPAREN ExpList RPAREN
 {
-	//todo: check if id is undefined
-
+	// check if id is undefined
+    if (errorUndefFunc(name))
+    {
+        errorDef(yylineno,name);
+        exit(0);
+    }
+    //todo: check prototype
 }
 | ID LPAREN RPAREN
 {
-	//todo: check if id is undefined
+	// check if id is undefined
+    if (errorUndefFunc(name))
+    {
+        errorDef(yylineno,name);
+        exit(0);
+    }
+    //todo: check prototype
 }
 ;
 
@@ -296,8 +328,8 @@ Exp : LPAREN Exp RPAREN
 	    errorUndef(yylineno,id->name);
 	    exit(0);
 	}
-	string type = getIdType(id); //todo: check if this is a good idea
-	$$ = new Type(type);
+	string type = getIdType(id);
+	$$ = new Type(type); //todo: check if this is a good idea
 }
 | Call
 {

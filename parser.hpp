@@ -26,5 +26,7 @@ namespace Parser {
 
     string getIdType(string id);
 
-    SymbolTableEntry* getIdEntry(string id)
+    SymbolTableEntry* getIdEntry(string id);
+
+    bool checkMainFuncLegal();
 }
