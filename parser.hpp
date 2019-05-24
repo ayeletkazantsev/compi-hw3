@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include "source.hpp"
 
 namespace Parser {
     using namespace std;
@@ -18,6 +19,10 @@ namespace Parser {
     void pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args);
 
     void checkExpressionType(string exp, string type, int line);
+
+    int getIdIndex(vector<SymbolTableEntry *> entries, string id);
+
+    bool checkIdFree(string id);
 
     string getIdType(string id);
 }

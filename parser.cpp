@@ -121,19 +121,53 @@ void Parser::checkExpressionType(string exp, string type, int line) {
 
 string Parser::getIdType(string id)
 {
-    // get symbol table of current scope
-    SymbolTable* current = tables_stack->top();
-    vector<SymbolTableEntry*> entries = *current;
+    stack<SymbolTable*> tmp_tables_stack(*tables_stack);
 
-    //find id in current scope
-    for (int i=0; i<entries.size(); ++i)
-    {
-        SymbolTableEntry *entry = entries[i];
-        if (entry)
+    // go through all symbol tables in tmp stack
+    while (!tmp_tables_stack.empty()) {
+
+        // get symbol table of top scope
+        SymbolTable *symTable = tmp_tables_stack.top();
+        vector<SymbolTableEntry *> entries = *symTable;
+        int idx = getIdIndex(entries,id);
+        if (idx!=-1)
         {
-            if (entry->name == id)
-                return entry->type;
+            return entries[idx]->type;
         }
+        tmp_tables_stack.pop();
     }
     return not_found;
+}
+
+bool Parser::checkIdFree(string id)
+{
+    stack<SymbolTable*> tmp_tables_stack(*tables_stack);
+
+    // go through all symbol tables in tmp stack
+    while (!tmp_tables_stack.empty()) {
+
+        // get symbol table of top scope
+        SymbolTable *symTable = tmp_tables_stack.top();
+        vector<SymbolTableEntry *> entries = *symTable;
+        int idx = getIdIndex(entries,id);
+        if (idx!=-1)
+        {
+            return false; // found in symbol table, id was defined before - not free
+        }
+        tmp_tables_stack.pop();
+    }
+    return true; // id was not defined before, id is free
+}
+
+int Parser::getIdIndex(vector<SymbolTableEntry *> entries, string id)
+{
+    //find id in scope
+    for (int i = 0; i < entries.size(); ++i) {
+        SymbolTableEntry *entry = entries[i];
+        if (entry) {
+            if (entry->name == id)
+                return i;
+        }
+    }
+    return -1;
 }

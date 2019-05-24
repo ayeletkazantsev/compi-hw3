@@ -230,11 +230,12 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 
 SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE 
 {
-	
+	//todo
 }
 | IF LPAREN Exp RPAREN Statement ELSE Statement
 {
-	//checkExpressionType($3->type,"BOOL",yylineno);	
+	//checkExpressionType($3->type,"BOOL",yylineno);
+	//todo
 }
 ;
 
@@ -289,8 +290,14 @@ Exp : LPAREN Exp RPAREN
 }
 | ID
 {
-	//todo: check if identifier was not defined before - need to look in symbol tables
-	$$ = $1;
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
+	if (checkIdFree(id->name))
+	{
+	    errorUndef(yylineno,id->name);
+	    exit(0);
+	}
+	string type = getIdType(id); //todo: check if this is a good idea
+	$$ = new Type(type);
 }
 | Call
 {
