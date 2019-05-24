@@ -79,11 +79,12 @@ RBrace: %empty
 Funcs : %empty | FuncDecl Funcs //DONE! no need to change
 ;
 
-FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE
+FuncDecl : RetType ID LPAREN Formals RPAREN
 {
 	// check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
     string name = id->name;
+
 	if (!checkIdFree(name))
 	{
 	    errorDef(yylineno,name);
@@ -100,7 +101,7 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions LBRACE
 	// push function to global scope symbol table and open new scope for arguments
 	pushFunctionDeclarationToStackAndOpenScope(retType, name, args);
 
-} Statements RBRACE {
+} PreConditions LBRACE Statements RBRACE {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
 
@@ -159,8 +160,8 @@ PreConditions : %empty
 
 PreCondition : PRECOND LPAREN Exp RPAREN
 {
-	if ($3->type!="BOOL") { // todo add function call
-	    //errorMismatch(yylineno); exit(0);
+	if ($3->type!="BOOL") {
+	    errorMismatch(yylineno); exit(0);
 	}
 	$$ = $3;
 }
@@ -173,8 +174,14 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 | Type ID SC
 {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+    string name = id->name;
 
-
+    // check id is free
+    if (!checkIdFree(name))
+    {
+        errorDef(yylineno,name);
+        exit(0);
+    }
 
 	pushIdentifierToStack($1->type,id->name);
 }
@@ -189,7 +196,9 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
         errorDef(yylineno,name);
         exit(0);
     }
-	//todo: checkExpressionType($1->type,$4->type,yylineno);
+
+	checkExpressionType($1->type,$4->type,yylineno);
+
 	pushIdentifierToStack($1->type,id->name);
 }
 | ID ASSIGN Exp SC
@@ -205,7 +214,7 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
         exit(0);
     }
 
-	//checkExpressionType($1->type,$3->type,yylineno);
+	checkExpressionType($1->type,$3->type,yylineno);
 	
 }
 | Call SC 
@@ -219,7 +228,8 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 }
 | RETURN Exp SC 
 {
-	if (currentReturnType!="INT" || currentReturnType != "BYTE" || currentReturnType!=$2->type)
+
+	if (currentReturnType!="INT" && currentReturnType != "BYTE" && currentReturnType != "BOOL" && currentReturnType!=$2->type)
 	{
 		errorMismatch(yylineno);
 		exit(0);		
@@ -255,11 +265,14 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 
 SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE 
 {
+
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($3);
+
 	//checkExpressionType($3->type,"BOOL",yylineno);
 }
 | IF LPAREN Exp RPAREN Statement ELSE Statement
 {
-	//checkExpressionType($3->type,"BOOL",yylineno);
+	checkExpressionType($3->type,"BOOL",yylineno);
 }
 ;
 
@@ -267,6 +280,7 @@ Call : ID LPAREN ExpList RPAREN
 {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
     string name = id->name;
+
 	// check if id is undefined
     if (checkIdFree(name))
     {
@@ -314,8 +328,8 @@ Exp : LPAREN Exp RPAREN
 }
 | Exp BINOP Exp
 {
-	//if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string binOp = id->name;
 
@@ -338,7 +352,7 @@ Exp : LPAREN Exp RPAREN
 	    exit(0);
 	}
 	string type = getIdType(name);
-	$$ = new Type(type); //todo: check if this is a good idea
+	$$ = new Type(type);
 }
 | Call
 {
@@ -374,25 +388,25 @@ Exp : LPAREN Exp RPAREN
 }
 | NOT Exp
 {
-	//checkExpressionType($2->type,"BOOL",yylineno);
+	checkExpressionType($2->type,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
 | Exp AND Exp
 {
-	//checkExpressionType($1->type,"BOOL",yylineno);
-	//checkExpressionType($3->type,"BOOL",yylineno);
+	checkExpressionType($1->type,"BOOL",yylineno);
+	checkExpressionType($3->type,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
 | Exp OR Exp
 {
-	//checkExpressionType($1->type,"BOOL",yylineno);
-	//checkExpressionType($3->type,"BOOL",yylineno);
+	checkExpressionType($1->type,"BOOL",yylineno);
+	checkExpressionType($3->type,"BOOL",yylineno);
 	$$ = new Type("BOOL");
 }
 | Exp RELOP Exp
 {
- 	//if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	//if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+ 	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
 	$$ = new Type("BOOL");
 }
 ;
