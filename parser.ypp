@@ -52,7 +52,6 @@ Program : M Funcs
 
 M : %empty
 {
-	endScope();
 	openGlobalScope();
 
 	// push print to global scope stack
@@ -197,7 +196,20 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
         exit(0);
     }
 
-	checkExpressionType($1,getExpType($4),yylineno);
+
+	  //check expressions types
+    string type_id = getExpType($1);
+    string type_exp = getExpType($3);
+    // todo: fix this condition, doesn't work
+    if (type_id != type_exp)
+    {
+        if (type_id == "INT" && type_exp!="BYTE")
+        {
+           errorMismatch(yylineno);
+            exit(0);
+        }
+
+    }
 
 	pushIdentifierToStack($1->type,id->name);
 }
@@ -208,13 +220,24 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
     string name = id->name;
 
     // check id is free
-    if (!checkIdFree(name))
+    if (checkIdFree(name))
     {
         errorDef(yylineno,name);
         exit(0);
     }
 
-	checkExpressionType($1,getExpType($3),yylineno);
+    //check expressions types
+	string type_id = getExpType($1);
+    string type_exp = getExpType($3);
+
+    if (type_id != type_exp)
+    {
+        if (type_id == "INT" && type_exp!="BYTE")
+        {
+            errorMismatch(yylineno);
+            exit(0);
+        }
+    }
 	
 }
 | Call SC 
@@ -263,7 +286,7 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 | SelectionStatement
 ;
 
-SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE 
+SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE
 {
 	//checkExpressionType($3,"BOOL",yylineno);
 }
@@ -330,14 +353,15 @@ Exp : LPAREN Exp RPAREN
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string binOp = id->name;
 
+    /*
 	if (binOp == ">" || binOp == "<" || binOp == "==" || binOp == "!=")
 	{
 		$$ = new Type("BOOL");
 	}
-	else {
+	else { */
 		if ($1->type == "INT") $$ = new Type("INT");
 		else $$ = new Type("BYTE");
-	}
+	//}
 }
 | ID
 {
@@ -404,7 +428,7 @@ Exp : LPAREN Exp RPAREN
     string type_right_exp = getExpType($3);
     string type_left_exp = getExpType($1);
  	if (type_right_exp!="INT" && type_right_exp!="BYTE") {errorMismatch(yylineno); exit(0);}
-	//if (type_left_exp!="INT" && type_left_exp!="BYTE") {errorMismatch(yylineno); exit(0);}
+	if (type_left_exp!="INT" && type_left_exp!="BYTE") {errorMismatch(yylineno); exit(0);}
 	$$ = new Type("BOOL");
 }
 ;
