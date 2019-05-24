@@ -1,3 +1,5 @@
+#ifndef _PARSER_HPP
+#define _PARSER_HPP
 #include <string>
 #include <vector>
 #include <utility>
@@ -30,3 +32,5 @@ namespace Parser {
 
     bool checkMainFuncLegal();
 }
+
+#endif

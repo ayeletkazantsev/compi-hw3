@@ -1,3 +1,5 @@
+#ifndef _SOURCE_HPP
+#define _SOURCE_HPP
 #include <vector>
 #include <string>
 #include <string.h>
@@ -80,3 +82,5 @@ struct SymbolTableEntry {
 
 
 typedef vector<SymbolTableEntry*> SymbolTable;
+
+#endif

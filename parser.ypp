@@ -181,6 +181,8 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 | Type ID ASSIGN Exp SC
 {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+	string name = id->name;
+
     // check id is free
     if (!checkIdFree(name))
     {
@@ -194,6 +196,7 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 {
 	//todo: check for semantic errors, no need to push to stack
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
+    string name = id->name;
 
     // check id is free
     if (!checkIdFree(name))
@@ -262,20 +265,25 @@ SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE
 
 Call : ID LPAREN ExpList RPAREN
 {
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
+    string name = id->name;
 	// check if id is undefined
-    if (errorUndefFunc(name))
+    if (checkIdFree(name))
     {
-        errorDef(yylineno,name);
+        errorUndefFunc(yylineno,name);
         exit(0);
     }
     //todo: check prototype
 }
 | ID LPAREN RPAREN
 {
+	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
+    string name = id->name;
+
 	// check if id is undefined
-    if (errorUndefFunc(name))
+    if (checkIdFree(name))
     {
-        errorDef(yylineno,name);
+        errorUndefFunc(yylineno,name);
         exit(0);
     }
     //todo: check prototype
@@ -323,12 +331,13 @@ Exp : LPAREN Exp RPAREN
 | ID
 {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($1);
-	if (checkIdFree(id->name))
+	string name = id->name;
+	if (checkIdFree(name))
 	{
-	    errorUndef(yylineno,id->name);
+	    errorUndef(yylineno,name);
 	    exit(0);
 	}
-	string type = getIdType(id);
+	string type = getIdType(name);
 	$$ = new Type(type); //todo: check if this is a good idea
 }
 | Call

@@ -65,7 +65,6 @@ void Parser::closeScope(bool printPrecond, string nameFunc, int precondCnt) {
 }
 
 void Parser::pushIdentifierToStack(string type, string name) {
-    //TODO: check if identifier is free
 
     //push identifier to current symbol table
     SymbolTable *current = tables_stack->top();
@@ -86,7 +85,6 @@ void Parser::pushFunctionDeclarationWithoutOpenScope(string retType, string name
 
 void
 Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, vector<pair<string, string> > args) {
-    //TODO: check if identifier is free
 
     // push function declaration entry to global scope
     SymbolTable *current = tables_stack->top();
