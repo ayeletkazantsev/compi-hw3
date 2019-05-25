@@ -20,6 +20,8 @@ int precondCnt = 0;
 int whileLoopCnt = 0;
 string currentReturnType;
 
+bool isDevStage = false; // todo: change to false to turn off debugging cout's
+
 %}
 
 
@@ -46,12 +48,22 @@ Program : M Funcs
         errorMainMissing();
         exit(0);
     }
-    closeScope(); 
+
+    // end of global scope
+    if (isDevStage) {
+       cout << "DEBUG: end of global scope" << endl;
+    }
+    endScope();
+    closeScope(); // pop symbol & offset tables
 }
 ;
 
 M : %empty
 {
+    // start of global scope
+    if (isDevStage) {
+        cout << "DEBUG: start of global scope" << endl;
+    }
 	openGlobalScope();
 
 	// push print to global scope stack
@@ -59,19 +71,6 @@ M : %empty
 
 	// push printi to global scope stack
 	pushFunctionDeclarationWithoutOpenScope("VOID", "printi");
-}
-;
-
-LBrace: %empty
-{
-
-	openScope();
-}
-;
-
-RBrace: %empty
-{
-	closeScope();
 }
 ;
 
@@ -104,7 +103,14 @@ FuncDecl : RetType ID LPAREN Formals RPAREN
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
 
-	closeScope(true,name,precondCnt);
+    // end of function scope starts here
+    if (isDevStage) {
+        cout << "DEBUG: end of function scope: " << name << endl;
+    }
+
+    endScope(); // print "end scope" message
+    printPreconditions(name, precondCnt); // print num of precondition
+	closeScope(); // pop symbol & offset tables
 }
 ;
 
@@ -169,7 +175,20 @@ PreCondition : PRECOND LPAREN Exp RPAREN
 Statements : Statement | Statements Statement //DONE! no need to change
 ;
 
-Statement : LBRACE LBrace Statements RBRACE RBrace
+Statement : LBRACE {
+    // start of block scope
+    if (isDevStage) {
+        cout << "DEBUG: start of block scope" << endl;
+    }
+    openScope();
+} Statements {
+    // end of block scope
+    if (isDevStage) {
+        cout << "DEBUG: end of block scope" << endl;
+    }
+    endScope(); // print "end scope" message
+    closeScope();
+} RBRACE
 | Type ID SC
 {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
@@ -199,8 +218,9 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 
 	  //check expressions types
     string type_id = getExpType($1);
-    string type_exp = getExpType($3);
-    // todo: fix this condition, doesn't work
+
+    string type_exp = getExpType($4);    // todo: fix this condition, doesn't work
+
     if (type_id != type_exp)
     {
         if (type_id == "INT" && type_exp!="BYTE")
@@ -283,17 +303,32 @@ Statement : LBRACE LBrace Statements RBRACE RBrace
 		exit(0);
 	}
 }
-| SelectionStatement
+| {
+    if (isDevStage) {
+        cout << "DEBUG: start of if scope" << endl;
+    }
+} SelectionStatement
 ;
 
-SelectionStatement: IF LPAREN Exp RPAREN Statement %prec NO_ELSE
+SelectionStatement: IF LPAREN Exp RPAREN Statement
 {
-	//checkExpressionType($3,"BOOL",yylineno);
-}
-| IF LPAREN Exp RPAREN Statement ELSE Statement
-{
-	checkExpressionType($3,"BOOL",yylineno);
-}
+
+    if (isDevStage) {
+        cout << "DEBUG: end of if scope" << endl;
+    }
+
+    endScope(); // print "end scope" message
+    checkExpressionType($3,"BOOL",yylineno);
+} ELSE Statement
+| IF LPAREN Exp RPAREN Statement %prec NO_ELSE
+  {
+      if (isDevStage) {
+          cout << "DEBUG: end of if scope" << endl;
+      }
+
+       endScope(); // print "end scope" message
+  	//checkExpressionType($3,"BOOL",yylineno);
+  }
 ;
 
 Call : ID LPAREN ExpList RPAREN
@@ -437,7 +472,7 @@ Exp : LPAREN Exp RPAREN
 
 void yyerror(const char * message)
 {
-	errorSyn(yylineno); 
+	errorSyn(yylineno);
 }
 
 

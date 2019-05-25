@@ -46,7 +46,7 @@ NUM (0|[1-9][0-9]*)
 STRING (\"([^\n\r\"\\]|\\[rnt"\\])+\")
 COMMENT (\/\/[^\r\n]*[\r|\n|\r\n]?)
 WHITESPACE ([\n\t\f\r\v ])
-NO_ELSE (^((?!^else).)*$)
+NO_ELSE (^((?!^[\n\t\f\r\v ]*else[\n\t\f\r\v ]*).)*$)
 
 %%
 

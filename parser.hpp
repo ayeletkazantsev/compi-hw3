@@ -12,7 +12,7 @@ namespace Parser {
 
     void openScope();
 
-    void closeScope(bool printPrecond = false, string nameFunc = "", int precondCnt = 0);
+    void closeScope();
 
     void pushIdentifierToStack(string type, string name);
 

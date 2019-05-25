@@ -3,7 +3,7 @@
 #include "parser.hpp"
 #include "source.hpp"
 #include "output.hpp"
-
+#include <algorithm>
 
 using namespace output;
 
@@ -29,15 +29,7 @@ void Parser::openScope() {
     offsets_stack->push(offsets_stack->top());
 }
 
-void Parser::closeScope(bool printPrecond, string nameFunc, int precondCnt) {
-    // print ---end scope---
-    endScope();
-
-    // print num of precondition if necessary
-    if (printPrecond) {
-        printPreconditions(nameFunc, precondCnt);
-    }
-
+void Parser::closeScope() {
     // get symbol table of current scope
     SymbolTable *current = tables_stack->top();
     vector<SymbolTableEntry *> entries = *current;
@@ -79,7 +71,23 @@ void Parser::pushIdentifierToStack(string type, string name) {
 
 void Parser::pushFunctionDeclarationWithoutOpenScope(string retType, string name) {
     SymbolTable *current = tables_stack->top();
-    SymbolTableEntry *e = new SymbolTableEntry(retType, name, vector<pair<string, string> >());
+    vector<pair<string, string> > types_names;
+    pair <string, string> pair;
+    if (name == "print") {
+        pair.first = "STRING"; //string isn't a part of the grammer; just "internal" type
+        pair.second = "str";
+    }
+    else if (name == "printi") {
+        pair.first = "INT";
+        pair.second = "num";
+    }
+    else {
+        // todo throw exception; shouldn't get here
+    }
+
+    types_names.push_back(pair);
+//
+    SymbolTableEntry *e = new SymbolTableEntry(retType, name, types_names);
     current->push_back(e);
 }
 
@@ -97,7 +105,7 @@ Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, 
     offsets_stack->push(0);
 
     int offset = -1;
-
+    reverse(args.begin(), args.end());
     // push each argument to symbol table
     for (int i = 0; i < args.size(); ++i) {
         string argType = args[i].first;
