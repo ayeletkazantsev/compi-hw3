@@ -36,8 +36,7 @@ bool isDevStage = false; // todo: change to false to turn off debugging cout's
 %nonassoc BINOP
 %right NOT
 
-//Shift/Reduce IF ELSE statements, Bison chooses shift by default, which is good
-%expect 1
+%nonassoc CONFLICT
 %nonassoc ELSE
 
 
@@ -101,6 +100,10 @@ FuncDecl : RetType ID LPAREN Formals RPAREN
 	// push function to global scope symbol table and open new scope for arguments
 	pushFunctionDeclarationToStackAndOpenScope(retType, name, args);
 
+    // start of function scope starts here
+    if (isDevStage) {
+            cout << "DEBUG: start of function scope: " << name << endl;
+    }
 } PreConditions LBRACE Statements RBRACE {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
@@ -309,6 +312,7 @@ Statement : LBRACE {
     if (isDevStage) {
         cout << "DEBUG: start of if scope" << endl;
     }
+    openScope();
 } SelectionStatement
 ;
 
@@ -320,17 +324,19 @@ SelectionStatement: IF LPAREN Exp RPAREN Statement
     }
 
     endScope(); // print "end scope" message
+    closeScope();
     checkExpressionType($3,"BOOL",yylineno);
-}
+} %prec CONFLICT
 | IF LPAREN Exp RPAREN Statement ELSE
-  {
+{
       if (isDevStage) {
-          cout << "DEBUG: end of if scope" << endl;
+          cout << "DEBUG: end of if scope (with ELSE)" << endl;
       }
 
        endScope(); // print "end scope" message
+       closeScope();
   	//checkExpressionType($3,"BOOL",yylineno);
-  } Statement
+} Statement
 ;
 
 Call : ID LPAREN ExpList RPAREN
@@ -385,20 +391,20 @@ Exp : LPAREN Exp RPAREN
 }
 | Exp BINOP Exp
 {
-	if ($1->type!="INT" && $1->type!="BYTE") {errorMismatch(yylineno); exit(0);}
-	if ($3->type!="INT" && $3->type!="BYTE") {errorMismatch(yylineno); exit(0);}
+	if ($3->type != $3->type) {
+	    errorMismatch(yylineno);
+	    exit(0);
+	}
+
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string binOp = id->name;
 
-    /*
-	if (binOp == ">" || binOp == "<" || binOp == "==" || binOp == "!=")
-	{
-		$$ = new Type("BOOL");
+	if ($1->type == "INT") {
+	    $$ = new Type("INT");
 	}
-	else { */
-		if ($1->type == "INT") $$ = new Type("INT");
-		else $$ = new Type("BYTE");
-	//}
+	else {
+	    $$ = new Type("BYTE");
+	}
 }
 | ID
 {
