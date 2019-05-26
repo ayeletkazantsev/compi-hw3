@@ -74,7 +74,7 @@ WHITESPACE ([\n\t\f\r\v ])
 {RBRACE} {return RBRACE;}
 {ASSIGN} {return ASSIGN;}
 {RELOP} {return RELOP;}
-{BINOP} {yylval = new NameTypeInfo("BINOP",yytext); return BINOP;}
+{BINOP} {return BINOP;}
 {ID} {yylval = new NameTypeInfo("ID",yytext); return ID;}
 {NUM} {yylval = new NameTypeInfo("INT",yytext); return NUM;}
 {STRING} {return STRING;}

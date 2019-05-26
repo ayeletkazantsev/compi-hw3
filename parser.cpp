@@ -46,6 +46,7 @@ void Parser::closeScope() {
                 for (int i = 0; i < args.size(); ++i) {
                     types.push_back(args[i].first);
                 }
+                reverse(types.begin(), types.end());
                 printID(entry->name, 0, makeFunctionType(entry->type, types));
             }
         }
@@ -104,7 +105,6 @@ Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, 
     offsets_stack->push(0);
 
     int offset = -1;
-    reverse(args.begin(), args.end());
 
     // push each argument to symbol table
     for (int i = 0; i < args.size(); ++i) {
@@ -123,19 +123,19 @@ void Parser::checkExpressionType(YYSTYPE exp, string type, int line) {
 }
 
 string Parser::getIdType(string id) {
-    SymbolTableEntry *e = getIdEntry(id);
+    SymbolTableEntry *e = getIdEntry(id, false);
     if (e != NULL) return e->type; // return id type from symbol table
     return not_found; // id was not found
 }
 
 bool Parser::checkIdFree(string id) {
-    SymbolTableEntry *e = getIdEntry(id);
+    SymbolTableEntry *e = getIdEntry(id, false);
     if (e && !e->isFunc) return false; // id was found in symbol table, id is not free
     return true; // id was not defined before or is a function, id is free
 }
 
 bool Parser::checkFuncIdFree(string id) {
-    SymbolTableEntry *e = getIdEntry(id);
+    SymbolTableEntry *e = getIdEntry(id, true);
     if (e && e->isFunc) return false; // function id was found in symbol table, id is not free
     return true; // id was not defined before or is not a function id is free
 }
@@ -173,7 +173,7 @@ SymbolTableEntry *Parser::getIdEntry(string id, bool isFunc) {
 
 bool Parser::checkMainFuncLegal()
 {
-    SymbolTableEntry* e = getIdEntry("main");
+    SymbolTableEntry* e = getIdEntry("main", true);
 
     if (e == NULL || e->type!="VOID" ||e->args.size()!=0)
         return false;
@@ -203,12 +203,38 @@ bool Parser::isValidAssigment(YYSTYPE lval,YYSTYPE rval) {
     return true;
 }
 
+bool Parser::isValidBinOp(YYSTYPE first, YYSTYPE second)
+{
+    //check expressions types
+    string type_first = getExpType(first);
+    string type_second = getExpType(second);
+    if (type_first!="INT" && type_first!="BYTE") return false;
+    if (type_second!="INT" && type_second!="BYTE") return false;
+    if (type_first != type_second)
+    {
+        // allow byte to int assignment
+        return (type_first == "INT" && type_second == "BYTE") || (type_first == "BYTE" && type_second == "INT");
+    }
+    return true;
+}
+
 bool Parser::checkProrotypeOfFunction(string funcID, vector<string> args_types)
 {
     //id was checked before entering this function, no need to check it
 
+    //handle "print" and "printi" functions
+    if (funcID == "print")
+    {
+        return args_types.size() == 1 && args_types[0] == "STRING";
+    }
+
+    if (funcID == "printi")
+    {
+        return args_types.size() == 1 && (args_types[0] == "INT"|| args_types[0] == "BYTE");
+    }
+
     //get function entry in symbol table
-    SymbolTableEntry* e = getIdEntry(funcID);
+    SymbolTableEntry* e = getIdEntry(funcID,true);
     if (e)
     {
         if (!e->isFunc) return false; //not a function - error
@@ -216,8 +242,26 @@ bool Parser::checkProrotypeOfFunction(string funcID, vector<string> args_types)
         if (declared_types.size() != args_types.size()) return false; //not enough arguments - error
         for (int i=0; i<declared_types.size(); ++i)
         {
-            if (declared_types[i].first != args_types[i]) return false; //wrong type of argument - error
+            if (declared_types[i].first != args_types[i])
+            {
+                return declared_types[i].first == "INT" && args_types[i] == "BYTE"; //allow byte to be int
+            }
         }
     }
     return true;
+}
+
+vector<string> Parser::getArgumentTypesOfFunc(string funcID)
+{
+    //get function entry in symbol table
+    SymbolTableEntry* e = getIdEntry(funcID,true);
+    vector<string> args;
+    if (e && e->isFunc)
+    {
+        vector<pair<string, string> > v=e->args; //arguments of function
+        for (int i=0; i<v.size(); ++i)
+            args.push_back(v[i].first); //add arg type to vector
+    }
+    reverse(args.begin(),args.end());
+    return args;
 }

@@ -22,7 +22,7 @@ namespace Parser {
 
     void checkExpressionType(YYSTYPE exp, string type, int line);
 
-    int getIdIndex(vector<SymbolTableEntry *> entries, string id);
+    int getIdIndex(vector<SymbolTableEntry *> entries, string id, bool isFunc);
 
     bool checkIdFree(string id);
 
@@ -30,7 +30,7 @@ namespace Parser {
 
     string getIdType(string id);
 
-    SymbolTableEntry* getIdEntry(string id);
+    SymbolTableEntry* getIdEntry(string id, bool isFunc);
 
     bool checkMainFuncLegal();
 
@@ -38,7 +38,11 @@ namespace Parser {
 
     bool isValidAssigment(YYSTYPE lval,YYSTYPE rval);
 
+    bool isValidBinOp(YYSTYPE first, YYSTYPE second);
+
     bool checkProrotypeOfFunction(string funcID, vector<string> args_types);
+
+    vector<string> getArgumentTypesOfFunc(string funcID);
 }
 
 #endif

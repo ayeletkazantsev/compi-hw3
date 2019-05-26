@@ -72,9 +72,10 @@ extern int yydebug;
     NUM = 282,
     STRING = 283,
     ASSIGN = 284,
-    NOT = 285,
-    NO_ELSE = 286,
-    ELSE = 287
+    END_OF_FILE = 285,
+    NOT = 286,
+    CONFLICT = 287,
+    ELSE = 288
   };
 #endif
 

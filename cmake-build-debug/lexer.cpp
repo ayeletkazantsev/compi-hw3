@@ -763,7 +763,7 @@ YY_DECL
 		}
 
 	{
-#line 51 "scanner.lex"
+#line 50 "scanner.lex"
 
 
 #line 769 "/cygdrive/c/compi-hw3/cmake-build-debug/lexer.cpp"
@@ -835,174 +835,176 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 53 "scanner.lex"
+#line 52 "scanner.lex"
 {return VOID;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 54 "scanner.lex"
+#line 53 "scanner.lex"
 {return INT;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 55 "scanner.lex"
+#line 54 "scanner.lex"
 {return BYTE;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 56 "scanner.lex"
+#line 55 "scanner.lex"
 {return B;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 57 "scanner.lex"
+#line 56 "scanner.lex"
 {return BOOL;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 58 "scanner.lex"
+#line 57 "scanner.lex"
 {return AND;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 59 "scanner.lex"
+#line 58 "scanner.lex"
 {return OR;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 60 "scanner.lex"
+#line 59 "scanner.lex"
 {return NOT;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 61 "scanner.lex"
+#line 60 "scanner.lex"
 {return TRUE;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 62 "scanner.lex"
+#line 61 "scanner.lex"
 {return FALSE;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 63 "scanner.lex"
+#line 62 "scanner.lex"
 {return RETURN;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 64 "scanner.lex"
+#line 63 "scanner.lex"
 {return IF;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 65 "scanner.lex"
+#line 64 "scanner.lex"
 {return ELSE;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 66 "scanner.lex"
+#line 65 "scanner.lex"
 {return WHILE;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 67 "scanner.lex"
+#line 66 "scanner.lex"
 {return BREAK;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 68 "scanner.lex"
+#line 67 "scanner.lex"
 {return CONTINUE;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 69 "scanner.lex"
+#line 68 "scanner.lex"
 {return PRECOND;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 70 "scanner.lex"
+#line 69 "scanner.lex"
 {return SC;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 71 "scanner.lex"
+#line 70 "scanner.lex"
 {return COMMA;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 72 "scanner.lex"
+#line 71 "scanner.lex"
 {return LPAREN;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 73 "scanner.lex"
+#line 72 "scanner.lex"
 {return RPAREN;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 74 "scanner.lex"
+#line 73 "scanner.lex"
 {return LBRACE;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 75 "scanner.lex"
+#line 74 "scanner.lex"
 {return RBRACE;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 76 "scanner.lex"
+#line 75 "scanner.lex"
 {return ASSIGN;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 77 "scanner.lex"
+#line 76 "scanner.lex"
 {return RELOP;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 78 "scanner.lex"
-{yylval = new NameTypeInfo("BINOP",yytext); return BINOP;}
+#line 77 "scanner.lex"
+{return BINOP;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 79 "scanner.lex"
+#line 78 "scanner.lex"
 {yylval = new NameTypeInfo("ID",yytext); return ID;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 80 "scanner.lex"
+#line 79 "scanner.lex"
 {yylval = new NameTypeInfo("INT",yytext); return NUM;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 81 "scanner.lex"
+#line 80 "scanner.lex"
 {return STRING;}
 	YY_BREAK
 case 30:
 /* rule 30 can match eol */
 YY_RULE_SETUP
-#line 82 "scanner.lex"
+#line 81 "scanner.lex"
 {}
 	YY_BREAK
 case 31:
 /* rule 31 can match eol */
 YY_RULE_SETUP
-#line 83 "scanner.lex"
+#line 82 "scanner.lex"
 {}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 84 "scanner.lex"
+#line 83 "scanner.lex"
 {errorLex(yylineno);};
+	YY_BREAK
+case YY_STATE_EOF(INITIAL):
+#line 84 "scanner.lex"
+{return END_OF_FILE;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 87 "scanner.lex"
+#line 86 "scanner.lex"
 ECHO;
 	YY_BREAK
-#line 1003 "/cygdrive/c/compi-hw3/cmake-build-debug/lexer.cpp"
-case YY_STATE_EOF(INITIAL):
-	yyterminate();
+#line 1007 "/cygdrive/c/compi-hw3/cmake-build-debug/lexer.cpp"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2017,7 +2019,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 87 "scanner.lex"
+#line 86 "scanner.lex"
 
 
 
