@@ -254,14 +254,10 @@ Statement : LBRACE {
     //check expressions types
 	string type_id = getExpType($1);
     string type_exp = getExpType($3);
-
     if (type_id != type_exp)
     {
-        if (type_id == "INT" && type_exp!="BYTE")
-        {
-            errorMismatch(yylineno);
-            exit(0);
-        }
+        errorMismatch(yylineno);
+        exit(0);
     }
 	
 }
@@ -433,6 +429,7 @@ Exp : LPAREN Exp RPAREN
 	if (num > 255)
 	{
 		errorByteTooLarge(yylineno,numId->name);
+		exit(0);
 	}
 
 	$$ = new Type("BYTE");
