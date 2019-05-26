@@ -25,13 +25,13 @@ bool isDevStage = false; // todo: change to false to turn off debugging cout's
 %}
 
 
-%token VOID INT BYTE B BOOL AND OR TRUE FALSE RETURN IF WHILE BREAK CONTINUE PRECOND SC COMMA LPAREN RPAREN LBRACE RBRACE RELOP BINOP ID NUM STRING ASSIGN
+%token VOID INT BYTE B BOOL AND OR TRUE FALSE RETURN IF WHILE BREAK CONTINUE PRECOND SC COMMA LPAREN RPAREN LBRACE RBRACE RELOP BINOP ID NUM STRING ASSIGN END_OF_FILE
 
 /* Solving conflicts */
 // Exp rules related conflicts
 %right ASSIGN
-%left  OR //check if needs to be rigt assoc
-%left AND //check if needs to be rigt assoc
+%left  OR //check if needs to be right assoc
+%left AND //check if needs to be right assoc
 %nonassoc RELOP
 %nonassoc BINOP
 %right NOT
@@ -42,7 +42,7 @@ bool isDevStage = false; // todo: change to false to turn off debugging cout's
 
 %%
 
-Program : M Funcs
+Program : M Funcs END_OF_FILE
 {
     if (!checkMainFuncLegal())
     {
@@ -84,7 +84,7 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
     string name = id->name;
 
-	if (!checkIdFree(name))
+	if (!checkFuncIdFree(name))
 	{
 	    errorDef(yylineno,name);
 	    exit(0);
@@ -108,14 +108,14 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
 
-    // end of function scope starts here
-    if (isDevStage) {
-        cout << "DEBUG: end of function scope: " << name << endl;
-    }
-
     endScope(); // print "end scope" message
     printPreconditions(name, precondCnt); // print num of precondition
 	closeScope(); // pop symbol & offset tables
+
+	    // end of function scope starts here
+        if (isDevStage) {
+            cout << "DEBUG: end of function scope: " << name << endl;
+        }
 }
 ;
 
@@ -236,7 +236,7 @@ Statement : LBRACE {
     // check id is defined
     if (checkIdFree(name))
     {
-        errorDef(yylineno,name);
+        errorUndef(yylineno,name);
         exit(0);
     }
 
@@ -329,12 +329,20 @@ Call : ID LPAREN ExpList RPAREN
     string name = id->name;
 
 	// check if id is undefined
-    if (checkIdFree(name))
+    if (checkFuncIdFree(name))
     {
         errorUndefFunc(yylineno,name);
         exit(0);
     }
-    //todo: check prototype
+
+    // check if arguments for function are correct
+    NameMultiTypeInfo* expList = dynamic_cast<NameMultiTypeInfo*>($3);
+    vector<string> args_types = expList->types;
+    if (!checkProrotypeOfFunction(name,args_types))
+    {
+        errorPrototypeMismatch(yylineno,name,args_types);
+        exit(0);
+    }
 }
 | ID LPAREN RPAREN
 {
@@ -342,12 +350,19 @@ Call : ID LPAREN ExpList RPAREN
     string name = id->name;
 
 	// check if id is undefined
-    if (checkIdFree(name))
+    if (checkFuncIdFree(name))
     {
         errorUndefFunc(yylineno,name);
         exit(0);
     }
-    //todo: check prototype
+
+    // check if arguments for function are correct
+    vector<string> args_types; //empty vector because function doesn't have any arguments
+    if (!checkProrotypeOfFunction(name,args_types))
+    {
+        errorPrototypeMismatch(yylineno,name,args_types);
+        exit(0);
+    }
 }
 ;
 

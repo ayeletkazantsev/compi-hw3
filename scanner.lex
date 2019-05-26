@@ -81,7 +81,7 @@ WHITESPACE ([\n\t\f\r\v ])
 {COMMENT} {}
 {WHITESPACE} {}
 . {errorLex(yylineno);};
-
+<<EOF>>     {return END_OF_FILE;}
 
 %%
 

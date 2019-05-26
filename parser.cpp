@@ -73,20 +73,19 @@ void Parser::pushFunctionDeclarationWithoutOpenScope(string retType, string name
     SymbolTable *current = tables_stack->top();
     vector<pair<string, string> > types_names;
     pair <string, string> pair;
+
     if (name == "print") {
-        pair.first = "STRING"; //string isn't a part of the grammer; just "internal" type
+        pair.first = "STRING"; //string isn't a part of the grammar; just "internal" type
         pair.second = "str";
     }
     else if (name == "printi") {
         pair.first = "INT";
         pair.second = "num";
     }
-    else {
-        // todo throw exception; shouldn't get here
-    }
 
     types_names.push_back(pair);
-//
+
+    // push entry to symbol table
     SymbolTableEntry *e = new SymbolTableEntry(retType, name, types_names);
     current->push_back(e);
 }
@@ -106,6 +105,7 @@ Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, 
 
     int offset = -1;
     reverse(args.begin(), args.end());
+
     // push each argument to symbol table
     for (int i = 0; i < args.size(); ++i) {
         string argType = args[i].first;
@@ -130,16 +130,22 @@ string Parser::getIdType(string id) {
 
 bool Parser::checkIdFree(string id) {
     SymbolTableEntry *e = getIdEntry(id);
-    if (e == NULL) return true; // id was not defined before, id is free
-    return false; // id was found in symbol table, id is not free
+    if (e && !e->isFunc) return false; // id was found in symbol table, id is not free
+    return true; // id was not defined before or is a function, id is free
 }
 
-int Parser::getIdIndex(vector<SymbolTableEntry *> entries, string id) {
+bool Parser::checkFuncIdFree(string id) {
+    SymbolTableEntry *e = getIdEntry(id);
+    if (e && e->isFunc) return false; // function id was found in symbol table, id is not free
+    return true; // id was not defined before or is not a function id is free
+}
+
+int Parser::getIdIndex(vector<SymbolTableEntry *> entries, string id, bool isFunc) {
     //find id in scope
     for (int i = 0; i < entries.size(); ++i) {
         SymbolTableEntry *entry = entries[i];
         if (entry) {
-            if (entry->name == id)
+            if (entry->name == id && entry->isFunc == isFunc)
                 return i;
         }
     }
@@ -147,7 +153,7 @@ int Parser::getIdIndex(vector<SymbolTableEntry *> entries, string id) {
 }
 
 
-SymbolTableEntry *Parser::getIdEntry(string id) {
+SymbolTableEntry *Parser::getIdEntry(string id, bool isFunc) {
     stack<SymbolTable *> tmp_tables_stack(*tables_stack);
 
     // go through all symbol tables in tmp stack
@@ -156,7 +162,7 @@ SymbolTableEntry *Parser::getIdEntry(string id) {
         // get symbol table of top scope
         SymbolTable *symTable = tmp_tables_stack.top();
         vector<SymbolTableEntry *> entries = *symTable;
-        int idx = getIdIndex(entries, id);
+        int idx = getIdIndex(entries, id, isFunc);
         if (idx != -1) {
             return entries[idx]; // found in symbol table
         }
@@ -193,6 +199,25 @@ bool Parser::isValidAssigment(YYSTYPE lval,YYSTYPE rval) {
     {
         // allow byte to int assignment
         return type_id == "INT" && type_exp == "BYTE";
+    }
+    return true;
+}
+
+bool Parser::checkProrotypeOfFunction(string funcID, vector<string> args_types)
+{
+    //id was checked before entering this function, no need to check it
+
+    //get function entry in symbol table
+    SymbolTableEntry* e = getIdEntry(funcID);
+    if (e)
+    {
+        if (!e->isFunc) return false; //not a function - error
+        vector<pair<string,string> > declared_types = e->args;
+        if (declared_types.size() != args_types.size()) return false; //not enough arguments - error
+        for (int i=0; i<declared_types.size(); ++i)
+        {
+            if (declared_types[i].first != args_types[i]) return false; //wrong type of argument - error
+        }
     }
     return true;
 }

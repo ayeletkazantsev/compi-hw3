@@ -26,6 +26,8 @@ namespace Parser {
 
     bool checkIdFree(string id);
 
+    bool checkFuncIdFree(string id);
+
     string getIdType(string id);
 
     SymbolTableEntry* getIdEntry(string id);
@@ -35,6 +37,8 @@ namespace Parser {
     string getExpType(YYSTYPE exp);
 
     bool isValidAssigment(YYSTYPE lval,YYSTYPE rval);
+
+    bool checkProrotypeOfFunction(string funcID, vector<string> args_types);
 }
 
 #endif
