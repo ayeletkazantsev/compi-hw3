@@ -78,7 +78,7 @@ M : %empty
 Funcs : %empty | FuncDecl Funcs //DONE! no need to change
 ;
 
-FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions
+FuncDecl : RetType ID LPAREN Formals RPAREN
 {
 	// check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
@@ -104,7 +104,7 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions
     if (isDevStage) {
             cout << "DEBUG: start of function scope: " << name << endl;
     }
-} LBRACE Statements RBRACE {
+} PreConditions LBRACE Statements RBRACE {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
     currentReturnType = "";
@@ -113,10 +113,10 @@ FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions
     printPreconditions(name, precondCnt); // print num of precondition
 	closeScope(); // pop symbol & offset tables
 
-	    // end of function scope starts here
-        if (isDevStage) {
-            cout << "DEBUG: end of function scope: " << name << endl;
-        }
+    // end of function scope starts here
+    if (isDevStage) {
+        cout << "DEBUG: end of function scope: " << name << endl;
+    }
 }
 ;
 
@@ -339,7 +339,6 @@ Call : ID LPAREN ExpList RPAREN
         errorUndefFunc(yylineno,name);
         exit(0);
     }
-
 
     // check if arguments for function are correct
     NameMultiTypeInfo* expList = dynamic_cast<NameMultiTypeInfo*>($3);
