@@ -153,6 +153,22 @@ test t0 fail:
 > checkBreak ()->VOID 0
 > checkContinue ()->VOID 0
 
+test t19 fail:
+4,14c4
+< ---end scope---
+< k INT 1
+< ---end scope---
+< ---end scope---
+< checkWhile - 0 preconditions
+< x INT 0
+< ---end scope---
+< print (STRING)->VOID 0
+< printi (INT)->VOID 0
+< main ()->VOID 0
+< checkWhile ()->VOID 0
+---
+> line 6: type mismatch
+
 test t22 fail:
 4,7d3
 < ---end scope---

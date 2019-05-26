@@ -262,14 +262,16 @@ Statement : LBRACE {
 		exit(0);		
 	}
 }
-| WHILE {whileLoopCnt++;} LPAREN Exp RPAREN Statement 
-{
-	whileLoopCnt--;
-	if ($3->type!="BOOL")
+| WHILE LPAREN Exp RPAREN {
+	whileLoopCnt++;
+	if (getExpType($3) != "BOOL")
 	{
 		errorMismatch(yylineno);
-		exit(0);		
+		exit(0);
 	}
+} Statement
+{
+	whileLoopCnt--;
 }
 | BREAK SC 
 {
@@ -287,34 +289,36 @@ Statement : LBRACE {
 		exit(0);
 	}
 }
-| {
+| IF LPAREN Exp RPAREN {
     if (isDevStage) {
         cout << "DEBUG: start of if scope" << endl;
     }
+
+    if (getExpType($3) != "BOOL") {
+        errorMismatch(yylineno);
+        exit(0);
+    }
+
     openScope();
 } SelectionStatement
 ;
 
-SelectionStatement: IF LPAREN Exp RPAREN Statement
+SelectionStatement: Statement
 {
-
     if (isDevStage) {
         cout << "DEBUG: end of if scope" << endl;
+    }
+    endScope(); // print "end scope" message
+    closeScope();
+} %prec CONFLICT
+| Statement ELSE
+{
+    if (isDevStage) {
+        cout << "DEBUG: end of if scope (with ELSE)" << endl;
     }
 
     endScope(); // print "end scope" message
     closeScope();
-    checkExpressionType($3,"BOOL",yylineno);
-} %prec CONFLICT
-| IF LPAREN Exp RPAREN Statement ELSE
-{
-      if (isDevStage) {
-          cout << "DEBUG: end of if scope (with ELSE)" << endl;
-      }
-
-       endScope(); // print "end scope" message
-       closeScope();
-  	//checkExpressionType($3,"BOOL",yylineno);
 } Statement
 ;
 
