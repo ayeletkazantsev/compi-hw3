@@ -246,7 +246,10 @@ Statement : LBRACE {
         exit(0);
     }
 }
-| Call SC 
+| Call SC
+{
+    $$ = $1;
+}
 | RETURN SC 
 {
 	if (currentReturnType!="VOID")
@@ -262,7 +265,7 @@ Statement : LBRACE {
         errorMismatch(yylineno);
         exit(0);
     }
-    if (currentReturnType != getExpType($2))
+    if (!isValidReturn(currentReturnType,$2))
     {
         errorMismatch(yylineno);
     		exit(0);
@@ -350,6 +353,8 @@ Call : ID LPAREN ExpList RPAREN
         errorPrototypeMismatch(yylineno,name,args);
         exit(0);
     }
+
+    $$ = new Type(getExpFuncReturnType($1));
 }
 | ID LPAREN RPAREN
 {
@@ -370,6 +375,8 @@ Call : ID LPAREN ExpList RPAREN
         errorPrototypeMismatch(yylineno,name,args_types);
         exit(0);
     }
+
+    $$ = new Type(getExpFuncReturnType($1));
 }
 ;
 

@@ -30,15 +30,21 @@ namespace Parser {
 
     string getIdType(string id);
 
+    string getFuncType(string id);
+
     SymbolTableEntry* getIdEntry(string id, bool isFunc);
 
     bool checkMainFuncLegal();
 
     string getExpType(YYSTYPE exp);
 
+    string getExpFuncReturnType(YYSTYPE exp);
+
     bool isValidAssigment(YYSTYPE lval,YYSTYPE rval);
 
     bool isValidBinOp(YYSTYPE first, YYSTYPE second);
+
+    bool isValidReturn(string retType, YYSTYPE exp);
 
     bool checkProrotypeOfFunction(string funcID, vector<string> args_types);
 

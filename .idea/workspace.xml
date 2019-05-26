@@ -13,11 +13,14 @@
   <component name="ChangeListManager">
     <list default="true" id="eecb7b6f-d82f-47a4-9487-1147817c5659" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.cpp.o" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.tab.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.tab.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/gdb.exe.stackdump" afterPath="$PROJECT_DIR$/cmake-build-debug/gdb.exe.stackdump" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/parser.tab.cpp" afterPath="$PROJECT_DIR$/cmake-build-debug/parser.tab.cpp" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/yahani.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/yahani.exe" />
+      <change beforePath="$PROJECT_DIR$/parser.cpp" afterPath="$PROJECT_DIR$/parser.cpp" />
+      <change beforePath="$PROJECT_DIR$/parser.hpp" afterPath="$PROJECT_DIR$/parser.hpp" />
       <change beforePath="$PROJECT_DIR$/parser.ypp" afterPath="$PROJECT_DIR$/parser.ypp" />
+      <change beforePath="$PROJECT_DIR$/tests/t0.in" afterPath="$PROJECT_DIR$/tests/t0.in" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,8 +72,8 @@
       <file leaf-file-name="parser.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1562">
-              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+            <state relative-caret-position="429">
+              <caret line="239" column="0" lean-forward="false" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="55" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -81,8 +84,8 @@
       <file leaf-file-name="parser.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="660">
+              <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="22" />
               <folding>
                 <element signature="e#40#57#0" expanded="true" />
               </folding>
@@ -90,21 +93,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parser.ypp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parser.ypp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.ypp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="434" column="16" lean-forward="true" selection-start-line="434" selection-start-column="16" selection-end-line="434" selection-end-column="16" />
+            <state relative-caret-position="496">
+              <caret line="268" column="0" lean-forward="false" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="t0.in" pinned="false" current-in-tab="false">
+      <file leaf-file-name="t0.in" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/t0.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="110" column="33" lean-forward="true" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="33" />
+            <state relative-caret-position="140">
+              <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -113,8 +116,8 @@
       <file leaf-file-name="t0.out" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/t0.out">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="733">
-              <caret line="70" column="7" lean-forward="false" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+            <state relative-caret-position="125">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -124,12 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getIdType</find>
-      <find>getIDtype</find>
-      <find>get_exp_type</find>
-      <find>check_exp_type</find>
-      <find>checkExp</find>
-      <find>misma</find>
       <find>getidtype</find>
       <find>IF</find>
       <find>ASSIGN</find>
@@ -152,8 +149,14 @@
       <find>BINOP</find>
       <find>func name</find>
       <find>here</find>
-      <find>cout</find>
       <find>Precon</find>
+      <find>mismatch</find>
+      <find>id as</find>
+      <find>funcin</find>
+      <find>id ass</find>
+      <find>cout</find>
+      <find>Call :</find>
+      <find>checkStringPrintPrinti</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,11 +174,11 @@
         <option value="$PROJECT_DIR$/hw3-tests/t1.in" />
         <option value="$USER_HOME$/Documents/לימודים/סמסטר 8/קומפילציה/רפרנס ביני תרגיל בית 3 קומפי/parser_bini.ypp" />
         <option value="$PROJECT_DIR$/tests/t29.in" />
+        <option value="$PROJECT_DIR$/scanner.lex" />
         <option value="$PROJECT_DIR$/parser.cpp" />
         <option value="$PROJECT_DIR$/parser.hpp" />
-        <option value="$PROJECT_DIR$/scanner.lex" />
-        <option value="$PROJECT_DIR$/tests/t0.in" />
         <option value="$PROJECT_DIR$/parser.ypp" />
+        <option value="$PROJECT_DIR$/tests/t0.in" />
       </list>
     </option>
   </component>
@@ -279,12 +282,12 @@
       <workItem from="1558536738957" duration="17692000" />
       <workItem from="1558672870774" duration="4032000" />
       <workItem from="1558705480531" duration="14053000" />
-      <workItem from="1558879014871" duration="19888000" />
+      <workItem from="1558879014871" duration="23333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66149000" />
+    <option name="totallyTimeSpent" value="69594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2582" height="1462" extended-state="6" />
@@ -377,16 +380,11 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/parser.cpp</url>
-          <line>224</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser.cpp</url>
-          <line>131</line>
-          <option name="timeStamp" value="73" />
+          <line>191</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="74" />
+      <option name="time" value="77" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -663,14 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/bits/basic_string.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="6044" column="0" lean-forward="false" selection-start-line="6044" selection-start-column="0" selection-end-line="6044" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/t36.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -775,16 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="e#40#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/bits/stl_vector.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -833,36 +813,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t0.out">
+    <entry file="file://C:/cygwin64/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/bits/basic_string.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="733">
-          <caret line="70" column="7" lean-forward="false" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+        <state relative-caret-position="240">
+          <caret line="6044" column="0" lean-forward="false" selection-start-line="6044" selection-start-column="0" selection-end-line="6044" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1562">
-          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        <state relative-caret-position="429">
+          <caret line="239" column="0" lean-forward="false" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="55" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t0.in">
+    <entry file="file://$PROJECT_DIR$/parser.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="110" column="33" lean-forward="true" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="660">
+          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="22" />
+          <folding>
+            <element signature="e#40#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.ypp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="434" column="16" lean-forward="true" selection-start-line="434" selection-start-column="16" selection-end-line="434" selection-end-column="16" />
+        <state relative-caret-position="496">
+          <caret line="268" column="0" lean-forward="false" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t0.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t0.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="27" />
           <folding />
         </state>
       </provider>

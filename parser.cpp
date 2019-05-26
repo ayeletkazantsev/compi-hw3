@@ -128,6 +128,13 @@ string Parser::getIdType(string id) {
     return not_found; // id was not found
 }
 
+string Parser::getFuncType(string id)
+{
+    SymbolTableEntry *e = getIdEntry(id, true);
+    if (e != NULL) return e->type; // return id type from symbol table
+    return not_found; // id was not found
+}
+
 bool Parser::checkIdFree(string id) {
     SymbolTableEntry *e = getIdEntry(id, false);
     if (e && !e->isFunc) return false; // id was found in symbol table, id is not free
@@ -191,6 +198,18 @@ string Parser::getExpType(YYSTYPE exp)
     return exp->type;
 }
 
+string Parser::getExpFuncReturnType(YYSTYPE exp)
+{
+    NameTypeInfo* e = dynamic_cast<NameTypeInfo*>(exp);
+    if (e)
+    {
+        if (e->type == "ID") return getFuncType(e->name);
+        return e->type;
+    }
+    return exp->type;
+}
+
+
 bool Parser::isValidAssigment(YYSTYPE lval,YYSTYPE rval) {
     //check expressions types
     string type_id = getExpType(lval);
@@ -214,6 +233,17 @@ bool Parser::isValidBinOp(YYSTYPE first, YYSTYPE second)
     {
         // allow byte to int assignment
         return (type_first == "INT" && type_second == "BYTE") || (type_first == "BYTE" && type_second == "INT");
+    }
+    return true;
+}
+
+bool Parser::isValidReturn(string retType, YYSTYPE exp)
+{
+    string exp_type = getExpType(exp);
+    if (retType!=exp_type)
+    {
+        // allow return byte as int
+        return (retType == "INT" && exp_type == "BYTE") || (retType == "BYTE" && exp_type == "INT");
     }
     return true;
 }

@@ -197,6 +197,7 @@ void checkContinue(){
           while (true){
             while (true){
               int x;
+              int x;
               continue;
             }
           }
