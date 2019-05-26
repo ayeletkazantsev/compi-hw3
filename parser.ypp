@@ -78,7 +78,7 @@ M : %empty
 Funcs : %empty | FuncDecl Funcs //DONE! no need to change
 ;
 
-FuncDecl : RetType ID LPAREN Formals RPAREN
+FuncDecl : RetType ID LPAREN Formals RPAREN PreConditions
 {
 	// check if id is free
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
@@ -104,7 +104,7 @@ FuncDecl : RetType ID LPAREN Formals RPAREN
     if (isDevStage) {
             cout << "DEBUG: start of function scope: " << name << endl;
     }
-} PreConditions LBRACE Statements RBRACE {
+} LBRACE Statements RBRACE {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string name = id->name;
 
@@ -170,8 +170,9 @@ PreConditions : %empty
 
 PreCondition : PRECOND LPAREN Exp RPAREN
 {
-	if ($3->type!="BOOL") {
-	    errorMismatch(yylineno); exit(0);
+	if (getExpType($3) != "BOOL") {
+	    errorMismatch(yylineno);
+	    exit(0);
 	}
 	$$ = $3;
 }
@@ -256,7 +257,7 @@ Statement : LBRACE {
 | RETURN Exp SC 
 {
 
-	if (currentReturnType!="INT" && currentReturnType != "BYTE" && currentReturnType != "BOOL" && currentReturnType!=$2->type)
+	if (currentReturnType!="INT" && currentReturnType != "BYTE" && currentReturnType != "BOOL" && currentReturnType != getExpType($2))
 	{
 		errorMismatch(yylineno);
 		exit(0);		
@@ -382,14 +383,12 @@ Exp : LPAREN Exp RPAREN
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
 	string binOp = id->name;
 
-	if ($1->type == "INT") {
-	    $$ = new Type("INT");
-	}
-	else if ($1->type == "INT") {
-	    $$ = new Type($1->type);
+
+	if (getExpType($1) == "INT" || getExpType($1) == "BYTE") {
+	    $$ = new Type(getExpType($1));
 	}
 	else {
-	    // todo: exception?
+	    // todo: exception? $1->type should be INT or BYTE (can't mult, add, etc' BOOL)
 	}
 }
 | ID
@@ -468,6 +467,7 @@ Exp : LPAREN Exp RPAREN
 void yyerror(const char * message)
 {
 	errorSyn(yylineno);
+	exit(0);
 }
 
 
