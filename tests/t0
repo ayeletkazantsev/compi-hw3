@@ -25,25 +25,4 @@ checkAndOrNot - 0 preconditions
 x BOOL 0
 z BOOL 1
 res BOOL 2
----end scope---
-checkBinop - 0 preconditions
-x INT 0
-z BYTE 1
-y INT 2
-w BYTE 3
-res INT 4
-bres BYTE 5
----end scope---
-checkStringPrintPrinti - 0 preconditions
----end scope---
----end scope---
----end scope---
----end scope---
----end scope---
-t INT 1
----end scope---
-checkIf - 0 preconditions
-x INT 0
----end scope---
-k INT 1
-line 83: type mismatch
+line 53: type mismatch

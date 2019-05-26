@@ -370,7 +370,7 @@ Exp : LPAREN Exp RPAREN
 }
 | Exp BINOP Exp
 {
-	if ($3->type != $3->type) {
+	if (getExpType($1) != getExpType($3)) {
 	    errorMismatch(yylineno);
 	    exit(0);
 	}
@@ -381,8 +381,11 @@ Exp : LPAREN Exp RPAREN
 	if ($1->type == "INT") {
 	    $$ = new Type("INT");
 	}
+	else if ($1->type == "INT") {
+	    $$ = new Type($1->type);
+	}
 	else {
-	    $$ = new Type("BYTE");
+	    // todo: exception?
 	}
 }
 | ID

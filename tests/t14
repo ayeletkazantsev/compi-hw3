@@ -1,16 +1,4 @@
 ---end scope---
 main - 0 preconditions
 x INT 0
----end scope---
-checkBinop - 0 preconditions
-x INT 0
-z BOOL 1
-y INT 2
-w BYTE 3
-res INT 4
-bres BYTE 5
----end scope---
-print (STRING)->VOID 0
-printi (INT)->VOID 0
-main ()->VOID 0
-checkBinop ()->VOID 0
+line 15: type mismatch
