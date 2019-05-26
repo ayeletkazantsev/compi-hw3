@@ -1,0 +1,11 @@
+---end scope---
+main - 0 preconditions
+x INT 0
+---end scope---
+checkFuncCall - 0 preconditions
+k INT 0
+---end scope---
+print (STRING)->VOID 0
+printi (INT)->VOID 0
+main ()->VOID 0
+checkFuncCall ()->INT 0

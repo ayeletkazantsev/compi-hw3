@@ -1,0 +1,15 @@
+---end scope---
+main - 0 preconditions
+x INT 0
+---end scope---
+checkFuncCall - 0 preconditions
+a INT -1
+x BOOL -2
+z BYTE -3
+p BYTE -4
+k INT 0
+---end scope---
+print (STRING)->VOID 0
+printi (INT)->VOID 0
+main ()->VOID 0
+checkFuncCall (BYTE,BYTE,BOOL,INT)->INT 0

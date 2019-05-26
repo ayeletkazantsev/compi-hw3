@@ -184,3 +184,15 @@ string Parser::getExpType(YYSTYPE exp)
     }
     return exp->type;
 }
+
+bool Parser::isValidAssigment(YYSTYPE lval,YYSTYPE rval) {
+    //check expressions types
+    string type_id = getExpType(lval);
+    string type_exp = getExpType(rval);
+    if (type_id != type_exp)
+    {
+        // allow byte to int assignment
+        return type_id == "INT" && type_exp == "BYTE";
+    }
+    return true;
+}

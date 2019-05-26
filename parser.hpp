@@ -33,6 +33,8 @@ namespace Parser {
     bool checkMainFuncLegal();
 
     string getExpType(YYSTYPE exp);
+
+    bool isValidAssigment(YYSTYPE lval,YYSTYPE rval);
 }
 
 #endif
