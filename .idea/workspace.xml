@@ -13,8 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="eecb7b6f-d82f-47a4-9487-1147817c5659" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/parser.cpp" afterPath="$PROJECT_DIR$/parser.cpp" />
+      <change beforePath="$PROJECT_DIR$/hw3-tests/t1.in" afterPath="$PROJECT_DIR$/hw3-tests/t1.in" />
+      <change beforePath="$PROJECT_DIR$/output.txt" afterPath="$PROJECT_DIR$/output.txt" />
       <change beforePath="$PROJECT_DIR$/parser.ypp" afterPath="$PROJECT_DIR$/parser.ypp" />
+      <change beforePath="$PROJECT_DIR$/tests/___25A0.tmp" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/testsResults" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/testsResults_old" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,50 +28,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-            <file leaf-file-name="parser_bini.ypp" pinned="false" current-in-tab="true">
-              <entry file="file://$USER_HOME$/Documents/לימודים/סמסטר 8/קומפילציה/רפרנס ביני תרגיל בית 3 קומפי/parser_bini.ypp">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="664">
-                    <caret line="696" column="9" lean-forward="false" selection-start-line="696" selection-start-column="9" selection-end-line="696" selection-end-column="9" />
-                    <folding>
-                      <marker date="1558713977395" expanded="true" signature="1839:2339" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="2375:2494" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="2529:2551" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="4821:4923" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="15205:15309" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="15356:15433" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="15510:15873" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="15904:15976" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="16031:16250" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="16311:16650" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="16684:16824" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="16853:17185" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="17672:18620" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="18679:18956" ph="{...}" />
-                      <marker date="1558713977395" expanded="true" signature="18969:18999" ph="{...}" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="parser.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parser.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="48" column="51" lean-forward="false" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
+            <state relative-caret-position="613">
+              <caret line="98" column="25" lean-forward="false" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -78,7 +46,7 @@
       <file leaf-file-name="parser.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
+            <state relative-caret-position="729">
               <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="22" />
               <folding>
                 <element signature="e#40#57#0" expanded="true" />
@@ -87,41 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parser.ypp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parser.ypp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parser.ypp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="t0.in" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/t0.in">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="input.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw3-tests/input.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="t0.out" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/t0.out">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-798">
-              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+            <state relative-caret-position="152">
+              <caret line="334" column="24" lean-forward="false" selection-start-line="334" selection-start-column="24" selection-end-line="334" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -131,8 +69,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getIDEn</find>
-      <find>LPAREN</find>
       <find>reverse</find>
       <find>rev</find>
       <find>CALL :</find>
@@ -159,8 +95,10 @@
       <find>IF</find>
       <find>IF</find>
       <find>checkStringPrintPrinti</find>
-      <find>prin</find>
       <find>checkif</find>
+      <find>while</find>
+      <find>endScope</find>
+      <find>prin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -174,7 +112,6 @@
         <option value="$PROJECT_DIR$/parser2.ypp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/source.hpp" />
-        <option value="$PROJECT_DIR$/hw3-tests/t1.in" />
         <option value="$USER_HOME$/Documents/לימודים/סמסטר 8/קומפילציה/רפרנס ביני תרגיל בית 3 קומפי/parser_bini.ypp" />
         <option value="$PROJECT_DIR$/tests/t29.in" />
         <option value="$PROJECT_DIR$/scanner.lex" />
@@ -183,6 +120,7 @@
         <option value="$PROJECT_DIR$/hw3-tests/input.txt" />
         <option value="$PROJECT_DIR$/parser.ypp" />
         <option value="$PROJECT_DIR$/parser.cpp" />
+        <option value="$PROJECT_DIR$/hw3-tests/t1.in" />
       </list>
     </option>
   </component>
@@ -286,16 +224,15 @@
       <workItem from="1558536738957" duration="17692000" />
       <workItem from="1558672870774" duration="4032000" />
       <workItem from="1558705480531" duration="14053000" />
-      <workItem from="1558879014871" duration="28162000" />
+      <workItem from="1558879014871" duration="29876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74423000" />
+    <option name="totallyTimeSpent" value="76137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2582" height="1462" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12673268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -305,7 +242,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -319,22 +256,22 @@
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12673268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936358" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,54 +379,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lexer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3686">
-          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/לימודים/סמסטר 8/קומפילציה/רפרנס ביני תרגיל בית 3 קומפי/parser_bini.ypp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="696" column="9" lean-forward="false" selection-start-line="696" selection-start-column="9" selection-end-line="696" selection-end-column="9" />
-          <folding>
-            <marker date="1558713977395" expanded="true" signature="1839:2339" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="2375:2494" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="2529:2551" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="4821:4923" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="15205:15309" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="15356:15433" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="15510:15873" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="15904:15976" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="16031:16250" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="16311:16650" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="16684:16824" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="16853:17185" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="17672:18620" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="18679:18956" ph="{...}" />
-            <marker date="1558713977395" expanded="true" signature="18969:18999" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t22">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t22.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/t22.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -810,28 +699,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="22" />
-          <folding>
-            <element signature="e#40#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scanner.lex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1710">
           <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t0.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -852,21 +723,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser.ypp">
+    <entry file="file://$USER_HOME$/Documents/לימודים/סמסטר 8/קומפילציה/רפרנס ביני תרגיל בית 3 קומפי/parser_bini.ypp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        <state relative-caret-position="664">
+          <caret line="696" column="9" lean-forward="false" selection-start-line="696" selection-start-column="9" selection-end-line="696" selection-end-column="9" />
+          <folding>
+            <marker date="1558713977395" expanded="true" signature="1839:2339" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="2375:2494" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="2529:2551" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="4821:4923" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="15205:15309" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="15356:15433" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="15510:15873" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="15904:15976" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="16031:16250" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="16311:16650" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="16684:16824" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="16853:17185" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="17672:18620" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="18679:18956" ph="{...}" />
+            <marker date="1558713977395" expanded="true" signature="18969:18999" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t0.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="78" column="14" lean-forward="true" selection-start-line="78" selection-start-column="14" selection-end-line="78" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3-tests/t1.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3-tests/t2.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="48" column="51" lean-forward="false" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
+        <state relative-caret-position="613">
+          <caret line="98" column="25" lean-forward="false" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="22" />
+          <folding>
+            <element signature="e#40#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3-tests/t1.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser.ypp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="334" column="24" lean-forward="false" selection-start-line="334" selection-start-column="24" selection-end-line="334" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

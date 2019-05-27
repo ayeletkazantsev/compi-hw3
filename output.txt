@@ -49,6 +49,8 @@ x INT 0
 k INT 1
 ---end scope---
 ---end scope---
+---end scope---
+---end scope---
 checkWhile - 0 preconditions
 x INT 0
 ---end scope---
@@ -82,6 +84,12 @@ k INT 0
 ---end scope---
 ---end scope---
 ---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
 checkVoidReturn - 0 preconditions
 x INT 0
 y INT 1
@@ -93,9 +101,21 @@ x INT 0
 ---end scope---
 ---end scope---
 ---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
 checkIntReturn - 0 preconditions
 ---end scope---
 x INT 0
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
 ---end scope---
 ---end scope---
 ---end scope---
@@ -112,9 +132,21 @@ x INT 0
 ---end scope---
 ---end scope---
 ---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
 checkBreak - 0 preconditions
 ---end scope---
 x INT 0
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
+---end scope---
 ---end scope---
 ---end scope---
 ---end scope---
@@ -143,4 +175,3 @@ checkIntReturn ()->INT 0
 checkBoolReturn (BOOL)->BOOL 0
 checkBreak ()->VOID 0
 checkContinue ()->VOID 0
-line 209: syntax error

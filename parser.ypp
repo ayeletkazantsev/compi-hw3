@@ -279,9 +279,12 @@ Statement : LBRACE {
 		errorMismatch(yylineno);
 		exit(0);
 	}
+	openScope();
 } Statement
 {
 	whileLoopCnt--;
+	endScope();
+	closeScope();
 }
 | BREAK SC 
 {
