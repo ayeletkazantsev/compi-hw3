@@ -1,6 +1,6 @@
 flag=1
 for file in `ls tests | grep -w "in" | cut -d"." -f1`; do
-	cmake-build-debug/yahani.exe < tests/${file}.in > tests/${file}
+	./Hw3 < tests/${file}.in > tests/${file}
 temp_str=`diff tests/$file tests/${file}.out`
 if [ ${#temp_str} -ne 0 ]
 then

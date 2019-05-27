@@ -1,6 +1,0 @@
----end scope---
----end scope---
-printOk - 0 preconditions
-isOk BOOL -1
----end scope---
-printOk (BOOL)->VOID 0

@@ -85,7 +85,7 @@ FuncDecl : RetType ID LPAREN Formals RPAREN
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
     string name = id->name;
 
-	if (!checkFuncIdFree(name))
+	if (!checkFuncIdFree(name) || !checkIdFree(name))
 	{
 	    errorDef(yylineno,name);
 	    exit(0);
@@ -203,7 +203,7 @@ Statement : LBRACE {
     string name = id->name;
 
     // check id is free
-    if (!checkIdFree(name))
+    if (!checkIdFree(name) || !checkFuncIdFree(name))
     {
         errorDef(yylineno,name);
         exit(0);
@@ -217,7 +217,7 @@ Statement : LBRACE {
 	string name = id->name;
 
     // check id is free
-    if (!checkIdFree(name))
+    if (!checkIdFree(name) || !checkFuncIdFree(name))
     {
         errorDef(yylineno,name);
         exit(0);
