@@ -46,6 +46,7 @@ void Parser::closeScope() {
                 for (int i = 0; i < args.size(); ++i) {
                     types.push_back(args[i].first);
                 }
+                reverse(types.begin(),types.end());
                 printID(entry->name, 0, makeFunctionType(entry->type, types));
             }
         }

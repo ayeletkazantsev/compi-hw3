@@ -56,6 +56,7 @@ Program : M Funcs END_OF_FILE
     }
     endScope();
     closeScope(); // pop symbol & offset tables
+    return 0;
 }
 ;
 
