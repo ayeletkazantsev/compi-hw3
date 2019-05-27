@@ -46,7 +46,6 @@ void Parser::closeScope() {
                 for (int i = 0; i < args.size(); ++i) {
                     types.push_back(args[i].first);
                 }
-                reverse(types.begin(), types.end());
                 printID(entry->name, 0, makeFunctionType(entry->type, types));
             }
         }
@@ -105,6 +104,7 @@ Parser::pushFunctionDeclarationToStackAndOpenScope(string retType, string name, 
     offsets_stack->push(0);
 
     int offset = -1;
+    reverse(args.begin(), args.end()); //push func args in reverse order
 
     // push each argument to symbol table
     for (int i = 0; i < args.size(); ++i) {

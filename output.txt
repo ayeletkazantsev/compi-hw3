@@ -53,10 +53,10 @@ checkWhile - 0 preconditions
 x INT 0
 ---end scope---
 checkFuncDecl - 2 preconditions
-p BYTE -1
-z BYTE -2
-x BOOL -3
-a INT -4
+a INT -1
+x BOOL -2
+z BYTE -3
+p BYTE -4
 k INT 0
 ---end scope---
 z INT 2
@@ -70,10 +70,10 @@ y INT 1
 z INT 2
 ---end scope---
 checkFuncCall - 0 preconditions
-p BYTE -1
-z BYTE -2
-x BOOL -3
-a INT -4
+a INT -1
+x BOOL -2
+z BYTE -3
+p BYTE -4
 k INT 0
 ---end scope---
 ---end scope---
