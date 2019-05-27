@@ -14,13 +14,8 @@
     <list default="true" id="eecb7b6f-d82f-47a4-9487-1147817c5659" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.tab.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.tab.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parser.tab.cpp" afterPath="$PROJECT_DIR$/cmake-build-debug/parser.tab.cpp" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/yahani.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/yahani.exe" />
-      <change beforePath="$PROJECT_DIR$/parser.cpp" afterPath="$PROJECT_DIR$/parser.cpp" />
-      <change beforePath="$PROJECT_DIR$/parser.hpp" afterPath="$PROJECT_DIR$/parser.hpp" />
       <change beforePath="$PROJECT_DIR$/parser.ypp" afterPath="$PROJECT_DIR$/parser.ypp" />
-      <change beforePath="$PROJECT_DIR$/tests/t0.in" afterPath="$PROJECT_DIR$/tests/t0.in" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,8 +67,8 @@
       <file leaf-file-name="parser.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="239" column="0" lean-forward="false" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="55" />
+            <state relative-caret-position="458">
+              <caret line="266" column="20" lean-forward="true" selection-start-line="266" selection-start-column="20" selection-end-line="266" selection-end-column="20" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -96,8 +91,8 @@
       <file leaf-file-name="parser.ypp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.ypp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="268" column="0" lean-forward="false" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
+            <state relative-caret-position="482">
+              <caret line="328" column="12" lean-forward="true" selection-start-line="328" selection-start-column="12" selection-end-line="328" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -106,8 +101,8 @@
       <file leaf-file-name="t0.in" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/t0.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="27" />
+            <state relative-caret-position="532">
+              <caret line="72" column="8" lean-forward="true" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -116,8 +111,8 @@
       <file leaf-file-name="t0.out" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/t0.out">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="22" />
+            <state relative-caret-position="-798">
+              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -127,10 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getidtype</find>
-      <find>IF</find>
-      <find>ASSIGN</find>
-      <find>todo</find>
       <find>errorDef</find>
       <find>getIDEn</find>
       <find>LPAREN</find>
@@ -156,7 +147,11 @@
       <find>id ass</find>
       <find>cout</find>
       <find>Call :</find>
+      <find>printi</find>
+      <find>IF</find>
+      <find>IF</find>
       <find>checkStringPrintPrinti</find>
+      <find>prin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,10 +170,10 @@
         <option value="$USER_HOME$/Documents/לימודים/סמסטר 8/קומפילציה/רפרנס ביני תרגיל בית 3 קומפי/parser_bini.ypp" />
         <option value="$PROJECT_DIR$/tests/t29.in" />
         <option value="$PROJECT_DIR$/scanner.lex" />
-        <option value="$PROJECT_DIR$/parser.cpp" />
         <option value="$PROJECT_DIR$/parser.hpp" />
-        <option value="$PROJECT_DIR$/parser.ypp" />
         <option value="$PROJECT_DIR$/tests/t0.in" />
+        <option value="$PROJECT_DIR$/parser.cpp" />
+        <option value="$PROJECT_DIR$/parser.ypp" />
       </list>
     </option>
   </component>
@@ -215,11 +210,6 @@
             <path>
               <item name="hw3" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="compi-hw3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hw3" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
-              <item name="compi-hw3" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -282,12 +272,12 @@
       <workItem from="1558536738957" duration="17692000" />
       <workItem from="1558672870774" duration="4032000" />
       <workItem from="1558705480531" duration="14053000" />
-      <workItem from="1558879014871" duration="23333000" />
+      <workItem from="1558879014871" duration="26466000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69594000" />
+    <option name="totallyTimeSpent" value="72727000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2582" height="1462" extended-state="6" />
@@ -821,16 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="239" column="0" lean-forward="false" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parser.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -841,26 +821,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser.ypp">
+    <entry file="file://$PROJECT_DIR$/tests/t0.out">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="268" column="0" lean-forward="false" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
+        <state relative-caret-position="-798">
+          <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t0.out">
+    <entry file="file://$PROJECT_DIR$/parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="22" />
+        <state relative-caret-position="458">
+          <caret line="266" column="20" lean-forward="true" selection-start-line="266" selection-start-column="20" selection-end-line="266" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser.ypp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="328" column="12" lean-forward="true" selection-start-line="328" selection-start-column="12" selection-end-line="328" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/t0.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="27" />
+        <state relative-caret-position="532">
+          <caret line="72" column="8" lean-forward="true" selection-start-line="72" selection-start-column="8" selection-end-line="72" selection-end-column="8" />
           <folding />
         </state>
       </provider>

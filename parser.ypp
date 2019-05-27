@@ -328,7 +328,7 @@ SelectionStatement: Statement
 
     endScope(); // print "end scope" message
     closeScope();
-} Statement
+} Statement {endScope();}
 ;
 
 Call : ID LPAREN ExpList RPAREN
