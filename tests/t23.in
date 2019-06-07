@@ -1,10 +1,9 @@
-void main(){
-  int x;
+int returnNum(bool x) 
+@pre(x)
+{
+    return 42;
 }
 
-int checkFuncDecl(int a,bool x,byte z,p)
-@pre(x)
-@pre(p >= 1)
-{
-  int k;
+void main() {
+    returnNum(false);
 }

@@ -1,14 +1,16 @@
-void main(){
-  int x;
+//function calls
+
+int fibonacci(int n) {
+    if (n == 0 or n == 1)
+        return 1;
+    else
+        return fibonacci(n-1) + fibonacci(n-2);
 }
-void checkIf(){
-  bool x;
-  if(x){
-    print("ok");
-    if (false) printi(5);
-  }
-  if () printi(5);
-  else {
-    int t;
-  }
+
+void printFib(byte n) {
+    printi(fibonacci(n));
+}
+
+void main() {
+    printFib(5b);
 }

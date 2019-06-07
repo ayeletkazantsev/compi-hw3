@@ -1,7 +1,4 @@
-void main(){
-  int x;
-}
-int checkFuncCall(){
-  int k;
-  k=checkFuncCall(5 b,false,6 b,4 b);
+//byte literal out of range
+void main() {
+    int i = 256b - 10;
 }

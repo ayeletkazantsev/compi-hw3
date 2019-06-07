@@ -1,4 +1,4 @@
 ---end scope---
-main - 0 preconditions
-x INT 0
-line 8: syntax error
+y BOOL 0
+---end scope---
+line 7: type mismatch

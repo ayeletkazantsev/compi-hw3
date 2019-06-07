@@ -46,7 +46,7 @@ namespace Parser {
 
     bool isValidReturn(string retType, YYSTYPE exp);
 
-    bool checkProrotypeOfFunction(string funcID, vector<string> args_types);
+    bool checkPrototypeOfFunction(string funcID, vector<string> args_types);
 
     vector<string> getArgumentTypesOfFunc(string funcID);
 }

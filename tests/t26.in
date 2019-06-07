@@ -1,19 +1,4 @@
-void main(){
-  int x;
-}
-void checkScope(){
-  int x;
-  {
-    x=5;
-    int y;
-    {
-      x=y;
-      int z;
-    }
-    y=z;
-    int z;
-  }
-  int y;
-  int z;
-  x=z;
+// type mismatch
+void main() {
+    print("one string" + "two string");
 }

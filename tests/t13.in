@@ -1,12 +1,5 @@
-void main(){
-  int x;
-}
-void checkAndOrNot(){
-  bool x;
-  int z;
-  int res;
-  res = not x;
-  res = x and z;
-  res = x or z;
-  res = x and z or false;
+//fail printi params
+
+void main() {
+    printi(true);
 }

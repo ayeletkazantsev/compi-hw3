@@ -1,14 +1,9 @@
-void main(){
-  int x;
-}
-void checkIf(){
-  int x;
-  if(x){
-    print("ok");
-    if (false) printi(5);
-  }
-  if (false) printi(5);
-  else {
-    int t;
-  }
+//inner function not in grammar
+
+void main() {
+    int foo() {
+        return 6;
+    }
+
+    foo();
 }

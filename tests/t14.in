@@ -1,23 +1,11 @@
-void main(){
-  int x;
+//some test
+//some other comment
+int foo(int x)
+@pre(x > 1) {
+	return x;
 }
-void checkBinop(){
-  int x;
-  bool z;
-  int y;
-  byte w;
-  int res;
-  byte bres;
-  res = x * y;
-  res = x + y;
-  res = x - y;
-  res = x / y;
-  res = y * z;
-  res = y + z;
-  res = x - z;
-  res = x / z;
-  bres = w * z;
-  bres = w + z;
-  bres = w - z;
-  bres = w / z;
+void main() {
+// another comment
+    print("val");
+    printi(foo(2));
 }

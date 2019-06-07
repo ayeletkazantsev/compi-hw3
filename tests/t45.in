@@ -1,11 +1,4 @@
-void main(){
-  int x;
-  main();
-  check();
-}
-void check(){
-  int x;
-  byte x = 6 b;
-  byte y = 19 b;
-  y = z;
+//incorrect main
+void main(int a) {
+	int c;
 }

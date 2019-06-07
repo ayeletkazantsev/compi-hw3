@@ -1,4 +1,5 @@
 ---end scope---
-main - 0 preconditions
-x INT 0
-line 5: unexpected break statement
+test - 2 preconditions
+bin BOOL -1
+in BYTE -2
+line 10: prototype mismatch, function test expects arguments (BOOL,BYTE)

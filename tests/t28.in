@@ -1,7 +1,8 @@
-void main(){
-  int x;
+// already defined as function
+int foo() {
+    return 0;
 }
-int checkFuncCall(int a,bool x,byte z,byte p){
-  bool k;
-  k=checkFuncCall(5 b,false,6 b,4 b);
+
+void main() {
+    byte foo;
 }

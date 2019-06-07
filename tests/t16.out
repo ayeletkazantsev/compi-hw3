@@ -1,4 +1,1 @@
----end scope---
-main - 0 preconditions
-x INT 0
-line 11: type mismatch
+line 3: type mismatch

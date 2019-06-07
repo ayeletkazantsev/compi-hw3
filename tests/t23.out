@@ -1,4 +1,10 @@
 ---end scope---
+returnNum - 1 preconditions
+x BOOL -1
+---end scope---
 main - 0 preconditions
-x INT 0
-line 5: syntax error
+---end scope---
+print (STRING)->VOID 0
+printi (INT)->VOID 0
+returnNum (BOOL)->INT 0
+main ()->VOID 0

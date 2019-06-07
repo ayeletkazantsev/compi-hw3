@@ -474,11 +474,11 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint16 yyrline[] =
 {
        0,    45,    45,    63,    79,    79,    83,    82,   124,   124,
-     127,   131,   137,   145,   156,   163,   167,   173,   183,   183,
-     186,   192,   186,   200,   214,   233,   250,   254,   262,   275,
-     275,   289,   297,   305,   305,   319,   328,   327,   338,   363,
-     387,   391,   402,   402,   402,   405,   409,   418,   430,   434,
-     438,   451,   455,   459,   463,   468,   474,   480
+     127,   131,   137,   145,   156,   171,   175,   181,   191,   191,
+     194,   200,   194,   208,   222,   241,   258,   262,   270,   283,
+     283,   297,   305,   313,   313,   327,   336,   335,   347,   372,
+     397,   401,   412,   412,   412,   415,   419,   428,   440,   444,
+     448,   461,   465,   469,   473,   478,   484,   490
 };
 #endif
 
@@ -1374,7 +1374,7 @@ yyreduce:
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-3]));
     string name = id->name;
 
-	if (!checkFuncIdFree(name))
+	if (!checkFuncIdFree(name) || !checkIdFree(name))
 	{
 	    errorDef(yylineno,name);
 	    exit(0);
@@ -1474,29 +1474,37 @@ yyreduce:
 #line 157 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[0]));
-	(yyval) = new NameTypeInfo((yyvsp[-1])->type, id->name);
-}
-#line 1480 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
-    break;
 
-  case 15:
-#line 164 "parser.ypp" /* yacc.c:1646  */
+    // check id is free
+    if (!checkIdFree(id->name) || !checkFuncIdFree(id->name))
     {
-	precondCnt = 0;
+        errorDef(yylineno,id->name);
+        exit(0);
+    }
+
+	(yyval) = new NameTypeInfo((yyvsp[-1])->type, id->name);
 }
 #line 1488 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
-  case 16:
-#line 168 "parser.ypp" /* yacc.c:1646  */
+  case 15:
+#line 172 "parser.ypp" /* yacc.c:1646  */
     {
-	precondCnt++;
+	precondCnt = 0;
 }
 #line 1496 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
+  case 16:
+#line 176 "parser.ypp" /* yacc.c:1646  */
+    {
+	precondCnt++;
+}
+#line 1504 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+    break;
+
   case 17:
-#line 174 "parser.ypp" /* yacc.c:1646  */
+#line 182 "parser.ypp" /* yacc.c:1646  */
     {
 	if (getExpType((yyvsp[-1])) != "BOOL") {
 	    errorMismatch(yylineno);
@@ -1504,11 +1512,11 @@ yyreduce:
 	}
 	(yyval) = (yyvsp[-1]);
 }
-#line 1508 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1516 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 186 "parser.ypp" /* yacc.c:1646  */
+#line 194 "parser.ypp" /* yacc.c:1646  */
     {
     // start of block scope
     if (isDevStage) {
@@ -1516,11 +1524,11 @@ yyreduce:
     }
     openScope();
 }
-#line 1520 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1528 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 192 "parser.ypp" /* yacc.c:1646  */
+#line 200 "parser.ypp" /* yacc.c:1646  */
     {
     // end of block scope
     if (isDevStage) {
@@ -1529,17 +1537,17 @@ yyreduce:
     endScope(); // print "end scope" message
     closeScope();
 }
-#line 1533 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1541 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 201 "parser.ypp" /* yacc.c:1646  */
+#line 209 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-1]));
     string name = id->name;
 
     // check id is free
-    if (!checkIdFree(name))
+    if (!checkIdFree(name) || !checkFuncIdFree(name))
     {
         errorDef(yylineno,name);
         exit(0);
@@ -1547,17 +1555,17 @@ yyreduce:
 
 	pushIdentifierToStack((yyvsp[-2])->type,id->name);
 }
-#line 1551 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1559 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 215 "parser.ypp" /* yacc.c:1646  */
+#line 223 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-3]));
 	string name = id->name;
 
     // check id is free
-    if (!checkIdFree(name))
+    if (!checkIdFree(name) || !checkFuncIdFree(name))
     {
         errorDef(yylineno,name);
         exit(0);
@@ -1570,11 +1578,11 @@ yyreduce:
 
 	pushIdentifierToStack((yyvsp[-4])->type,id->name);
 }
-#line 1574 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1582 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 234 "parser.ypp" /* yacc.c:1646  */
+#line 242 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-3]));
     string name = id->name;
@@ -1591,19 +1599,19 @@ yyreduce:
         exit(0);
     }
 }
-#line 1595 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
-    break;
-
-  case 26:
-#line 251 "parser.ypp" /* yacc.c:1646  */
-    {
-    (yyval) = (yyvsp[-1]);
-}
 #line 1603 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
+  case 26:
+#line 259 "parser.ypp" /* yacc.c:1646  */
+    {
+    (yyval) = (yyvsp[-1]);
+}
+#line 1611 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+    break;
+
   case 27:
-#line 255 "parser.ypp" /* yacc.c:1646  */
+#line 263 "parser.ypp" /* yacc.c:1646  */
     {
 	if (currentReturnType!="VOID")
 	{
@@ -1611,11 +1619,11 @@ yyreduce:
 		exit(0);
 	}
 }
-#line 1615 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1623 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 263 "parser.ypp" /* yacc.c:1646  */
+#line 271 "parser.ypp" /* yacc.c:1646  */
     {
     if (currentReturnType!="INT" && currentReturnType != "BYTE" && currentReturnType != "BOOL")
     {
@@ -1628,11 +1636,11 @@ yyreduce:
     		exit(0);
     }
 }
-#line 1632 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1640 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 275 "parser.ypp" /* yacc.c:1646  */
+#line 283 "parser.ypp" /* yacc.c:1646  */
     {
 	whileLoopCnt++;
 	if (getExpType((yyvsp[-1])) != "BOOL")
@@ -1642,21 +1650,21 @@ yyreduce:
 	}
 	openScope();
 }
-#line 1646 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1654 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 284 "parser.ypp" /* yacc.c:1646  */
+#line 292 "parser.ypp" /* yacc.c:1646  */
     {
 	whileLoopCnt--;
 	endScope();
 	closeScope();
 }
-#line 1656 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1664 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 290 "parser.ypp" /* yacc.c:1646  */
+#line 298 "parser.ypp" /* yacc.c:1646  */
     {
 	if (whileLoopCnt == 0)
 	{
@@ -1664,11 +1672,11 @@ yyreduce:
 		exit(0);
 	}
 }
-#line 1668 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1676 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 298 "parser.ypp" /* yacc.c:1646  */
+#line 306 "parser.ypp" /* yacc.c:1646  */
     {
 	if (whileLoopCnt == 0)
 	{
@@ -1676,11 +1684,11 @@ yyreduce:
 		exit(0);
 	}
 }
-#line 1680 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1688 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 305 "parser.ypp" /* yacc.c:1646  */
+#line 313 "parser.ypp" /* yacc.c:1646  */
     {
     if (isDevStage) {
         cout << "DEBUG: start of if scope" << endl;
@@ -1693,11 +1701,11 @@ yyreduce:
 
     openScope();
 }
-#line 1697 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1705 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 320 "parser.ypp" /* yacc.c:1646  */
+#line 328 "parser.ypp" /* yacc.c:1646  */
     {
     if (isDevStage) {
         cout << "DEBUG: end of if scope" << endl;
@@ -1705,11 +1713,11 @@ yyreduce:
     endScope(); // print "end scope" message
     closeScope();
 }
-#line 1709 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1717 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 328 "parser.ypp" /* yacc.c:1646  */
+#line 336 "parser.ypp" /* yacc.c:1646  */
     {
     if (isDevStage) {
         cout << "DEBUG: end of if scope (with ELSE)" << endl;
@@ -1717,18 +1725,19 @@ yyreduce:
 
     endScope(); // print "end scope" message
     closeScope();
+    openScope();
 }
-#line 1722 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1731 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 335 "parser.ypp" /* yacc.c:1646  */
-    {endScope();}
-#line 1728 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 344 "parser.ypp" /* yacc.c:1646  */
+    {endScope(); closeScope();}
+#line 1737 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 339 "parser.ypp" /* yacc.c:1646  */
+#line 348 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-3]));
     string name = id->name;
@@ -1744,7 +1753,7 @@ yyreduce:
     NameMultiTypeInfo* expList = dynamic_cast<NameMultiTypeInfo*>((yyvsp[-1]));
     vector<string> exp_args_types = expList->types;
 
-    if (!checkProrotypeOfFunction(name,exp_args_types))
+    if (!checkPrototypeOfFunction(name,exp_args_types))
     {
         vector<string> args = getArgumentTypesOfFunc(name);
         errorPrototypeMismatch(yylineno,name,args);
@@ -1753,11 +1762,11 @@ yyreduce:
 
     (yyval) = new Type(getExpFuncReturnType((yyvsp[-3])));
 }
-#line 1757 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1766 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 364 "parser.ypp" /* yacc.c:1646  */
+#line 373 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[-2]));
     string name = id->name;
@@ -1771,27 +1780,28 @@ yyreduce:
 
     // check if arguments for function are correct
     vector<string> args_types; //empty vector because function doesn't have any arguments
-    if (!checkProrotypeOfFunction(name,args_types))
+    if (!checkPrototypeOfFunction(name,args_types))
     {
-        errorPrototypeMismatch(yylineno,name,args_types);
+        vector<string> args = getArgumentTypesOfFunc(name);
+        errorPrototypeMismatch(yylineno,name,args);
         exit(0);
     }
 
     (yyval) = new Type(getExpFuncReturnType((yyvsp[-2])));
 }
-#line 1783 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1793 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 388 "parser.ypp" /* yacc.c:1646  */
+#line 398 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new NameMultiTypeInfo(getExpType((yyvsp[0])));
 }
-#line 1791 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1801 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 392 "parser.ypp" /* yacc.c:1646  */
+#line 402 "parser.ypp" /* yacc.c:1646  */
     {
 	NameMultiTypeInfo* expList = dynamic_cast<NameMultiTypeInfo*>((yyvsp[0]));
 	vector<string> types = expList->types;
@@ -1800,37 +1810,37 @@ yyreduce:
 
 	(yyval) = new NameMultiTypeInfo(types);
 }
-#line 1804 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1814 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 402 "parser.ypp" /* yacc.c:1646  */
+#line 412 "parser.ypp" /* yacc.c:1646  */
     {(yyval) = new Type("INT");}
-#line 1810 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1820 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 402 "parser.ypp" /* yacc.c:1646  */
+#line 412 "parser.ypp" /* yacc.c:1646  */
     {(yyval) = new Type("BYTE");}
-#line 1816 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1826 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 402 "parser.ypp" /* yacc.c:1646  */
+#line 412 "parser.ypp" /* yacc.c:1646  */
     {(yyval) = new Type("BOOL");}
-#line 1822 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1832 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 406 "parser.ypp" /* yacc.c:1646  */
+#line 416 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = (yyvsp[-1]);
 }
-#line 1830 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1840 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 410 "parser.ypp" /* yacc.c:1646  */
+#line 420 "parser.ypp" /* yacc.c:1646  */
     {
 	if (!isValidBinOp((yyvsp[-2]), (yyvsp[0]))) {
 	    errorMismatch(yylineno);
@@ -1839,11 +1849,11 @@ yyreduce:
 
 	(yyval) = new Type(getExpType((yyvsp[-2])));
 }
-#line 1843 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1853 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 419 "parser.ypp" /* yacc.c:1646  */
+#line 429 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>((yyvsp[0]));
 	string name = id->name;
@@ -1855,27 +1865,27 @@ yyreduce:
 	//$$ = $1;
 	(yyval) = new Type(getExpType((yyvsp[0])));
 }
-#line 1859 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1869 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 431 "parser.ypp" /* yacc.c:1646  */
+#line 441 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new Type(getExpType((yyvsp[0])));
 }
-#line 1867 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1877 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 435 "parser.ypp" /* yacc.c:1646  */
+#line 445 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = (yyvsp[0]);
 }
-#line 1875 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1885 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 439 "parser.ypp" /* yacc.c:1646  */
+#line 449 "parser.ypp" /* yacc.c:1646  */
     {
 	NameTypeInfo* numId = dynamic_cast<NameTypeInfo*>((yyvsp[-1]));
 	int num = atoi(numId->name.c_str());
@@ -1888,54 +1898,44 @@ yyreduce:
 
 	(yyval) = new Type("BYTE");
 }
-#line 1892 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1902 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 452 "parser.ypp" /* yacc.c:1646  */
+#line 462 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new Type("STRING");
 }
-#line 1900 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1910 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 456 "parser.ypp" /* yacc.c:1646  */
+#line 466 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new Type("BOOL");
 }
-#line 1908 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1918 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 460 "parser.ypp" /* yacc.c:1646  */
+#line 470 "parser.ypp" /* yacc.c:1646  */
     {
 	(yyval) = new Type("BOOL");
 }
-#line 1916 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1926 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 464 "parser.ypp" /* yacc.c:1646  */
+#line 474 "parser.ypp" /* yacc.c:1646  */
     {
-	checkExpressionType((yyvsp[0]),"BOOL",yylineno);
-	(yyval) = new Type("BOOL");
-}
-#line 1925 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
-    break;
-
-  case 55:
-#line 469 "parser.ypp" /* yacc.c:1646  */
-    {
-	checkExpressionType((yyvsp[-2]),"BOOL",yylineno);
 	checkExpressionType((yyvsp[0]),"BOOL",yylineno);
 	(yyval) = new Type("BOOL");
 }
 #line 1935 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
-  case 56:
-#line 475 "parser.ypp" /* yacc.c:1646  */
+  case 55:
+#line 479 "parser.ypp" /* yacc.c:1646  */
     {
 	checkExpressionType((yyvsp[-2]),"BOOL",yylineno);
 	checkExpressionType((yyvsp[0]),"BOOL",yylineno);
@@ -1944,8 +1944,18 @@ yyreduce:
 #line 1945 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
+  case 56:
+#line 485 "parser.ypp" /* yacc.c:1646  */
+    {
+	checkExpressionType((yyvsp[-2]),"BOOL",yylineno);
+	checkExpressionType((yyvsp[0]),"BOOL",yylineno);
+	(yyval) = new Type("BOOL");
+}
+#line 1955 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+    break;
+
   case 57:
-#line 481 "parser.ypp" /* yacc.c:1646  */
+#line 491 "parser.ypp" /* yacc.c:1646  */
     {
     string type_right_exp = getExpType((yyvsp[0]));
     string type_left_exp = getExpType((yyvsp[-2]));
@@ -1953,11 +1963,11 @@ yyreduce:
 	if (type_left_exp!="INT" && type_left_exp!="BYTE") {errorMismatch(yylineno); exit(0);}
 	(yyval) = new Type("BOOL");
 }
-#line 1957 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1967 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
     break;
 
 
-#line 1961 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
+#line 1971 "/cygdrive/c/compi-hw3/cmake-build-debug/parser.tab.cpp" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2185,7 +2195,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 490 "parser.ypp" /* yacc.c:1906  */
+#line 500 "parser.ypp" /* yacc.c:1906  */
 
 
 void yyerror(const char * message)

@@ -1,20 +1,8 @@
-void main(){
-  int x;
+// already defined
+void main() {
+ return;
 }
-void checkScope(){
-  int x;
-  {
-    x=5;
-    int y;
-    {
-      x=y;
-      int z;
-    }
-    y=x;
-    int z;
-  }
-  x=y;
-  int y;
-  int z;
-  x=z;
+
+void f1(byte x) {
+    int x = 5;
 }

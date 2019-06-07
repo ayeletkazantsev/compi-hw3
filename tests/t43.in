@@ -1,10 +1,10 @@
-void main(){
-  int x;
+int zzz(int Z, int Y)
+@pre(Y > 0)
+@pre(Y)
+{
+	return Z * Y / 2;
 }
-void check(){
-  byte x;
-  byte z = 6 b;
-  byte y = 19 b;
-  y = z;
-  x();
+}
+void main() {
+	return;
 }

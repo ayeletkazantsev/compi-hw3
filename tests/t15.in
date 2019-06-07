@@ -1,23 +1,9 @@
-void main(){
-  int x;
-}
-void checkBinop(){
-  int x;
-  int z;
-  int y;
-  byte w;
-  bool res;
-  byte bres;
-  res = x * y;
-  res = x + y;
-  res = x - y;
-  res = x / y;
-  res = y * z;
-  res = y + z;
-  res = x - z;
-  res = x / z;
-  bres = w * z;
-  bres = w + z;
-  bres = w - z;
-  bres = w / z;
+//testing if+else structure and comments
+void main() {
+    int x = 3;
+    if(x > 4)
+        print("What?");
+    else{
+        printi(x);
+    }
 }

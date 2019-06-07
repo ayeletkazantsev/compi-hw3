@@ -1,14 +1,8 @@
-void main(){
-  int x;
+//fail param num
+void test(bool bin, byte in){
+    return;
 }
-void checkRelop(){
-  bool x;
-  byte z;
-  bool res;
-  res = x == z;
-  res = x != z;
-  res = x >= z;
-  res = x <= z;
-  res = x > z;
-  res = x < z;
+
+void main() {
+    test(true,2 b, false);
 }

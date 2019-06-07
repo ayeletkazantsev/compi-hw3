@@ -1,4 +1,1 @@
----end scope---
-main - 0 preconditions
-x INT 0
-line 9: function x is not defined
+line 3: type mismatch

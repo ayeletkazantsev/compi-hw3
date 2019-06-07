@@ -1,4 +1,1 @@
----end scope---
-main - 0 preconditions
-x INT 0
-line 5: unexpected continue statement
+line 3: function callee is not defined

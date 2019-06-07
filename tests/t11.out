@@ -1,4 +1,5 @@
 ---end scope---
-main - 0 preconditions
-x INT 0
-line 12: syntax error
+testIn1 - 0 preconditions
+bin BOOL -1
+in BYTE -2
+line 7: type mismatch

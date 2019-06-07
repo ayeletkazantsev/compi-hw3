@@ -1,7 +1,8 @@
-void main(){
-  int x;
+// undef func 1
+void main() {
+    callee();
 }
-void checkContinue(){
-    continue;
+
+void callee() {
+    print("not ok");
 }
-// check check check

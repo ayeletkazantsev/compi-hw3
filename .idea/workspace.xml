@@ -12,161 +12,112 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eecb7b6f-d82f-47a4-9487-1147817c5659" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/check" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hw3-tests/input.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hw3-tests/output.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hw3-tests/t1.in" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hw3-tests/t1.out" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hw3-tests/t1.outt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hw3-tests/t2.in" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hw3-tests/t2.out" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hw3-tests/t2.outt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/output.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_C.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_C.bin" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_CXX.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CMakeDetermineCompilerABI_CXX.bin" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/a.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdC/a.exe" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/a.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.9.6/CompilerIdCXX/a.exe" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.tab.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/yahani.dir/parser.tab.cpp.o" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/parser.tab.cpp" afterPath="$PROJECT_DIR$/cmake-build-debug/parser.tab.cpp" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/yahani.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/yahani.exe" />
       <change beforePath="$PROJECT_DIR$/parser.cpp" afterPath="$PROJECT_DIR$/parser.cpp" />
+      <change beforePath="$PROJECT_DIR$/parser.hpp" afterPath="$PROJECT_DIR$/parser.hpp" />
       <change beforePath="$PROJECT_DIR$/parser.ypp" afterPath="$PROJECT_DIR$/parser.ypp" />
-      <change beforePath="$PROJECT_DIR$/selfcheck-hw3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t0" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t0.in" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t0.out" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t1" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/scanner.lex" afterPath="$PROJECT_DIR$/scanner.lex" />
       <change beforePath="$PROJECT_DIR$/tests/t1.in" afterPath="$PROJECT_DIR$/tests/t1.in" />
       <change beforePath="$PROJECT_DIR$/tests/t1.out" afterPath="$PROJECT_DIR$/tests/t1.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t10" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t10.in" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t10.out" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t11" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/tests/t10.in" afterPath="$PROJECT_DIR$/tests/t10.in" />
+      <change beforePath="$PROJECT_DIR$/tests/t10.out" afterPath="$PROJECT_DIR$/tests/t10.out" />
       <change beforePath="$PROJECT_DIR$/tests/t11.in" afterPath="$PROJECT_DIR$/tests/t11.in" />
       <change beforePath="$PROJECT_DIR$/tests/t11.out" afterPath="$PROJECT_DIR$/tests/t11.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t12" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t12.in" afterPath="$PROJECT_DIR$/tests/t12.in" />
       <change beforePath="$PROJECT_DIR$/tests/t12.out" afterPath="$PROJECT_DIR$/tests/t12.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t13" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t13.in" afterPath="$PROJECT_DIR$/tests/t13.in" />
       <change beforePath="$PROJECT_DIR$/tests/t13.out" afterPath="$PROJECT_DIR$/tests/t13.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t14" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t14.in" afterPath="$PROJECT_DIR$/tests/t14.in" />
       <change beforePath="$PROJECT_DIR$/tests/t14.out" afterPath="$PROJECT_DIR$/tests/t14.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t15" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t15.in" afterPath="$PROJECT_DIR$/tests/t15.in" />
       <change beforePath="$PROJECT_DIR$/tests/t15.out" afterPath="$PROJECT_DIR$/tests/t15.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t16" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t16.in" afterPath="$PROJECT_DIR$/tests/t16.in" />
       <change beforePath="$PROJECT_DIR$/tests/t16.out" afterPath="$PROJECT_DIR$/tests/t16.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t17" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t17.in" afterPath="$PROJECT_DIR$/tests/t17.in" />
       <change beforePath="$PROJECT_DIR$/tests/t17.out" afterPath="$PROJECT_DIR$/tests/t17.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t18" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t18.in" afterPath="$PROJECT_DIR$/tests/t18.in" />
       <change beforePath="$PROJECT_DIR$/tests/t18.out" afterPath="$PROJECT_DIR$/tests/t18.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t19" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t19.in" afterPath="$PROJECT_DIR$/tests/t19.in" />
       <change beforePath="$PROJECT_DIR$/tests/t19.out" afterPath="$PROJECT_DIR$/tests/t19.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t2" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t2.in" afterPath="$PROJECT_DIR$/tests/t2.in" />
       <change beforePath="$PROJECT_DIR$/tests/t2.out" afterPath="$PROJECT_DIR$/tests/t2.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t20" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t20.in" afterPath="$PROJECT_DIR$/tests/t20.in" />
       <change beforePath="$PROJECT_DIR$/tests/t20.out" afterPath="$PROJECT_DIR$/tests/t20.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t21" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t21.in" afterPath="$PROJECT_DIR$/tests/t21.in" />
       <change beforePath="$PROJECT_DIR$/tests/t21.out" afterPath="$PROJECT_DIR$/tests/t21.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t22" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t22.in" afterPath="$PROJECT_DIR$/tests/t22.in" />
       <change beforePath="$PROJECT_DIR$/tests/t22.out" afterPath="$PROJECT_DIR$/tests/t22.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t23" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t23.in" afterPath="$PROJECT_DIR$/tests/t23.in" />
       <change beforePath="$PROJECT_DIR$/tests/t23.out" afterPath="$PROJECT_DIR$/tests/t23.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t24" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t24.in" afterPath="$PROJECT_DIR$/tests/t24.in" />
       <change beforePath="$PROJECT_DIR$/tests/t24.out" afterPath="$PROJECT_DIR$/tests/t24.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t25" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t25.in" afterPath="$PROJECT_DIR$/tests/t25.in" />
       <change beforePath="$PROJECT_DIR$/tests/t25.out" afterPath="$PROJECT_DIR$/tests/t25.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t26" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t26.in" afterPath="$PROJECT_DIR$/tests/t26.in" />
       <change beforePath="$PROJECT_DIR$/tests/t26.out" afterPath="$PROJECT_DIR$/tests/t26.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t27" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t27.in" afterPath="$PROJECT_DIR$/tests/t27.in" />
       <change beforePath="$PROJECT_DIR$/tests/t27.out" afterPath="$PROJECT_DIR$/tests/t27.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t28" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t28.in" afterPath="$PROJECT_DIR$/tests/t28.in" />
       <change beforePath="$PROJECT_DIR$/tests/t28.out" afterPath="$PROJECT_DIR$/tests/t28.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t29" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t29.in" afterPath="$PROJECT_DIR$/tests/t29.in" />
       <change beforePath="$PROJECT_DIR$/tests/t29.out" afterPath="$PROJECT_DIR$/tests/t29.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t3" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t3.in" afterPath="$PROJECT_DIR$/tests/t3.in" />
       <change beforePath="$PROJECT_DIR$/tests/t3.out" afterPath="$PROJECT_DIR$/tests/t3.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t30" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t30.in" afterPath="$PROJECT_DIR$/tests/t30.in" />
       <change beforePath="$PROJECT_DIR$/tests/t30.out" afterPath="$PROJECT_DIR$/tests/t30.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t31" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t31.in" afterPath="$PROJECT_DIR$/tests/t31.in" />
       <change beforePath="$PROJECT_DIR$/tests/t31.out" afterPath="$PROJECT_DIR$/tests/t31.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t32" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t32.in" afterPath="$PROJECT_DIR$/tests/t32.in" />
       <change beforePath="$PROJECT_DIR$/tests/t32.out" afterPath="$PROJECT_DIR$/tests/t32.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t33" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t33.in" afterPath="$PROJECT_DIR$/tests/t33.in" />
       <change beforePath="$PROJECT_DIR$/tests/t33.out" afterPath="$PROJECT_DIR$/tests/t33.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t34" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t34.in" afterPath="$PROJECT_DIR$/tests/t34.in" />
       <change beforePath="$PROJECT_DIR$/tests/t34.out" afterPath="$PROJECT_DIR$/tests/t34.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t35" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t35.in" afterPath="$PROJECT_DIR$/tests/t35.in" />
       <change beforePath="$PROJECT_DIR$/tests/t35.out" afterPath="$PROJECT_DIR$/tests/t35.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t36" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t36.in" afterPath="$PROJECT_DIR$/tests/t36.in" />
       <change beforePath="$PROJECT_DIR$/tests/t36.out" afterPath="$PROJECT_DIR$/tests/t36.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t37" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t37.in" afterPath="$PROJECT_DIR$/tests/t37.in" />
       <change beforePath="$PROJECT_DIR$/tests/t37.out" afterPath="$PROJECT_DIR$/tests/t37.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t38" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t38.in" afterPath="$PROJECT_DIR$/tests/t38.in" />
       <change beforePath="$PROJECT_DIR$/tests/t38.out" afterPath="$PROJECT_DIR$/tests/t38.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t39" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t39.in" afterPath="$PROJECT_DIR$/tests/t39.in" />
       <change beforePath="$PROJECT_DIR$/tests/t39.out" afterPath="$PROJECT_DIR$/tests/t39.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t4" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t4.in" afterPath="$PROJECT_DIR$/tests/t4.in" />
       <change beforePath="$PROJECT_DIR$/tests/t4.out" afterPath="$PROJECT_DIR$/tests/t4.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t4.outt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t40" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t40.in" afterPath="$PROJECT_DIR$/tests/t40.in" />
       <change beforePath="$PROJECT_DIR$/tests/t40.out" afterPath="$PROJECT_DIR$/tests/t40.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t41" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t41.in" afterPath="$PROJECT_DIR$/tests/t41.in" />
       <change beforePath="$PROJECT_DIR$/tests/t41.out" afterPath="$PROJECT_DIR$/tests/t41.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t42" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t42.in" afterPath="$PROJECT_DIR$/tests/t42.in" />
       <change beforePath="$PROJECT_DIR$/tests/t42.out" afterPath="$PROJECT_DIR$/tests/t42.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t43" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t43.in" afterPath="$PROJECT_DIR$/tests/t43.in" />
       <change beforePath="$PROJECT_DIR$/tests/t43.out" afterPath="$PROJECT_DIR$/tests/t43.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t44" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t44.in" afterPath="$PROJECT_DIR$/tests/t44.in" />
       <change beforePath="$PROJECT_DIR$/tests/t44.out" afterPath="$PROJECT_DIR$/tests/t44.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t45" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t45.in" afterPath="$PROJECT_DIR$/tests/t45.in" />
       <change beforePath="$PROJECT_DIR$/tests/t45.out" afterPath="$PROJECT_DIR$/tests/t45.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t46" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t46.in" afterPath="$PROJECT_DIR$/tests/t46.in" />
       <change beforePath="$PROJECT_DIR$/tests/t46.out" afterPath="$PROJECT_DIR$/tests/t46.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t5" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t5.in" afterPath="$PROJECT_DIR$/tests/t5.in" />
       <change beforePath="$PROJECT_DIR$/tests/t5.out" afterPath="$PROJECT_DIR$/tests/t5.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t5.outt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t6" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t6.in" afterPath="$PROJECT_DIR$/tests/t6.in" />
       <change beforePath="$PROJECT_DIR$/tests/t6.out" afterPath="$PROJECT_DIR$/tests/t6.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t6.outt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/tests/t7" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t7.in" afterPath="$PROJECT_DIR$/tests/t7.in" />
       <change beforePath="$PROJECT_DIR$/tests/t7.out" afterPath="$PROJECT_DIR$/tests/t7.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t8" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t8.in" afterPath="$PROJECT_DIR$/tests/t8.in" />
-      <change beforePath="$PROJECT_DIR$/tests/t8.out" afterPath="$PROJECT_DIR$/tests/t8.out" />
-      <change beforePath="$PROJECT_DIR$/tests/t9" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/tests/t8.out" afterPath="" />
       <change beforePath="$PROJECT_DIR$/tests/t9.in" afterPath="$PROJECT_DIR$/tests/t9.in" />
       <change beforePath="$PROJECT_DIR$/tests/t9.out" afterPath="$PROJECT_DIR$/tests/t9.out" />
     </list>
@@ -184,11 +135,9 @@
       <file leaf-file-name="parser.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="995">
-              <caret line="299" column="0" lean-forward="false" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-31">
+              <caret line="221" column="5" lean-forward="true" selection-start-line="221" selection-start-column="5" selection-end-line="221" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -196,11 +145,19 @@
       <file leaf-file-name="parser.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1748">
-              <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="22" />
-              <folding>
-                <element signature="e#40#57#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="446">
+              <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="output.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -208,8 +165,18 @@
       <file leaf-file-name="parser.ypp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parser.ypp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="191" column="14" lean-forward="false" selection-start-line="191" selection-start-column="14" selection-end-line="191" selection-end-column="14" />
+            <state relative-caret-position="522">
+              <caret line="491" column="43" lean-forward="true" selection-start-line="491" selection-start-column="43" selection-end-line="491" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="t42.in" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/t42.in">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -219,14 +186,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rev</find>
-      <find>CALL :</find>
-      <find>getAr</find>
-      <find>reve</find>
-      <find>FuncInfo</find>
-      <find>current</find>
-      <find>LBRACE</find>
-      <find>WHILE</find>
       <find>Statement</find>
       <find>RETURN</find>
       <find>| ID</find>
@@ -241,7 +200,6 @@
       <find>cout</find>
       <find>Call :</find>
       <find>printi</find>
-      <find>IF</find>
       <find>checkStringPrintPrinti</find>
       <find>checkif</find>
       <find>while</find>
@@ -249,6 +207,15 @@
       <find>prin</find>
       <find>checkFun</find>
       <find>checkFunc</find>
+      <find>IF</find>
+      <find>FormalDecl</find>
+      <find>Call</find>
+      <find>Prot</find>
+      <find>errors</find>
+      <find>errorSyn</find>
+      <find>yyerror</find>
+      <find>Prototy</find>
+      <find>Syn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -264,12 +231,13 @@
         <option value="$PROJECT_DIR$/source.hpp" />
         <option value="$USER_HOME$/Documents/לימודים/סמסטר 8/קומפילציה/רפרנס ביני תרגיל בית 3 קומפי/parser_bini.ypp" />
         <option value="$PROJECT_DIR$/tests/t29.in" />
-        <option value="$PROJECT_DIR$/scanner.lex" />
-        <option value="$PROJECT_DIR$/parser.hpp" />
         <option value="$PROJECT_DIR$/tests/t0.in" />
         <option value="$PROJECT_DIR$/hw3-tests/input.txt" />
         <option value="$PROJECT_DIR$/hw3-tests/t1.in" />
+        <option value="$PROJECT_DIR$/tests/t42.in" />
+        <option value="$PROJECT_DIR$/scanner.lex" />
         <option value="$PROJECT_DIR$/parser.cpp" />
+        <option value="$PROJECT_DIR$/parser.hpp" />
         <option value="$PROJECT_DIR$/parser.ypp" />
       </list>
     </option>
@@ -327,6 +295,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\compi-hw3\tests" />
       <recent name="C:\compi-hw3" />
     </key>
   </component>
@@ -343,7 +312,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.yahani">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="hw3" TARGET_NAME="yahani" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="hw3" RUN_TARGET_NAME="yahani">
       <envs />
     </configuration>
     <configuration name="yahani" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="hw3" TARGET_NAME="yahani" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="hw3" RUN_TARGET_NAME="yahani">
@@ -375,19 +344,22 @@
       <workItem from="1558672870774" duration="4032000" />
       <workItem from="1558705480531" duration="14053000" />
       <workItem from="1558879014871" duration="29876000" />
-      <workItem from="1558955825009" duration="641000" />
+      <workItem from="1558955825009" duration="1020000" />
+      <workItem from="1559053809959" duration="34000" />
+      <workItem from="1559924370550" duration="5282000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76778000" />
+    <option name="totallyTimeSpent" value="82473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2582" height="1462" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12673268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13782178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -395,9 +367,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34606206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -414,16 +385,16 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293556" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32696897" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12673268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34606206" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,18 +437,8 @@
           <line>2</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/output.cpp</url>
-          <line>62</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/parser.cpp</url>
-          <line>192</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="77" />
+      <option name="time" value="82" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -531,41 +492,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/t23.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t24.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t25.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t42.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t42.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/t43.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -580,35 +506,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="61" column="13" lean-forward="false" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t29.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t29.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t31">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t31" />
     <entry file="file://$PROJECT_DIR$/tests/t30.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -620,14 +518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="5" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="24" column="15" lean-forward="false" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -645,13 +535,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t36">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t36" />
     <entry file="file://$PROJECT_DIR$/tests/t36.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -694,13 +578,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t18">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t18" />
     <entry file="file://$PROJECT_DIR$/tests/t18.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -719,7 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="1329" column="0" lean-forward="false" selection-start-line="1329" selection-start-column="0" selection-end-line="1329" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,7 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
           <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scanner.lex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/t0.out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-798">
@@ -815,13 +684,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw3-tests/input.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hw3-tests/input.txt" />
     <entry file="file://$USER_HOME$/Documents/לימודים/סמסטר 8/קומפילציה/רפרנס ביני תרגיל בית 3 קומפי/parser_bini.ypp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="664">
@@ -836,67 +699,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw3-tests/t1.out">
+    <entry file="file://$PROJECT_DIR$/hw3-tests/t1.out" />
+    <entry file="file://$PROJECT_DIR$/hw3-tests/t2.out" />
+    <entry file="file://$PROJECT_DIR$/hw3-tests/t1.in" />
+    <entry file="file://$PROJECT_DIR$/tests/t68.out" />
+    <entry file="file://$PROJECT_DIR$/tests/t68.in" />
+    <entry file="file://$PROJECT_DIR$/tests/t21.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="304">
+          <caret line="8" column="20" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hw3-tests/t2.out">
+    <entry file="file://$PROJECT_DIR$/tests/t29.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t29.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t21.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="4" column="15" lean-forward="false" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t44.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scanner.lex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/t37.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="10" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1748">
-          <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="22" />
-          <folding>
-            <element signature="e#40#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hw3-tests/t1.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t68.out">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="446">
+          <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/t68.in">
+    <entry file="file://$PROJECT_DIR$/tests/t42.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="190">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="995">
-          <caret line="299" column="0" lean-forward="false" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-31">
+          <caret line="221" column="5" lean-forward="true" selection-start-line="221" selection-start-column="5" selection-end-line="221" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser.ypp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="191" column="14" lean-forward="false" selection-start-line="191" selection-start-column="14" selection-end-line="191" selection-end-column="14" />
+        <state relative-caret-position="522">
+          <caret line="491" column="43" lean-forward="true" selection-start-line="491" selection-start-column="43" selection-end-line="491" selection-end-column="43" />
           <folding />
         </state>
       </provider>

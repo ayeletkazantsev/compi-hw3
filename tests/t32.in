@@ -1,7 +1,3 @@
-void main(){
-  int x;
-}
-int checkFuncCall(){
-  int k;
-  k = checkFuncCall() > checkFuncCall();
+int main() {
+    return 0;
 }

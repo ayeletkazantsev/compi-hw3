@@ -156,6 +156,14 @@ FormalsList : FormalDecl
 FormalDecl : Type ID
 {
 	NameTypeInfo* id = dynamic_cast<NameTypeInfo*>($2);
+
+    // check id is free
+    if (!checkIdFree(id->name) || !checkFuncIdFree(id->name))
+    {
+        errorDef(yylineno,id->name);
+        exit(0);
+    }
+
 	$$ = new NameTypeInfo($1->type, id->name);
 }
 ;
@@ -332,7 +340,8 @@ SelectionStatement: Statement
 
     endScope(); // print "end scope" message
     closeScope();
-} Statement {endScope();}
+    openScope();
+} Statement {endScope(); closeScope();}
 ;
 
 Call : ID LPAREN ExpList RPAREN
@@ -351,7 +360,7 @@ Call : ID LPAREN ExpList RPAREN
     NameMultiTypeInfo* expList = dynamic_cast<NameMultiTypeInfo*>($3);
     vector<string> exp_args_types = expList->types;
 
-    if (!checkProrotypeOfFunction(name,exp_args_types))
+    if (!checkPrototypeOfFunction(name,exp_args_types))
     {
         vector<string> args = getArgumentTypesOfFunc(name);
         errorPrototypeMismatch(yylineno,name,args);
@@ -374,9 +383,10 @@ Call : ID LPAREN ExpList RPAREN
 
     // check if arguments for function are correct
     vector<string> args_types; //empty vector because function doesn't have any arguments
-    if (!checkProrotypeOfFunction(name,args_types))
+    if (!checkPrototypeOfFunction(name,args_types))
     {
-        errorPrototypeMismatch(yylineno,name,args_types);
+        vector<string> args = getArgumentTypesOfFunc(name);
+        errorPrototypeMismatch(yylineno,name,args);
         exit(0);
     }
 

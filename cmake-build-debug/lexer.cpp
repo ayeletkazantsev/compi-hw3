@@ -993,7 +993,7 @@ YY_RULE_SETUP
 case 32:
 YY_RULE_SETUP
 #line 83 "scanner.lex"
-{errorLex(yylineno);};
+{errorLex(yylineno); exit(0);};
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
 #line 84 "scanner.lex"

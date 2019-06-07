@@ -1,12 +1,8 @@
-void main(){
-  int x;
+//fail assign return
+int returnInt() {
+    return 7;
 }
-void checkAndOrNot(){
-  bool x;
-  int z;
-  bool res;
-  res = not x;
-  res = x and z;
-  res = x or z;
-  res = x and z or false;
+
+void main() {
+    byte b1 = returnInt();
 }

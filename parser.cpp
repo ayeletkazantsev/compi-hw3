@@ -249,7 +249,7 @@ bool Parser::isValidReturn(string retType, YYSTYPE exp)
     return true;
 }
 
-bool Parser::checkProrotypeOfFunction(string funcID, vector<string> args_types)
+bool Parser::checkPrototypeOfFunction(string funcID, vector<string> args_types)
 {
     //id was checked before entering this function, no need to check it
 

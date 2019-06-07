@@ -1,4 +1,1 @@
----end scope---
-main - 0 preconditions
-x INT 0
-line 12: type mismatch
+Program has no 'void main()' function

@@ -1,10 +1,5 @@
-void main(){
-  int x;
-}
-
-int checkFuncDecl(int a,bool x,byte z,byte p)
-@pre(xyz)
-@pre(p >= 1)
-{
-  int k;
+void main() {
+    int x;
+    if (true)
+        bool x;
 }
