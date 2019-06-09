@@ -33,7 +33,7 @@ bool isDevStage = false; // todo: change to false to turn off debugging cout's
 %left  OR //check if needs to be right assoc
 %left AND //check if needs to be right assoc
 %nonassoc RELOP
-%nonassoc BINOP
+%left BINOP
 %right NOT
 
 %nonassoc CONFLICT
